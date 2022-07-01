@@ -4,7 +4,7 @@
       <h2 class="text-center">
         TIMELINE
       </h2>
-      <div class="bg-grey text-black w-full p-8 flex-row">
+      <div class="bg-grey text-black h-32 w-full p-8">
         <hr>
       </div>
     </div>

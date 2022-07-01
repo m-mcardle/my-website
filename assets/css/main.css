@@ -36,6 +36,9 @@ img {
   background-color: white;
 }
 
-ul {
-  list-style-type: circle;
+li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: right;
 }

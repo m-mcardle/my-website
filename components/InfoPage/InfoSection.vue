@@ -6,10 +6,12 @@
       </h2>
       <div class="bg-grey text-black w-full p-8">
         <ul>
-          <li>Vue</li>
-          <li>React</li>
-          <li>C#</li>
-          <li>Ruby</li>
+          <SkillWidget
+            v-for="(skill, index) in skills"
+            :key="index"
+            :name="skill.name"
+            :value="skill.value"
+          />
         </ul>
       </div>
     </div>
@@ -26,10 +28,26 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import SkillWidget from './SkillSection.vue'
 
 export default Vue.extend({
-  name: 'InfoSection'
+  name: 'InfoSection',
 
+  components: {
+    SkillWidget
+  },
+
+  data () {
+    return {
+      skills: [
+        { name: 'React', value: 95 },
+        { name: 'Vue', value: 90 },
+        { name: 'Python', value: 88 },
+        { name: 'C#', value: 85 },
+        { name: 'Ruby', value: 80 }
+      ]
+    }
+  }
 })
 </script>
 
