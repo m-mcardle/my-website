@@ -1,40 +1,15 @@
 <template>
-  <div class="main bg-black text-white h-screen">
-    <div class="main w-full flex flex-row">
-      <div class="intro flex flex-col p-16 ml-0 mr-auto">
-        <div class="greeting flex flex-row py-8">
-          <h2>
-            Hi there!&nbsp;
-          </h2>
-          <div class="wave">
-            <h2>👋</h2>
-          </div>
-        </div>
-        <h3>My name is</h3>
-        <h1>Matt McArdle</h1>
-        <hr>
-        <p>Software Engineer / Student</p>
+  <div class="body bg-black text-white">
+    <div class="landing-page h-[125vh]">
+      <div class="main w-full flex flex-row">
+        <Greeting />
+        <ContactSection />
       </div>
-      <div class="image p-16 ml-auto mr-0">
-        <img class="w-64 h-64" alt="Matt McArdle" src="~/assets/images/MatthewMcArdleIcon.jpg">
-        <div class="contact-info flex flex-row my-5">
-          <LinkedinBoxFill class="w-8 h-8 fill-[#0072b1] bg-white" />
-          <MailFill class="w-8 h-8 fill-black bg-white" />
-          <PhoneFill class="w-8 h-8 fill-black bg-white" />
-        </div>
-      </div>
+      <Footer />
     </div>
-    <div class="bottom-0 absolute p-16 pb-0 w-full">
-      <h3>Come read about my <b>skills</b>, <b>experiences</b>, and <b>interests</b>!</h3>
-      <hr>
-      <div class="logo-images flex flex-row justify-between">
-        <img class="w-32 h-32" alt="University of Guelph Logo" src="~/assets/images/UoG-Logo.jpeg">
-        <img class="w-32 h-32" alt="Magnet Forensics Logo" src="~/assets/images/Magnet-Logo.png">
-        <img class="w-32 h-32" alt="Vidyard Logo" src="~/assets/images/Vidyard-Logo.png">
-      </div>
-      <div class="w-full">
-        <ChevronDownSolid class="scroll-icon w-32 h-32 mx-auto" />
-      </div>
+    <div class="info-page h-screen w-full flex flex-col">
+      <InfoSection />
+      <TimelineSection />
     </div>
   </div>
 </template>
@@ -42,78 +17,29 @@
 <script lang="ts">
 import Vue from 'vue'
 
-// @ts-ignore
-import { ChevronDownSolid } from 'vue-icon-packs/hi'
-// @ts-ignore
-import { LinkedinBoxFill, MailFill, PhoneFill } from 'vue-icon-packs/ri'
+import Footer from '~/components/LandingPage/FooterSection.vue'
+import ContactSection from '~/components/LandingPage/ContactSection.vue'
+import Greeting from '~/components/LandingPage/GreetingSection.vue'
+import InfoSection from '~/components/InfoPage/InfoSection.vue'
+import TimelineSection from '~/components/InfoPage/TimelineSection.vue'
 
 export default Vue.extend({
   name: 'IndexPage',
 
   components: {
-    ChevronDownSolid,
-    LinkedinBoxFill,
-    MailFill,
-    PhoneFill
+    Footer,
+    ContactSection,
+    Greeting,
+    InfoSection,
+    TimelineSection
+  },
+
+  data () {
+    return {
+      lgImageClass: 'w-32 h-32 md:w-64 md:h-64',
+      mdImageClass: 'w-16 h-16 md:w-32 md:h-32',
+      smImageClass: 'w-4 h-4 md:w-8 md:h-8'
+    }
   }
 })
 </script>
-
-<style>
-  h1 {
-    font-size: 64px;
-  }
-
-  h2 {
-    font-size: 32px;
-  }
-
-  h3 {
-    font-size: 24px;
-  }
-
-  p {
-    font-size: 16px;
-  }
-
-  hr {
-    border-color: #00B9E1;
-    margin: 8px 0;
-  }
-
-  img {
-    background-color: white;
-  }
-
-  @keyframes waving {
-    0% {
-      transform: rotate(-20deg);
-    }
-    50% {
-      transform: rotate(20deg);
-    }
-    100% {
-      transform: rotate(-20deg);
-    }
-  }
-
-  @keyframes blink {
-    0% {
-      opacity: 0%;
-    }
-    50% {
-      opacity: 100%;
-    }
-    100% {
-      opacity: 0%;
-    }
-  }
-
-  .wave {
-    animation: waving 1.5s infinite linear;
-  }
-
-  .scroll-icon {
-    animation: blink 2s infinite linear;
-  }
-</style>
