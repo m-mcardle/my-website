@@ -50,8 +50,22 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    transpile: [
+      // Needed to avoid 'Cannot use import statement outside a module error' (https://nuxtjs.org/docs/directory-structure/plugins/)
+      'vue-icon-packs/hi',
+      'vue-icon-packs/ri'
+    ]
   },
 
   // Needed or exception thrown (https://github.com/nuxt-community/tailwindcss-module/issues/480)
-  devServerHandlers: []
+  devServerHandlers: [],
+
+  // Do not reload when non-functional files change
+  watchers: {
+    webpack: {
+      ignored: [
+        '**/.git/**'
+      ]
+    }
+  }
 }

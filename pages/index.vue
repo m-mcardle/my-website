@@ -17,6 +17,11 @@
       </div>
       <div class="image p-16 ml-auto mr-0">
         <img class="w-64 h-64" alt="Matt McArdle" src="~/assets/images/MatthewMcArdleIcon.jpg">
+        <div class="contact-info flex flex-row my-5">
+          <LinkedinBoxFill class="w-8 h-8 fill-[#0072b1] bg-white" />
+          <MailFill class="w-8 h-8 fill-black bg-white" />
+          <PhoneFill class="w-8 h-8 fill-black bg-white" />
+        </div>
       </div>
     </div>
     <div class="bottom-0 absolute p-16 pb-0 w-full">
@@ -39,12 +44,17 @@ import Vue from 'vue'
 
 // @ts-ignore
 import { ChevronDownSolid } from 'vue-icon-packs/hi'
+// @ts-ignore
+import { LinkedinBoxFill, MailFill, PhoneFill } from 'vue-icon-packs/ri'
 
 export default Vue.extend({
   name: 'IndexPage',
 
   components: {
-    ChevronDownSolid
+    ChevronDownSolid,
+    LinkedinBoxFill,
+    MailFill,
+    PhoneFill
   }
 })
 </script>
