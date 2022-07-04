@@ -68,6 +68,12 @@ export default Vue.extend({
           image: require('~/assets/images/University.png')
         },
         {
+          name: 'Second Year of University',
+          body: 'Studied important concepts such as data structures and algorithms',
+          year: 2020,
+          image: require('~/assets/images/University.png')
+        },
+        {
           name: 'Magnet Forensics (Co-op)',
           body: 'First Co-op term in which I worked with Kubernetes, C#, and Cloud Infrastructure',
           year: 2021,
