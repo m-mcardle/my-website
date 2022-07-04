@@ -5,7 +5,7 @@
         TIMELINE
       </h2>
       <div class="flex flex-col bg-grey text-black h-64 w-full px-16 overflow-x-scroll">
-        <div class="timeline-bar shrink-0 bg-blue min-h-[3px] mt-16 mb-32" :style="{ width: getPosition(2023) }" />
+        <div class="timeline-bar shrink-0 bg-blue min-h-[3px] mt-24 mb-32" :style="{ width: getPosition(2023) }" />
         <div class="relative bottom-0 w-full">
           <div
             v-for="(year) in years"
@@ -20,14 +20,15 @@
           <div
             v-for="(element) in timeline"
             :key="element.name"
-            class="timeline-element absolute bottom-8"
+            class="group timeline-element absolute bottom-8"
             :style="{ left: getPosition(element.year) }"
           >
-            <div class="bg-gray-500 h-24 w-64 text-center p-1">
-              <p class="text-sm font-bold">
+            <div class="group h-24 w-64 text-center p-2 flex flex-col content-center">
+              <img :alt="element.name" :src="element.image" class="w-16 h-16 mx-auto">
+              <p class="text-sm font-bold bg-gray-500 invisible group-hover:visible ">
                 {{ element.name }}
               </p>
-              <p class="text-xs">
+              <p class="text-xs bg-gray-500 invisible group-hover:visible ">
                 {{ element.body }}
               </p>
             </div>
@@ -57,22 +58,26 @@ export default Vue.extend({
         {
           name: 'Highschool',
           body: 'Began software development journey through learning Swift to build Arcade Game App and Grocery Shopping Companion App',
-          year: 2018
+          year: 2018,
+          image: require('~/assets/images/Highschool.jpeg')
         },
         {
           name: 'Start of University',
           body: 'Began studies at the University of Guelph as a Software Engineering Student (Co-op)',
-          year: 2019
+          year: 2019,
+          image: require('~/assets/images/University.png')
         },
         {
           name: 'Magnet Forensics (Co-op)',
           body: 'First Co-op term in which I worked with Kubernetes, C#, and Cloud Infrastructure',
-          year: 2021
+          year: 2021,
+          image: require('~/assets/images/Magnet-Logo.png')
         },
         {
           name: 'Vidyard',
           body: 'Second Co-op placement in which I worked with Vue, and Ruby',
-          year: 2022
+          year: 2022,
+          image: require('~/assets/images/Vidyard-Logo.png')
         }
       ]
     }
@@ -89,6 +94,6 @@ export default Vue.extend({
 
 <style>
 .timeline-element {
-  transform: translateX(-33.333333%);
+  transform: translateX(-37%);
 }
 </style>
