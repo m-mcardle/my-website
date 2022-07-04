@@ -81,14 +81,16 @@ export default Vue.extend({
         },
         {
           name: 'Vidyard',
-          body: 'Second Co-op placement in which I worked with Vue, and Ruby',
+          body: 'Second Co-op placement in which I worked with Vue and Ruby',
           year: 2022,
           image: require('~/assets/images/Vidyard-Logo.png')
         }
       ],
       scrollPosition: 0,
       maxScrollPosition: 1000,
-      resetting: false
+      resetting: false,
+      customScrolling: false,
+      customScrollCountdown: 20
     }
   },
 
@@ -99,13 +101,22 @@ export default Vue.extend({
     this.maxScrollPosition = timelineBox ? timelineBox.scrollWidth - timelineBox.clientWidth : 1000
 
     setInterval(() => {
+      if (this.customScrolling) {
+        this.customScrollCountdown -= 1
+        if (this.customScrollCountdown < 1) {
+          this.customScrolling = false
+        }
+        return
+      }
+
       if (this.scrollPosition > this.maxScrollPosition) {
         this.scrollPosition = 0
         this.resetting = true
       }
 
-      this.scrollPosition += 15
-      this.$el.querySelector('.timeline-box')?.scrollTo({ left: this.scrollPosition, top: 0, behavior: 'smooth' })
+      const newScrollPosition = this.scrollPosition + 15
+      this.$el.querySelector('.timeline-box')?.scrollTo({ left: newScrollPosition, top: 0, behavior: 'smooth' })
+      this.scrollPosition = newScrollPosition
     }, 200)
   },
 
@@ -121,7 +132,12 @@ export default Vue.extend({
       const currentScrollPosition = target.scrollLeft
       if (currentScrollPosition === 0) { this.resetting = false }
 
-      if (currentScrollPosition !== this.scrollPosition && !this.resetting) { this.scrollPosition = currentScrollPosition }
+      const diff = Math.abs(currentScrollPosition - this.scrollPosition)
+      if (!this.resetting && (diff > 20)) {
+        this.customScrolling = true
+        this.customScrollCountdown = 20
+        this.scrollPosition = currentScrollPosition
+      }
     }
   }
 
@@ -131,5 +147,16 @@ export default Vue.extend({
 <style>
 .timeline-element {
   transform: translateX(-37%);
+}
+
+ /* Hide scrollbar for Chrome, Safari and Opera */
+.timeline-box::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.timeline-box {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 </style>
