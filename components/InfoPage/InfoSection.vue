@@ -16,26 +16,21 @@
         </ul>
       </div>
     </div>
-    <div class="w-[30%] flex flex-col">
-      <h2 class="text-center">
-        INTERESTS
-      </h2>
-      <div class="bg-grey text-black w-full p-8 flex-row">
-        <p>Automation, Cloud Computing, Testing, Learning</p>
-      </div>
-    </div>
+    <InterestsSection />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import SkillWidget from './SkillSection.vue'
+import InterestsSection from './InterestsSection.vue'
 
 export default Vue.extend({
   name: 'InfoSection',
 
   components: {
-    SkillWidget
+    SkillWidget,
+    InterestsSection
   },
 
   data () {
