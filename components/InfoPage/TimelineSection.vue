@@ -112,12 +112,14 @@ export default Vue.extend({
       if (this.scrollPosition > this.maxScrollPosition) {
         this.scrollPosition = 0
         this.resetting = true
+        this.$el.querySelector('.timeline-box')?.scrollTo({ left: 0, top: 0 })
+        return
       }
 
-      const newScrollPosition = this.scrollPosition + 15
+      const newScrollPosition = this.scrollPosition + 4
       this.$el.querySelector('.timeline-box')?.scrollTo({ left: newScrollPosition, top: 0, behavior: 'smooth' })
       this.scrollPosition = newScrollPosition
-    }, 200)
+    }, 50)
   },
 
   methods: {
