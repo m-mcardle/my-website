@@ -22,7 +22,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import SkillWidget from './SkillSection.vue'
+import SkillWidget from './SkillWidget.vue'
 import InterestsSection from './InterestsSection.vue'
 
 export default Vue.extend({

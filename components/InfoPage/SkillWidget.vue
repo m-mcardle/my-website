@@ -13,7 +13,7 @@ import Vue from 'vue'
 import SkillbarWidget from './SkillbarWidget.vue'
 
 export default Vue.extend({
-  name: 'SkillSection',
+  name: 'SkillWidget',
 
   components: {
     SkillbarWidget
