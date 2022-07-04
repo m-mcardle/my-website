@@ -1,21 +1,31 @@
 <template>
-  <div class="skills-interests w-full flex flex-row justify-around">
-    <SkillsSection />
-    <InterestsSection />
+  <div class="w-[40%] flex flex-row">
+    <h2 class="skills-title self-center">
+      SKILLS
+    </h2>
+    <div class="bg-grey text-black w-full p-8">
+      <ul>
+        <SkillWidget
+          v-for="(skill, index) in skills"
+          :key="index"
+          :name="skill.name"
+          :value="skill.value"
+          :image="require(`~/assets/images/${skill.image}`)"
+        />
+      </ul>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import InterestsSection from './InterestsSection.vue'
-import SkillsSection from './SkillsSection.vue'
+import SkillWidget from './SkillWidget.vue'
 
 export default Vue.extend({
-  name: 'InfoSection',
+  name: 'SkillsSection',
 
   components: {
-    InterestsSection,
-    SkillsSection
+    SkillWidget
   },
 
   data () {
