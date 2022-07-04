@@ -16,24 +16,6 @@ export default Vue.extend({
   components: {
     InterestsSection,
     SkillsSection
-  },
-
-  data () {
-    return {
-      skills: [
-        { name: 'React', value: 95, image: 'React.png' },
-        { name: 'Vue', value: 90, image: 'Vue.png' },
-        { name: 'Python', value: 88, image: 'Python.png' },
-        { name: 'CSharp', value: 85, image: 'CSharp.png' },
-        { name: 'Ruby', value: 80, image: 'Ruby.png' }
-      ]
-    }
   }
 })
 </script>
-
-<style scoped>
-.skills-title {
-  transform: rotate(-90deg);
-}
-</style>
