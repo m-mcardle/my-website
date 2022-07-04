@@ -2,9 +2,18 @@
   <div class="image p-16 ml-auto mr-0">
     <img :class="`${lgImageClass}`" alt="Matt McArdle" src="~/assets/images/MatthewMcArdleIcon.jpg">
     <div class="contact-info flex flex-row my-5">
-      <LinkedinBoxFill :class="`${smImageClass} fill-[#0072b1] bg-white`" />
-      <MailFill :class="`${smImageClass} fill-black bg-white`" />
-      <PhoneFill :class="`${smImageClass} fill-black bg-white`" />
+      <a href="https://www.linkedin.com/in/matthew-j-mcardle/">
+        <LinkedinBoxFill :class="`${smImageClass} fill-[#0072b1] bg-white`" />
+      </a>
+      <a href="https://www.github.com/m-mcardle">
+        <GithubFill :class="`${smImageClass} fill-black bg-white`" />
+      </a>
+      <a href="mailto:matthew.j.mcardle@gmail.com">
+        <MailFill :class="`${smImageClass} fill-black bg-white`" />
+      </a>
+      <a href="tel:519-500-3440">
+        <PhoneFill :class="`${smImageClass} fill-black bg-white`" />
+      </a>
     </div>
   </div>
 </template>
@@ -13,7 +22,7 @@
 import Vue from 'vue'
 
 // @ts-ignore
-import { LinkedinBoxFill, MailFill, PhoneFill } from 'vue-icon-packs/ri'
+import { LinkedinBoxFill, MailFill, PhoneFill, GithubFill } from 'vue-icon-packs/ri'
 
 export default Vue.extend({
   name: 'ContactSection',
@@ -21,7 +30,8 @@ export default Vue.extend({
   components: {
     LinkedinBoxFill,
     MailFill,
-    PhoneFill
+    PhoneFill,
+    GithubFill
   },
 
   data () {

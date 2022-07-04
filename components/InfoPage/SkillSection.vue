@@ -1,8 +1,9 @@
 <template>
   <li>
-    <p class="w-[40%]">
+    <p class="skill hidden lg:block lg:w-[30%]">
       {{ name }}
     </p>
+    <img :alt="name" :src="image" class="h-4 w-4 my-auto mx-1">
     <SkillbarWidget :percentage="value" />
   </li>
 </template>
@@ -26,6 +27,10 @@ export default Vue.extend({
     value: {
       type: Number,
       required: true
+    },
+    image: {
+      type: String,
+      required: true
     }
   }
 })
@@ -34,5 +39,9 @@ export default Vue.extend({
 <style scoped>
 .skills-title {
   transform: rotate(-90deg);
+}
+
+.skill {
+  font-weight: 800;
 }
 </style>
