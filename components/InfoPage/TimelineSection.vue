@@ -4,7 +4,7 @@
       <h2 class="text-center">
         TIMELINE
       </h2>
-      <div class="flex flex-col bg-grey text-black h-64 w-full px-16 overflow-x-scroll">
+      <div class="timeline-box flex flex-col bg-grey text-black h-64 w-full px-16 overflow-x-scroll">
         <div class="timeline-bar shrink-0 bg-blue min-h-[3px] mt-24 mb-32" :style="{ width: getPosition(2023) }" />
         <div class="relative bottom-0 w-full">
           <div
@@ -74,7 +74,7 @@ export default Vue.extend({
           image: require('~/assets/images/University.png')
         },
         {
-          name: 'Magnet Forensics (Co-op)',
+          name: 'Magnet Forensics',
           body: 'First Co-op term in which I worked with Kubernetes, C#, and Cloud Infrastructure',
           year: 2021,
           image: require('~/assets/images/Magnet-Logo.png')
@@ -85,13 +85,43 @@ export default Vue.extend({
           year: 2022,
           image: require('~/assets/images/Vidyard-Logo.png')
         }
-      ]
+      ],
+      scrollPosition: 0,
+      maxScrollPosition: 1000,
+      resetting: false
     }
+  },
+
+  mounted () {
+    this.$el.querySelector('.timeline-box')?.addEventListener('scroll', this.handleScroll)
+
+    const timelineBox = this.$el.querySelector('.timeline-box')
+    this.maxScrollPosition = timelineBox ? timelineBox.scrollWidth - timelineBox.clientWidth : 1000
+
+    setInterval(() => {
+      if (this.scrollPosition > this.maxScrollPosition) {
+        this.scrollPosition = 0
+        this.resetting = true
+      }
+
+      this.scrollPosition += 15
+      this.$el.querySelector('.timeline-box')?.scrollTo({ left: this.scrollPosition, top: 0, behavior: 'smooth' })
+    }, 200)
   },
 
   methods: {
     getPosition: (year: number) => {
       return `${(90 + (year - 2018) * 360)}px`
+    },
+
+    handleScroll (event: Event) {
+      if (!event?.target) { return }
+
+      const target = event.target as HTMLDivElement
+      const currentScrollPosition = target.scrollLeft
+      if (currentScrollPosition === 0) { this.resetting = false }
+
+      if (currentScrollPosition !== this.scrollPosition && !this.resetting) { this.scrollPosition = currentScrollPosition }
     }
   }
 
