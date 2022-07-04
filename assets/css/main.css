@@ -41,4 +41,5 @@ li {
   flex-direction: row;
   justify-content: space-between;
   text-align: right;
+  align-items: center;
 }
