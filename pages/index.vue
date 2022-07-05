@@ -1,13 +1,13 @@
 <template>
   <div class="body bg-black text-white">
-    <div class="landing-page h-[125vh]">
+    <div id="home" class="landing-page h-[125vh]">
       <div class="main w-full flex flex-row">
         <Greeting />
         <ContactSection />
       </div>
       <Footer />
     </div>
-    <div class="info-page h-screen w-full flex flex-col">
+    <div id="info" class="info-page h-screen w-full flex flex-col">
       <InfoSection />
       <TimelineSection />
     </div>
