@@ -42,6 +42,8 @@
 <script lang="ts">
 import Vue from 'vue'
 
+import { init, trackPages } from 'insights-js'
+
 // @ts-ignore
 import { ChevronDownSolid } from 'vue-icon-packs/hi'
 // @ts-ignore
@@ -55,6 +57,12 @@ export default Vue.extend({
     LinkedinBoxFill,
     MailFill,
     PhoneFill
+  },
+
+  mounted () {
+    init('XNd5FliNbfQgUWXS')
+
+    trackPages()
   }
 })
 </script>
