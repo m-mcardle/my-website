@@ -9,9 +9,6 @@
     <NuxtLink to="/Vidyard" class="link vidyard-link">
       Vidyard Co-op Report
     </NuxtLink>
-    <NuxtLink to="/Projects" class="link projects-link">
-      Project Portfolio
-    </NuxtLink>
   </div>
 </template>
 
