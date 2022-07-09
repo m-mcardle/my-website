@@ -29,7 +29,7 @@
             :key="item.name"
             class="flex flex-col justify-evenly items-center"
           >
-            <img class="h-8 w-fit bg-white" :alt="item.name" :src="item.image">
+            <img class="h-8 w-auto bg-white" :alt="item.name" :src="item.image">
             <p
               class="font-bold"
             >
@@ -74,7 +74,7 @@ export default Vue.extend({
               image: require('~/assets/images/Tailwind.png')
             }
           ],
-          image: require('~/assets/images/WebsiteV2.png'),
+          image: require('~/assets/images/Projects/WebsiteV2.png'),
           year: '2022'
         },
         {
@@ -131,10 +131,10 @@ export default Vue.extend({
         },
         {
           name: 'Personal Website (V1)',
-          description: 'Porfolio website for providing information about my work experience and personal projects. Built using React.js and Tailwind CSS.',
+          description: 'Porfolio website for providing information about my work experience and personal projects. Built using React and Tailwind CSS.',
           infrastructure: [
             {
-              name: 'React.js',
+              name: 'React',
               image: require('~/assets/images/React.png')
             },
             {
@@ -147,14 +147,14 @@ export default Vue.extend({
         },
         {
           name: 'F1 Standings Visualizer',
-          description: 'Python app built using Plot.ly to visualize the progression of F1 championship standings for all seasons to date. Built using a public F1 database API (Ergast) and the Python Plot.ly framework to visualize the data script hosted via Heroku.',
+          description: 'Python app built using Plot.ly to visualize the progression of F1 championship standings for all seasons to date. Built using a public F1 database API (Ergast) and the Python Plotly framework to visualize the data script hosted via Heroku.',
           infrastructure: [
             {
               name: 'Python',
               image: require('~/assets/images/Python.png')
             },
             {
-              name: 'Plot.ly',
+              name: 'Plotly',
               image: require('~/assets/images/Plotly.webp')
             },
             {
@@ -163,7 +163,7 @@ export default Vue.extend({
             }
           ],
           year: '2021',
-          image: require('~/assets/images/F1Visualizer.png'),
+          image: require('~/assets/images/Projects/F1Visualizer.png'),
           page: 'F1-Visualizer'
         },
         {
@@ -172,14 +172,14 @@ export default Vue.extend({
           infrastructure: [
             {
               name: 'Chrome Extension',
-              image: require('~/assets/images/Magnet-Logo.png')
+              image: require('~/assets/images/Chrome.png')
             },
             {
               name: 'JavaScript',
-              image: require('~/assets/images/Magnet-Logo.png')
+              image: require('~/assets/images/JavaScript.png')
             }
           ],
-          image: require('~/assets/images/Magnet-Logo.png'),
+          image: require('~/assets/images/Projects/F1Extension.png'),
           year: '2021'
         }
       ]
