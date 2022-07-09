@@ -146,7 +146,7 @@ export default Vue.extend({
 })
 </script>
 
-<style>
+<style scoped>
 .timeline-element {
   transform: translateX(-50%);
 }
