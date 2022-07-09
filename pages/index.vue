@@ -29,8 +29,12 @@
       <hr>
       <div class="logo-images flex flex-row justify-between">
         <img class="w-32 h-32" alt="University of Guelph Logo" src="~/assets/images/UoG-Logo.jpeg">
-        <img class="w-32 h-32" alt="Magnet Forensics Logo" src="~/assets/images/Magnet-Logo.png">
-        <img class="w-32 h-32" alt="Vidyard Logo" src="~/assets/images/Vidyard-Logo.png">
+        <NuxtLink to="/Magnet" class="magnet-link shadow hover:shadow-lg hover:shadow-blue/90 shadow-blue/50">
+          <img class="w-32 h-32" alt="Magnet Forensics Logo" src="~/assets/images/Magnet-Logo.png">
+        </NuxtLink>
+        <NuxtLink to="/Vidyard" class="vidyard-link shadow hover:shadow-lg hover:shadow-green-400/90 shadow-green-400/50">
+          <img class="w-32 h-32" alt="Vidyard Logo" src="~/assets/images/Vidyard-Logo.png">
+        </NuxtLink>
       </div>
       <div class="w-full">
         <ChevronDownSolid class="scroll-icon w-32 h-32 mx-auto" />
