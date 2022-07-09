@@ -20,10 +20,10 @@
           <div
             v-for="(element) in timeline"
             :key="element.name"
-            class="group timeline-element absolute bottom-8"
+            class="group absolute bottom-8 w-72"
             :style="{ left: getPosition(element.year) }"
           >
-            <div class="group h-24 w-64 text-center p-2 flex flex-col content-center">
+            <div class="timeline-element group absolute bottom-0 left-[32px] h-24 w-72 text-center p-2 flex flex-col content-center">
               <img :alt="element.name" :src="element.image" class="w-16 h-16 mx-auto">
               <p class="text-sm font-bold bg-gray-500 invisible group-hover:visible ">
                 {{ element.name }}
@@ -148,7 +148,7 @@ export default Vue.extend({
 
 <style>
 .timeline-element {
-  transform: translateX(-37%);
+  transform: translateX(-50%);
 }
 
  /* Hide scrollbar for Chrome, Safari and Opera */
