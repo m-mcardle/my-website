@@ -37,10 +37,6 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-.skills-title {
-  transform: rotate(-90deg);
-}
-
 .skill {
   font-weight: 800;
 }

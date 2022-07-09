@@ -10,7 +10,7 @@
           :key="index"
           :name="skill.name"
           :value="skill.value"
-          :image="require(`~/assets/images/${skill.image}`)"
+          :image="skill.image"
         />
       </ul>
     </div>
@@ -31,11 +31,11 @@ export default Vue.extend({
   data () {
     return {
       skills: [
-        { name: 'React', value: 95, image: 'React.png' },
-        { name: 'Vue', value: 90, image: 'Vue.png' },
-        { name: 'Python', value: 88, image: 'Python.png' },
-        { name: 'CSharp', value: 85, image: 'CSharp.png' },
-        { name: 'Ruby', value: 80, image: 'Ruby.png' }
+        { name: 'React', value: 95, image: require('~/assets/images/React.png') },
+        { name: 'Vue', value: 90, image: require('~/assets/images/Vue.png') },
+        { name: 'Python', value: 88, image: require('~/assets/images/Python.png') },
+        { name: 'CSharp', value: 85, image: require('~/assets/images/CSharp.png') },
+        { name: 'Ruby', value: 80, image: require('~/assets/images/Ruby.png') }
       ]
     }
   }
