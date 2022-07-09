@@ -1,5 +1,10 @@
 # my-website
 
+This repo contains my personal portfolio website that I am building with Nuxt. I am using TailwindCSS for styling, Jest for testing, and Vue for my front-end framework.
+
+[Figma](https://www.figma.com/file/GjWIwe3zgpJCNL2FlVcMd7/Website?node-id=0%3A1)
+
+
 ## Build Setup
 
 ```bash
