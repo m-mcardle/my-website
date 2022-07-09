@@ -113,26 +113,3 @@ export default Vue.extend({
 
 })
 </script>
-
-<style>
-  h1 {
-    font-size: 64px;
-  }
-
-  h2 {
-    font-size: 32px;
-  }
-
-  h3 {
-    font-size: 24px;
-  }
-
-  p {
-    font-size: 16px;
-  }
-
-  hr {
-    border-color: #00B9E1;
-    margin: 8px 0;
-  }
-</style>
