@@ -7,28 +7,7 @@
       date-string="May 2021 - December 2022"
       :image-url="require('~/assets/images/Magnet-Logo.png')"
     />
-    <div
-      v-for="(section) in content"
-      :key="section.title"
-      class="section flex flex-col p-8"
-    >
-      <hr class="w-full">
-      <div class="section-body flex flex-row">
-        <div class="content flex flex-col w-[40%]">
-          <h3 class="title pt-8">
-            {{ section.title }}
-          </h3>
-          <p class="body pt-4">
-            {{ section.body }}
-          </p>
-        </div>
-        <div class="images flex flex-col w-[60%] justify-center items-end">
-          <div v-if="section.images" class="flex flex-row justify-between">
-            <img v-for="(image) in section.images" :key="image" class="h-32 bg-white" :src="image">
-          </div>
-        </div>
-      </div>
-    </div>
+    <JobContent :content="content" />
   </div>
 </template>
 
@@ -37,13 +16,15 @@ import Vue from 'vue'
 
 import JobHeader from '../components/JobHeader.vue'
 import NavHeader from '../components/NavHeader.vue'
+import JobContent from '~/components/JobContent.vue'
 
 export default Vue.extend({
   name: 'MagnetPage',
 
   components: {
     JobHeader,
-    NavHeader
+    NavHeader,
+    JobContent
   },
 
   data () {
@@ -81,7 +62,7 @@ export default Vue.extend({
         },
         {
           title: 'Bash Installer',
-          body: "During the early days of my term I found myself working quite frequently on our products installer. It was written in Bash which I had some experience with during University, so I found it far more approachable than other parts of the product.  I started off with small little quality of life improvements such as changing the name of the installer's folder from dist to review-VERSION, and slowly built up to adding configuration options into the installer such as allowing them to configure their company's logo that gets uploaded for use in the front-end.",
+          body: "During the early days of my term I found myself working quite frequently on our product's installer. It was written in Bash which I had some experience with during University, so I found it far more approachable than other parts of the product.  I started off with small little quality of life improvements such as changing the name of the installer's folder from dist to review-VERSION, and slowly built up to adding configuration options into the installer such as allowing them to configure their company's logo that gets uploaded for use in the front-end.",
           images: [require('~/assets/images/Magnet/Bash.jpeg')]
         },
         {
