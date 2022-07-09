@@ -21,9 +21,14 @@ export default Vue.extend({
 })
 </script>
 
-<style>
+<style scoped>
 .link:hover {
   color: #00B9E1;
+}
+
+a.nuxt-link-exact-active {
+  color: #00B9E1;
+  text-decoration-line: underline;
 }
 
 </style>
