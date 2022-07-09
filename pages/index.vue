@@ -23,6 +23,15 @@ import Greeting from '~/components/LandingPage/GreetingSection.vue'
 import InfoSection from '~/components/InfoPage/InfoSection.vue'
 import TimelineSection from '~/components/InfoPage/TimelineSection.vue'
 
+const array: Array<HTMLElement> = []
+
+const isElemVisible = (el: Element) => {
+  const rect = el.getBoundingClientRect()
+  const elemTop = rect.top + 200 // 200 = buffer
+  const elemBottom = rect.bottom
+  return elemTop < window.innerHeight && elemBottom >= 0
+}
+
 export default Vue.extend({
   name: 'IndexPage',
 
@@ -36,10 +45,42 @@ export default Vue.extend({
 
   data () {
     return {
+      fadeInElements: array,
       lgImageClass: 'w-32 h-32 md:w-64 md:h-64',
       mdImageClass: 'w-16 h-16 md:w-32 md:h-32',
       smImageClass: 'w-4 h-4 md:w-8 md:h-8'
     }
+  },
+
+  mounted () {
+    this.fadeInElements = Array.from(document.getElementsByClassName('fade-in') as HTMLCollectionOf<HTMLElement>)
+    document.addEventListener('scroll', this.handleScroll)
+  },
+
+  destroyed () {
+    document.removeEventListener('scroll', this.handleScroll)
+  },
+
+  methods: {
+    handleScroll (_: Event) {
+      for (let i = 0; i < this.fadeInElements.length; i++) {
+        const elem = this.fadeInElements[i]
+
+        if (isElemVisible(elem)) {
+          elem.style.opacity = '1'
+          elem.style.transform = 'scale(1)'
+          this.fadeInElements.splice(i, 1) // only allow it to run once
+        }
+      }
+    }
   }
 })
 </script>
+
+<style>
+.fade-in {
+  opacity: 0;
+  transition: 0.3s all ease-out;
+  transform: scale(0.8);
+}
+</style>

@@ -1,7 +1,7 @@
 <template>
   <div class="skills-interests w-full flex flex-row justify-around">
-    <SkillsSection />
-    <InterestsSection />
+    <SkillsSection class="fade-in" />
+    <InterestsSection class="fade-in" />
   </div>
 </template>
 
