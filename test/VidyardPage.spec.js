@@ -1,8 +1,8 @@
 import { shallowMount, RouterLinkStub } from '@vue/test-utils'
-import MainPage from '../pages/index'
+import VidyardPage from '../pages/Vidyard'
 
-describe('Main Page', () => {
-  const mount = () => shallowMount(MainPage, {
+describe('Vidyard Page', () => {
+  const mount = () => shallowMount(VidyardPage, {
     stubs: {
       NuxtLink: RouterLinkStub
     }

@@ -1,8 +1,8 @@
 import { shallowMount, RouterLinkStub } from '@vue/test-utils'
-import MainPage from '../pages/index'
+import MagnetPage from '../pages/Magnet'
 
-describe('Main Page', () => {
-  const mount = () => shallowMount(MainPage, {
+describe('Magnet Page', () => {
+  const mount = () => shallowMount(MagnetPage, {
     stubs: {
       NuxtLink: RouterLinkStub
     }
