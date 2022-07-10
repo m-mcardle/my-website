@@ -3,12 +3,6 @@
     <NuxtLink to="/" class="link home-link">
       Home
     </NuxtLink>
-    <NuxtLink to="/Magnet" class="link magnet-link">
-      Magnet Co-op Report
-    </NuxtLink>
-    <NuxtLink to="/Vidyard" class="link vidyard-link">
-      Vidyard Co-op Report
-    </NuxtLink>
     <NuxtLink to="/Projects" class="link projects-link">
       Project Portfolio
     </NuxtLink>
