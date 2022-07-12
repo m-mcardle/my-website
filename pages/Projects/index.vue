@@ -1,14 +1,14 @@
 <template>
   <div class="main bg-black text-white min-h-screen h-fit p-8">
     <NavHeader />
-    <h1 class="text-center w-full pt-8 pb-16">
+    <h1 class="text-center w-full pb-16">
       My Projects
     </h1>
     <div class="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-12">
       <NuxtLink
         v-for="(project) in projects"
         :key="project.name"
-        class="flex flex-col w-[500px] h-[600px] bg-gray-600 mx-auto p-4"
+        class="flex flex-col w-[500px] h-[600px] bg-gray-600 mx-auto p-4 hover:shadow-lg hover:shadow-blue"
         :to="project.page ? `/Projects/${project.page}` : ''"
       >
         <p class="self-end">
@@ -17,8 +17,8 @@
         <h3 class="text-center w-full mb-4">
           {{ project.name }}
         </h3>
-        <div class="w-full h-[200px]">
-          <img class="max-h-[200px] w-[350px] mx-auto" :alt="project.name" :src="project.image">
+        <div class="w-full h-[250px]">
+          <img class="max-h-[250px] w-[350px] mx-auto" :alt="project.name" :src="project.image">
         </div>
         <p class="mt-8">
           {{ project.description }}
@@ -75,7 +75,8 @@ export default Vue.extend({
             }
           ],
           image: require('~/assets/images/Projects/WebsiteV2.png'),
-          year: '2022'
+          year: '2022',
+          page: 'WebsiteV2'
         },
         {
           name: 'GasMeUp',
@@ -95,7 +96,8 @@ export default Vue.extend({
             }
           ],
           image: require('~/assets/images/GoogleMaps.jpeg'),
-          year: '2022'
+          year: '2022',
+          page: 'GasMeUp'
         },
         {
           name: 'Gas Price Alerting Service',
@@ -110,8 +112,9 @@ export default Vue.extend({
               image: require('~/assets/images/AWS.png')
             }
           ],
-          image: require('~/assets/images/Ruby.png'),
-          year: '2022'
+          image: require('~/assets/images/Projects/EmailNotification.webp'),
+          year: '2022',
+          page: 'GasPriceAlerting'
         },
         {
           name: 'Gas Prices API',
@@ -127,7 +130,8 @@ export default Vue.extend({
             }
           ],
           image: require('~/assets/images/Node.webp'),
-          year: '2022'
+          year: '2022',
+          page: 'GasPriceAPI'
         },
         {
           name: 'Personal Website (V1)',
@@ -142,8 +146,9 @@ export default Vue.extend({
               image: require('~/assets/images/Tailwind.png')
             }
           ],
-          image: require('~/assets/images/React.png'),
-          year: '2021'
+          image: require('~/assets/images/Projects/WebsiteV1.png'),
+          year: '2021',
+          page: 'WebsiteV1'
         },
         {
           name: 'F1 Standings Visualizer',
@@ -164,7 +169,7 @@ export default Vue.extend({
           ],
           year: '2021',
           image: require('~/assets/images/Projects/F1Visualizer.png'),
-          page: 'F1-Visualizer'
+          page: 'F1Visualizer'
         },
         {
           name: 'Twitch Chat Embedding - Chrome Extension',
@@ -179,8 +184,9 @@ export default Vue.extend({
               image: require('~/assets/images/JavaScript.png')
             }
           ],
-          image: require('~/assets/images/Projects/F1Extension.png'),
-          year: '2021'
+          image: require('~/assets/images/Chrome.png'),
+          year: '2021',
+          page: 'TwitchExtension'
         }
       ]
     }
@@ -188,26 +194,3 @@ export default Vue.extend({
 
 })
 </script>
-
-<style>
-  h1 {
-    font-size: 64px;
-  }
-
-  h2 {
-    font-size: 32px;
-  }
-
-  h3 {
-    font-size: 24px;
-  }
-
-  p {
-    font-size: 16px;
-  }
-
-  hr {
-    border-color: #00B9E1;
-    margin: 8px 0;
-  }
-</style>
