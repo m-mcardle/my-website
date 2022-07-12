@@ -152,7 +152,7 @@ export default Vue.extend({
         },
         {
           name: 'F1 Standings Visualizer',
-          description: 'Python app built using Plot.ly to visualize the progression of F1 championship standings for all seasons to date. Built using a public F1 database API (Ergast) and the Python Plotly framework to visualize the data script hosted via Heroku.',
+          description: 'Python app built using Plotly to visualize the progression of F1 championship standings for all seasons to date. Built using a public F1 database API (Ergast) and the Python Plotly framework to visualize the data script hosted via Heroku.',
           infrastructure: [
             {
               name: 'Python',
