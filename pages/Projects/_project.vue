@@ -6,7 +6,7 @@
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div class="markdown w-[60%]" v-html="parsedMarkdown" />
       <div class="flex flex-col h-full ml-auto mr-0">
-        <a :href="github ?? 'https://www.github.com/m-mcardle'">
+        <a :href="github || 'https://www.github.com/m-mcardle'">
           <GithubFill class="w-48 h-48 fill-black bg-white" />
         </a>
         <p>{{ title }}</p>
@@ -43,7 +43,7 @@ export default Vue.extend({
   },
 
   async fetch () {
-    const response = await this.$axios.$get(`http://localhost:3000/api/project/${this.project}`, { progress: false })
+    const response = await this.$axios.$get(`/api/project/${this.project}`)
 
     if (response) {
       this.title = response.title
