@@ -5,6 +5,13 @@
       <!-- Disable no-v-html rule because we are sanitizing it, the rule is to protect from XSS attacks -->
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div class="markdown w-[60%]" v-html="parsedMarkdown" />
+      <div class="flex flex-col h-full ml-auto mr-0">
+        <a :href="github ?? 'https://www.github.com/m-mcardle'">
+          <GithubFill class="w-48 h-48 fill-black bg-white" />
+        </a>
+        <p>{{ title }}</p>
+        <p>{{ updatedAt?.toDateString() }}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -13,6 +20,8 @@
 import Vue from 'vue'
 import { marked } from 'marked'
 import sanitizeHtml from 'sanitize-html'
+// @ts-ignore
+import { GithubFill } from 'vue-icon-packs/ri'
 
 import NavHeader from '~/components/NavHeader.vue'
 
@@ -20,18 +29,34 @@ export default Vue.extend({
   name: 'ProjectPage',
 
   components: {
-    NavHeader
+    NavHeader,
+    GithubFill
   },
 
   data () {
     return {
-      input: '# Loading...'
+      title: '',
+      github: '',
+      updatedAt: null as Date | null,
+      rawMarkdown: '# Loading...'
     }
   },
 
+  async fetch () {
+    const response = await this.$axios.$get(`http://localhost:3000/api/project/${this.project}`, { progress: false })
+
+    if (response) {
+      this.title = response.title
+      this.github = response.github
+      this.updatedAt = new Date(response.updatedAt)
+    }
+  },
+
+  fetchOnServer: false,
+
   computed: {
     parsedMarkdown (): string {
-      const markdown = sanitizeHtml(this.input)
+      const markdown = sanitizeHtml(this.rawMarkdown)
       return marked.parse(markdown)
     },
 
@@ -41,13 +66,14 @@ export default Vue.extend({
   },
 
   mounted () {
+    this.$fetch()
     try {
-      this.input = require(`~/assets/markdown/${this.project}.md`).default
+      this.rawMarkdown = require(`~/assets/markdown/${this.project}.md`).default
     } catch (ex) {
       if (ex.message.includes('Cannot find module')) {
-        this.input = '## Error - Project Not Found :('
+        this.rawMarkdown = '## Error - Project Not Found :('
       } else {
-        this.input = '## Error fetching data :('
+        this.rawMarkdown = '## Error fetching data :('
       }
     }
   }

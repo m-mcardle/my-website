@@ -63,6 +63,10 @@ export default {
     }
   },
 
+  serverMiddleware: [
+    '~/api/index.js'
+  ],
+
   // Needed or exception thrown (https://github.com/nuxt-community/tailwindcss-module/issues/480)
   devServerHandlers: [],
 

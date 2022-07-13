@@ -4,6 +4,12 @@ This repo contains my personal portfolio website that I am building with Nuxt. I
 
 [Figma](https://www.figma.com/file/GjWIwe3zgpJCNL2FlVcMd7/Website?node-id=0%3A1)
 
+## Prisma
+
+```
+npx prisma studio
+```
+
 
 ## Build Setup
 
