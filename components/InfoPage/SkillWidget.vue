@@ -1,10 +1,12 @@
 <template>
   <li>
-    <p class="skill hidden lg:block lg:w-[30%]">
-      {{ name }}
-    </p>
-    <img :alt="name" :src="image" class="h-4 w-4 my-auto mx-1">
-    <SkillbarWidget :percentage="value" />
+    <div class="flex flex-row justify-between text-right items-center">
+      <p class="skill hidden lg:block lg:w-[30%]">
+        {{ name }}
+      </p>
+      <img :alt="name" :src="image" class="h-4 w-4 my-auto mx-1">
+      <SkillbarWidget :percentage="value" />
+    </div>
   </li>
 </template>
 

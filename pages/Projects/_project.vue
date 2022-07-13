@@ -44,7 +44,11 @@ export default Vue.extend({
     try {
       this.input = require(`~/assets/markdown/${this.project}.md`).default
     } catch (ex) {
-      this.input = 'Error fetching data :('
+      if (ex.message.includes('Cannot find module')) {
+        this.input = '## Error - Project Not Found :('
+      } else {
+        this.input = '## Error fetching data :('
+      }
     }
   }
 })
@@ -65,5 +69,9 @@ export default Vue.extend({
 
 ::v-deep(.markdown > a) {
   font-weight: bold;
+}
+
+::v-deep(.markdown > ul) {
+  list-style: disc inside;
 }
 </style>
