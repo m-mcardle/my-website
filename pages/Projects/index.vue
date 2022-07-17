@@ -38,7 +38,43 @@
           </div>
         </div>
       </NuxtLink>
+      <NuxtLink
+        v-for="(project) in allProjects"
+        :key="project.title"
+        class="flex flex-col w-[500px] h-[600px] bg-gray-600 mx-auto p-4 hover:shadow-lg hover:shadow-blue"
+        :to="project.title ? `/Projects/${project.title}` : ''"
+      >
+        <p class="self-end">
+          {{ project.year }}
+        </p>
+        <h3 class="text-center w-full mb-4">
+          {{ project.title }}
+        </h3>
+        <div class="w-full h-[250px]">
+          <img class="max-h-[250px] w-[350px] mx-auto" :alt="project.title" :src="project.image">
+        </div>
+        <p class="mt-8">
+          {{ project.content }}
+        </p>
+        <!-- <div class="flex flex-row w-full justify-around mt-auto mb-0">
+          <div
+            v-for="(item) in project.infrastructure"
+            :key="item.name"
+            class="flex flex-col justify-evenly items-center"
+          >
+            <img class="h-8 w-auto bg-white" :alt="item.name" :src="item.image">
+            <p
+              class="font-bold"
+            >
+              {{ item.name }}
+            </p>
+          </div>
+        </div> -->
+      </NuxtLink>
     </div>
+    <p>
+      {{ JSON.stringify(allProjects) }}
+    </p>
   </div>
 </template>
 
@@ -56,6 +92,7 @@ export default Vue.extend({
 
   data () {
     return {
+      allProjects: [],
       projects: [
         {
           name: 'Personal Website (V2)',
@@ -190,6 +227,18 @@ export default Vue.extend({
         }
       ]
     }
+  },
+
+  async fetch () {
+    const response = await this.$axios.$get('/api/projects')
+
+    if (response) {
+      this.allProjects = response
+    }
+  },
+
+  mounted () {
+    this.$fetch()
   }
 
 })

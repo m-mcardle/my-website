@@ -18,6 +18,15 @@ app.post('/project', async (req, res) => {
   res.status(200).json(post)
 })
 
+app.get('/projects', async (_, res) => {
+  const projects = await prisma.project.findMany({
+    orderBy: {
+      year: 'desc'
+    }
+  })
+  res.json(projects)
+})
+
 app.get('/project/:title', async (req, res) => {
   const { title } = req.params
   const project = await prisma.project.findFirst({

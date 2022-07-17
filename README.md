@@ -10,6 +10,13 @@ This repo contains my personal portfolio website that I am building with Nuxt. I
 npx prisma studio
 ```
 
+## Killing Processes
+
+```
+lsof -i tcp:3000
+kill -9 {PID}
+```
+
 
 ## Build Setup
 
