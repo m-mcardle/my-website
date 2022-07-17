@@ -2,23 +2,26 @@
   <div class="body bg-black text-white">
     <div id="signin" class="sign-in-page flex h-screen w-full">
       <div class="flex flex-col w-full h-full">
-        <div class="flex flex-row w-full h-[50%] p-64 bg-gray-800 items-center justify-evenly">
-          <button :disabled="!!user" class="bg-blue mx-auto py-4 px-16 h-16 rounded-md border-2 hover:bg-gray-200" @click="googleSignIn">
-            Sign in with Google
-          </button>
+        <div class="flex flex-row w-full h-full p-64 bg-black items-center justify-evenly">
+          <div class="flex flex-col w-[50%]">
+            <label for="email">Email</label>
+            <input id="email" v-model="email" type="email" name="email">
+            <label for="password">Password</label>
+            <input id="password" v-model="password" type="password" name="password">
+            <div class="flex flex-row mt-8 justify-evenly">
+              <button :disabled="!!user" class="bg-blue mx-auto py-2 px-16 h-16 w-64 rounded-md border-2 hover:bg-gray-200" @click="signIn">
+                Sign In
+              </button>
+              <p>OR</p>
+              <button :disabled="!!user" class="bg-blue mx-auto py-2 px-16 h-16 w-64 rounded-md border-2 hover:bg-gray-200" @click="googleSignIn">
+                Sign in with Google
+              </button>
+            </div>
+          </div>
           <button :disabled="!user" class="bg-blue mx-auto py-4 px-16 h-16 rounded-md border-2 hover:bg-gray-200" @click="logOut">
             Log Out
           </button>
           <p>Current user: {{ user?.email }}</p>
-        </div>
-        <div class="flex flex-row w-full h-[50%] p-64 bg-gray-900 items-center justify-evenly">
-          <label for="email">Email</label>
-          <input id="email" v-model="email" type="email" name="email">
-          <label for="password">Password</label>
-          <input id="password" v-model="password" type="password" name="password">
-          <button :disabled="!!user" class="bg-blue h-16 w-64 rounded-md border-2 hover:bg-gray-200" @click="signIn">
-            Submit
-          </button>
         </div>
       </div>
     </div>
@@ -84,8 +87,9 @@ label {
 input {
   padding: 4px;
   height: 30px;
-  width: 250px;
+  width: 100%;
   color: black;
+  border-radius: 8px;
 }
 
 :disabled {
