@@ -1,14 +1,16 @@
 <template>
   <div class="bottom-0 absolute p-16 pb-0 w-full">
-    <h3>Come read about my <b>skills</b>, <b>experiences</b>, and <b>interests</b>!</h3>
+    <h3 class="footer-text text-md">
+      Come read about my <b>skills</b>, <b>experiences</b>, and <b>interests</b>!
+    </h3>
     <hr>
     <div class="logo-images flex flex-row justify-between">
       <img :class="`${mdImageClass}`" alt="University of Guelph Logo" src="~/assets/images/UoG-Logo.jpeg">
       <img :class="`${mdImageClass}`" alt="Magnet Forensics Logo" src="~/assets/images/Magnet-Logo.png">
       <img :class="`${mdImageClass}`" alt="Vidyard Logo" src="~/assets/images/Vidyard-Logo.png">
     </div>
-    <div class="w-full">
-      <ChevronDownSolid class="scroll-icon w-32 h-32 mx-auto" />
+    <div class="flex w-full">
+      <FontAwesomeIcon class="scroll-icon mx-auto" icon="fa-solid fa-chevron-down" size="2xl" />
     </div>
   </div>
 </template>
@@ -16,15 +18,8 @@
 <script lang="ts">
 import Vue from 'vue'
 
-// @ts-ignore
-import { ChevronDownSolid } from 'vue-icon-packs/hi'
-
 export default Vue.extend({
   name: 'FooterSection',
-
-  components: {
-    ChevronDownSolid
-  },
 
   data () {
     return {
@@ -50,6 +45,30 @@ export default Vue.extend({
 }
 
 .scroll-icon {
+  width: 2rem;
+  height: 2rem;
   animation: blink 2s infinite linear;
+
+  @media screen and (min-width: 600px) {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  @media screen and (min-width: 900px) {
+    width: 8rem;
+    height: 8rem;
+  }
+}
+
+.footer-text {
+  font-size: 12px;
+
+  @media screen and (min-width: 575px) {
+    font-size: 16px;
+  }
+
+  @media screen and (min-width: 750px) {
+    font-size: 24px;
+  }
 }
 </style>
