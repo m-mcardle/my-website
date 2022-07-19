@@ -43,3 +43,10 @@ export default Vue.extend({
   }
 })
 </script>
+
+<style scoped>
+.icon {
+  width: 8em;
+  height: 8em;
+}
+</style>
