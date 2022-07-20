@@ -51,7 +51,7 @@
           {{ project.title }}
         </h3>
         <div class="w-full h-[250px]">
-          <img class="max-h-[250px] w-[350px] mx-auto" :alt="project.title" :src="project.image">
+          <img class="max-h-[250px] w-[350px] mx-auto" :alt="project.title" :src="require(`~/assets/images/${project.image}`)">
         </div>
         <p class="mt-8">
           {{ project.content }}
@@ -92,7 +92,7 @@ export default Vue.extend({
 
   data () {
     return {
-      allProjects: [],
+      allProjects: [] as Project[],
       projects: [
         {
           name: 'Personal Website (V2)',
