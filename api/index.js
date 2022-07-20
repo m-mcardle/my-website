@@ -22,6 +22,9 @@ app.get('/projects', async (_, res) => {
   const projects = await prisma.project.findMany({
     orderBy: {
       year: 'desc'
+    },
+    include: {
+      infrastructure: true
     }
   })
   res.json(projects)
