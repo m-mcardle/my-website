@@ -38,6 +38,17 @@
           </div>
         </div>
       </NuxtLink>
+      <NuxtLink
+        class="flex flex-col w-[500px] h-[600px] bg-gray-600 mx-auto p-4 hover:shadow-lg hover:shadow-blue"
+        to="/AddProject"
+      >
+        <h1 class="text-center">
+          Add Project
+        </h1>
+        <p class="text-8xl my-auto mx-auto text-center">
+          +
+        </p>
+      </NuxtLink>
     </div>
   </div>
 </template>
