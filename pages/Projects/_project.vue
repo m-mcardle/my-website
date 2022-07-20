@@ -98,6 +98,10 @@ export default Vue.extend({
   list-style: disc inside;
 }
 
+::v-deep(.markdown > p > a) {
+  color: lightskyblue;
+}
+
 .icon {
   width: 8rem;
   height: 8rem;
