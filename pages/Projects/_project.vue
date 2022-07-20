@@ -7,7 +7,7 @@
       <div class="markdown w-[60%]" v-html="parsedMarkdown" />
       <div class="flex flex-col h-full ml-auto mr-0">
         <a :href="github || 'https://www.github.com/m-mcardle'">
-          <GithubFill class="w-48 h-48 fill-black bg-white" />
+          <FontAwesomeIcon class="icon" icon="fa-brands fa-github" />
         </a>
         <p>{{ title }}</p>
         <p>{{ updatedAt?.toDateString() }}</p>
@@ -20,8 +20,6 @@
 import Vue from 'vue'
 import { marked } from 'marked'
 import sanitizeHtml from 'sanitize-html'
-// @ts-ignore
-import { GithubFill } from 'vue-icon-packs/ri'
 
 import NavHeader from '~/components/NavHeader.vue'
 
@@ -29,8 +27,7 @@ export default Vue.extend({
   name: 'ProjectPage',
 
   components: {
-    NavHeader,
-    GithubFill
+    NavHeader
   },
 
   data () {
@@ -99,5 +96,15 @@ export default Vue.extend({
 
 ::v-deep(.markdown > ul) {
   list-style: disc inside;
+}
+
+.icon {
+  width: 8rem;
+  height: 8rem;
+
+  @media screen and (min-width: 800px) {
+    width: 16rem;
+    height: 16rem;
+  }
 }
 </style>
