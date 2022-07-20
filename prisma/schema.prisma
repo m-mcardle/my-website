@@ -15,6 +15,7 @@ model Project {
   title     String
   github    String
   content   String?
+  image     String   @default("NotFound.png")
   year      String   @default("2022")
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
