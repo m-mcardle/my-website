@@ -22,7 +22,5 @@ module.exports = {
     '<rootDir>/components/**/*.vue',
     '<rootDir>/pages/**/*.vue'
   ],
-  testEnvironment: 'jsdom',
-  // Needed to manually transform the ES6 module (node_modules is excluded by default)
-  transformIgnorePatterns: ['node_modules/(?!vue-icon-packs)']
+  testEnvironment: 'jsdom'
 }
