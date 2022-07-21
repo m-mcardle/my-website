@@ -4,6 +4,11 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 const app = express()
 
+const ADMIN_USERS = [
+  process.env.ADMIN_UID,
+  process.env.ADMIN_UID2
+]
+
 app.use(express.json())
 
 app.post('/project', async (req, res) => {
@@ -38,6 +43,14 @@ app.get('/project/:title', async (req, res) => {
     where: { title }
   })
   res.json(project)
+})
+
+app.get('/validate-user/:uid', (req, res) => {
+  const { uid } = req.params
+  console.log(req.params, uid, ADMIN_USERS)
+  const isAdmin = ADMIN_USERS.includes(uid)
+
+  res.send(isAdmin)
 })
 
 /**

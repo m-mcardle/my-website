@@ -1,5 +1,6 @@
 <template>
   <div class="body bg-black text-white">
+    <NavHeader />
     <div id="signin" class="sign-in-page flex h-screen w-full">
       <div class="flex flex-col w-full h-full">
         <div class="flex flex-row w-full h-full p-64 bg-black items-center justify-evenly">
@@ -26,6 +27,9 @@
         <p v-if="error">
           Error: {{ error }}
         </p>
+        <p>
+          {{ isAdmin }}
+        </p>
       </div>
     </div>
   </div>
@@ -35,8 +39,14 @@
 import Vue from 'vue'
 import { GoogleAuthProvider } from '@firebase/auth'
 
+import NavHeader from '../components/NavHeader.vue'
+
 export default Vue.extend({
   name: 'LoginPage',
+
+  components: {
+    NavHeader
+  },
 
   data () {
     return {
@@ -44,7 +54,14 @@ export default Vue.extend({
       email: '',
       password: '',
       user: null as null | firebase.default.User,
-      error: ''
+      error: '',
+      isAdmin: false
+    }
+  },
+
+  watch: {
+    user () {
+      this.isUserAdmin()
     }
   },
 
@@ -76,6 +93,14 @@ export default Vue.extend({
         await this.$fire.auth.signOut()
         this.user = this.$fire.auth.currentUser
         this.error = ''
+      } catch (e) {
+        this.error = e
+      }
+    },
+    async isUserAdmin () {
+      if (!this.user) { return false }
+      try {
+        this.isAdmin = await this.$axios.$get(`/api/validate-user/${this.user.uid}`)
       } catch (e) {
         this.error = e
       }
