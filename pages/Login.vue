@@ -9,16 +9,16 @@
             <label for="password">Password</label>
             <input id="password" v-model="password" type="password" name="password">
             <div class="flex flex-row mt-8 justify-evenly">
-              <button :disabled="!!user" class="bg-blue mx-auto py-2 px-16 h-16 w-64 rounded-md border-2 hover:bg-gray-200" @click="signIn">
+              <button :disabled="!!user" class="bg-blue mx-auto py-2 px-16 h-16 w-64 rounded-xl border-2 hover:bg-blue/30" @click="signIn">
                 Sign In
               </button>
               <p>OR</p>
-              <button :disabled="!!user" class="bg-blue mx-auto py-2 px-16 h-16 w-64 rounded-md border-2 hover:bg-gray-200" @click="googleSignIn">
+              <button :disabled="!!user" class="bg-blue mx-auto py-2 px-16 h-16 w-64 rounded-xl border-2 hover:bg-blue/30" @click="googleSignIn">
                 Sign in with Google
               </button>
             </div>
           </div>
-          <button :disabled="!user" class="bg-blue mx-auto py-4 px-16 h-16 rounded-md border-2 hover:bg-gray-200" @click="logOut">
+          <button :disabled="!user" class="bg-blue mx-auto py-4 px-16 h-16 rounded-xl border-2 hover:bg-blue/30" @click="logOut">
             Log Out
           </button>
           <p>Current user: {{ user?.email }}</p>
@@ -32,8 +32,8 @@
 </template>
 
 <script lang="ts">
-import { GoogleAuthProvider } from '@firebase/auth'
 import Vue from 'vue'
+import { GoogleAuthProvider } from '@firebase/auth'
 
 export default Vue.extend({
   name: 'LoginPage',
