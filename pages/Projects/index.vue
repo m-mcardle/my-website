@@ -40,7 +40,7 @@
       </NuxtLink>
       <NuxtLink
         class="flex flex-col w-[500px] h-[600px] bg-gray-600 mx-auto p-4 hover:shadow-lg hover:shadow-blue"
-        to="/AddProject"
+        to="/Projects/AddProject"
       >
         <h1 class="text-center">
           Add Project

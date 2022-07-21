@@ -7,15 +7,17 @@ const app = express()
 app.use(express.json())
 
 app.post('/project', async (req, res) => {
-  const { title, content, github } = req.body
-  const post = await prisma.project.create({
+  const { title, content, github, image, year } = req.body
+  const project = await prisma.project.create({
     data: {
       title,
       content,
-      github
+      github,
+      image,
+      year
     }
   })
-  res.status(200).json(post)
+  res.status(200).json(project)
 })
 
 app.get('/projects', async (_, res) => {

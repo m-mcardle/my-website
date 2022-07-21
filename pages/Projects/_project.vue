@@ -9,8 +9,9 @@
         <a :href="github || 'https://www.github.com/m-mcardle'">
           <FontAwesomeIcon class="icon" icon="fa-brands fa-github" />
         </a>
-        <p>{{ title }}</p>
-        <p>{{ updatedAt?.toDateString() }}</p>
+        <p class="text-right">
+          Updated: {{ updatedAt?.toDateString() }}
+        </p>
       </div>
     </div>
   </div>

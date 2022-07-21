@@ -5,14 +5,14 @@ interface Image {
 }
 
 interface Project {
-  id: Number,
+  id?: Number,
   title: string,
   github: string,
-  content: string | null,
+  content?: string,
   image: string,
   year: string,
-  infrastructure: Image[]
-  createdAt: Date,
-  updatedAt: Date,
-  published: Boolean,
+  infrastructure?: Image[]
+  createdAt?: Date,
+  updatedAt?: Date,
+  published?: Boolean,
 }
