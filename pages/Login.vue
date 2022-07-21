@@ -23,6 +23,9 @@
           </button>
           <p>Current user: {{ user?.email }}</p>
         </div>
+        <p v-if="error">
+          Error: {{ error }}
+        </p>
       </div>
     </div>
   </div>
@@ -40,7 +43,8 @@ export default Vue.extend({
       provider: new GoogleAuthProvider(),
       email: '',
       password: '',
-      user: null as null | firebase.default.User
+      user: null as null | firebase.default.User,
+      error: ''
     }
   },
 
@@ -51,28 +55,29 @@ export default Vue.extend({
   methods: {
     async googleSignIn () {
       try {
-        const result = await this.$fire.auth.signInWithPopup(this.provider)
+        await this.$fire.auth.signInWithPopup(this.provider)
         this.user = this.$fire.auth.currentUser
-        console.log(result)
+        this.error = ''
       } catch (e) {
-        console.log(e)
+        this.error = e
       }
     },
     async signIn () {
       try {
-        const result = await this.$fire.auth.signInWithEmailAndPassword(this.email, this.password)
+        await this.$fire.auth.signInWithEmailAndPassword(this.email, this.password)
         this.user = this.$fire.auth.currentUser
-        console.log(result)
+        this.error = ''
       } catch (e) {
-        console.log(e)
+        this.error = e
       }
     },
     async logOut () {
       try {
         await this.$fire.auth.signOut()
         this.user = this.$fire.auth.currentUser
+        this.error = ''
       } catch (e) {
-        console.log(e)
+        this.error = e
       }
     }
   }
