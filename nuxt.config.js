@@ -18,11 +18,13 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '@/assets/css/main.css'
+    '@/assets/css/main.css',
+    '@fortawesome/fontawesome-svg-core/styles.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '~/plugins/fontawesome.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -69,11 +71,6 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    transpile: [
-      // Needed to avoid 'Cannot use import statement outside a module error' (https://nuxtjs.org/docs/directory-structure/plugins/)
-      'vue-icon-packs/hi',
-      'vue-icon-packs/ri'
-    ]
   },
 
   // Needed or exception thrown (https://github.com/nuxt-community/tailwindcss-module/issues/480)
