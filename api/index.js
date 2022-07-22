@@ -47,7 +47,6 @@ app.get('/project/:title', async (req, res) => {
 
 app.get('/validate-user/:uid', (req, res) => {
   const { uid } = req.params
-  console.log(req.params, uid, ADMIN_USERS)
   const isAdmin = ADMIN_USERS.includes(uid)
 
   res.send(isAdmin)

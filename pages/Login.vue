@@ -36,32 +36,36 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue, { VueConstructor } from 'vue'
 import { GoogleAuthProvider } from '@firebase/auth'
 
 import NavHeader from '../components/NavHeader.vue'
 
-export default Vue.extend({
+import UserAuth from '../mixins/UserAuth.vue'
+
+export default (Vue as VueConstructor<Vue & InstanceType<typeof UserAuth>>).extend({
   name: 'LoginPage',
 
   components: {
     NavHeader
   },
 
+  mixins: [
+    UserAuth
+  ],
+
   data () {
     return {
       provider: new GoogleAuthProvider(),
       email: '',
       password: '',
-      user: null as null | firebase.default.User,
-      error: '',
-      isAdmin: false
+      error: ''
     }
   },
 
   watch: {
-    user () {
-      this.isUserAdmin()
+    async user () {
+      await this.isUserAdmin()
     }
   },
 
@@ -93,14 +97,6 @@ export default Vue.extend({
         await this.$fire.auth.signOut()
         this.user = this.$fire.auth.currentUser
         this.error = ''
-      } catch (e) {
-        this.error = e
-      }
-    },
-    async isUserAdmin () {
-      if (!this.user) { return false }
-      try {
-        this.isAdmin = await this.$axios.$get(`/api/validate-user/${this.user.uid}`)
       } catch (e) {
         this.error = e
       }
