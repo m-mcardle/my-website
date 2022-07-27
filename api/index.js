@@ -45,6 +45,28 @@ app.get('/project/:title', async (req, res) => {
   res.json(project)
 })
 
+app.delete('/project/:title', async (req, res) => {
+  const { title } = req.params
+
+  try {
+    const project = await prisma.project.findFirst({
+      where: { title }
+    })
+
+    if (!project) {
+      throw new Error('Project not found')
+    }
+
+    await prisma.project.delete({
+      where: { id: project.id }
+    })
+
+    res.send(true)
+  } catch (ex) {
+    res.status(404).send(false)
+  }
+})
+
 app.get('/validate-user/:uid', (req, res) => {
   const { uid } = req.params
   const isAdmin = ADMIN_USERS.includes(uid)
