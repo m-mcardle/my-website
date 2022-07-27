@@ -1,5 +1,6 @@
 <template>
   <div class="body bg-black text-white">
+    <NavHeader />
     <div id="signin" class="sign-in-page flex h-screen w-full">
       <div class="flex flex-col w-full h-full">
         <div class="flex flex-row w-full h-full p-64 bg-black items-center justify-evenly">
@@ -9,22 +10,25 @@
             <label for="password">Password</label>
             <input id="password" v-model="password" type="password" name="password">
             <div class="flex flex-row mt-8 justify-evenly">
-              <button :disabled="!!user" class="bg-blue mx-auto py-2 px-16 h-16 w-64 rounded-xl border-2 hover:bg-blue/30" @click="signIn">
+              <button :disabled="!!user" class="bg-blue mx-auto py-2 px-16 h-16 w-64 rounded-xl border-2 hover:bg-blue/30" @click="handleSignInClick">
                 Sign In
               </button>
               <p>OR</p>
-              <button :disabled="!!user" class="bg-blue mx-auto py-2 px-16 h-16 w-64 rounded-xl border-2 hover:bg-blue/30" @click="googleSignIn">
+              <button :disabled="!!user" class="bg-blue mx-auto py-2 px-16 h-16 w-64 rounded-xl border-2 hover:bg-blue/30" @click="handleGoogleClick">
                 Sign in with Google
               </button>
             </div>
           </div>
-          <button :disabled="!user" class="bg-blue mx-auto py-4 px-16 h-16 rounded-xl border-2 hover:bg-blue/30" @click="logOut">
+          <button :disabled="!user" class="bg-blue mx-auto py-4 px-16 h-16 rounded-xl border-2 hover:bg-blue/30" @click="handleLogOutClick">
             Log Out
           </button>
           <p>Current user: {{ user?.email }}</p>
         </div>
-        <p v-if="error">
-          Error: {{ error }}
+        <p v-if="error || userError">
+          Error: {{ error }} {{ userError }}
+        </p>
+        <p>
+          {{ isAdmin }}
         </p>
       </div>
     </div>
@@ -32,49 +36,51 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import { GoogleAuthProvider } from '@firebase/auth'
+import Vue, { VueConstructor } from 'vue'
 
-export default Vue.extend({
+import NavHeader from '../components/NavHeader.vue'
+
+import UserAuth from '../mixins/UserAuth.vue'
+
+export default (Vue as VueConstructor<Vue & InstanceType<typeof UserAuth>>).extend({
   name: 'LoginPage',
+
+  components: {
+    NavHeader
+  },
+
+  mixins: [
+    UserAuth
+  ],
 
   data () {
     return {
-      provider: new GoogleAuthProvider(),
       email: '',
       password: '',
-      user: null as null | firebase.default.User,
       error: ''
     }
   },
 
-  mounted () {
-    this.user = this.$fire.auth.currentUser
-  },
-
   methods: {
-    async googleSignIn () {
+    async handleGoogleClick () {
       try {
-        await this.$fire.auth.signInWithPopup(this.provider)
-        this.user = this.$fire.auth.currentUser
+        await this.googleLogin()
         this.error = ''
       } catch (e) {
         this.error = e
       }
     },
-    async signIn () {
+    async handleSignInClick () {
       try {
-        await this.$fire.auth.signInWithEmailAndPassword(this.email, this.password)
-        this.user = this.$fire.auth.currentUser
+        await this.login(this.email, this.password)
         this.error = ''
       } catch (e) {
         this.error = e
       }
     },
-    async logOut () {
+    async handleLogOutClick () {
       try {
-        await this.$fire.auth.signOut()
-        this.user = this.$fire.auth.currentUser
+        await this.signOut()
         this.error = ''
       } catch (e) {
         this.error = e

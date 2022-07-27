@@ -1,14 +1,14 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'my-website',
+    title: "Matt McArdle's Website",
     htmlAttrs: {
       lang: 'en'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      { hid: 'description', name: 'description', content: 'Personal portfolio website for Matt McArdle.' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
@@ -71,7 +71,17 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    extend (config) {
+      config.module.rules.push({
+        test: /\.md$/,
+        loader: 'raw-loader'
+      })
+    }
   },
+
+  serverMiddleware: [
+    '~/api/index.js'
+  ],
 
   // Needed or exception thrown (https://github.com/nuxt-community/tailwindcss-module/issues/480)
   devServerHandlers: [],
