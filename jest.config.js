@@ -20,6 +20,7 @@ module.exports = {
   collectCoverage: true,
   collectCoverageFrom: [
     '<rootDir>/components/**/*.vue',
+    '<rootDir>/mixins/**/*.vue',
     '<rootDir>/pages/**/*.vue'
   ],
   testEnvironment: 'jsdom'

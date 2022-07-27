@@ -39,6 +39,7 @@
         </div>
       </NuxtLink>
       <NuxtLink
+        v-if="isAdmin"
         class="flex flex-col w-[500px] h-[600px] bg-gray-600 mx-auto p-4 hover:shadow-lg hover:shadow-blue"
         to="/Projects/AddProject"
       >
@@ -54,16 +55,16 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue, { VueConstructor } from 'vue'
 
-import NavHeader from '~/components/NavHeader.vue'
+import UserAuth from '~/mixins/UserAuth.vue'
 
-export default Vue.extend({
+export default (Vue as VueConstructor<Vue & InstanceType<typeof UserAuth>>).extend({
   name: 'VidyardPage',
 
-  components: {
-    NavHeader
-  },
+  mixins: [
+    UserAuth
+  ],
 
   data () {
     return {
@@ -83,6 +84,7 @@ export default Vue.extend({
 
   mounted () {
     this.$fetch()
+    this.isUserAdmin()
   }
 
 })
