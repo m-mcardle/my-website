@@ -43,7 +43,8 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
-    '@nuxtjs/firebase'
+    '@nuxtjs/firebase',
+    '@nuxtjs/toast'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -67,6 +68,11 @@ export default {
         persistence: 'local'
       }
     }
+  },
+
+  toast: {
+    position: 'top-center',
+    duration: 3000
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

@@ -12,24 +12,37 @@
         <p class="text-right">
           Updated: {{ updatedAt?.toDateString() }}
         </p>
+        <button
+          v-if="isAdmin"
+          class="delete ml-auto mr-0 text-red-400 hover:shadow-red-700 hover:shadow-lg bg-white px-1"
+          @click="deleteProject(title)"
+        >
+          <FontAwesomeIcon size="xl" icon="fa-solid fa-xmark" />
+        </button>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue, { VueConstructor } from 'vue'
 import { marked } from 'marked'
 import sanitizeHtml from 'sanitize-html'
 
+import UserAuth from '~/mixins/UserAuth.vue'
+
 import NavHeader from '~/components/NavHeader.vue'
 
-export default Vue.extend({
+export default (Vue as VueConstructor<Vue & InstanceType<typeof UserAuth>>).extend({
   name: 'ProjectPage',
 
   components: {
     NavHeader
   },
+
+  mixins: [
+    UserAuth
+  ],
 
   data () {
     return {
@@ -72,6 +85,24 @@ export default Vue.extend({
         this.rawMarkdown = '## Error - Project Not Found :('
       } else {
         this.rawMarkdown = '## Error fetching data :('
+      }
+    }
+  },
+
+  methods: {
+    async deleteProject (title: string) {
+      const loadingToast = this.$toast.show('Deleting project...')
+      const response = await this.$axios.$delete(`/api/project/${title}`)
+
+      loadingToast.goAway(0)
+      if (response) {
+        this.$toast.success('Successfully deleted project!')
+
+        setTimeout(() => {
+          this.$router.push('../Projects')
+        }, 1000)
+      } else {
+        this.$toast.error('Failed to delete project')
       }
     }
   }

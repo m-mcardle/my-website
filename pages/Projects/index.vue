@@ -84,7 +84,6 @@ export default (Vue as VueConstructor<Vue & InstanceType<typeof UserAuth>>).exte
 
   mounted () {
     this.$fetch()
-    this.isUserAdmin()
   }
 
 })

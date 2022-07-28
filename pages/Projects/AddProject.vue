@@ -25,16 +25,22 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue, { VueConstructor } from 'vue'
+
+import UserAuth from '~/mixins/UserAuth.vue'
 
 import NavHeader from '~/components/NavHeader.vue'
 
-export default Vue.extend({
+export default (Vue as VueConstructor<Vue & InstanceType<typeof UserAuth>>).extend({
   name: 'AddProjectPage',
 
   components: {
     NavHeader
   },
+
+  mixins: [
+    UserAuth
+  ],
 
   data (): Project {
     return {
@@ -59,12 +65,13 @@ export default Vue.extend({
     },
 
     submitDisabled (): boolean {
-      return !this.validImage || !this.title || !this.github || !this.content
+      return !this.isAdmin || !this.validImage || !this.title || !this.github || !this.content
     }
   },
 
   methods: {
     async submit () {
+      const loadingToast = this.$toast.show('Uploading project...')
       const response = await this.$axios.$post('/api/project', {
         title: this.title,
         github: this.github,
@@ -74,7 +81,12 @@ export default Vue.extend({
       })
 
       if (response) {
-        this.$router.push('../Projects')
+        loadingToast.goAway(0)
+        this.$toast.success('Succesfully created project!')
+
+        setTimeout(() => {
+          this.$router.push('../Projects')
+        }, 1000)
       }
     }
   }
