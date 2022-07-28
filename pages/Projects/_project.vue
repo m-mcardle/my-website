@@ -97,6 +97,10 @@ export default (Vue as VueConstructor<Vue & InstanceType<typeof UserAuth>>).exte
       loadingToast.goAway(0)
       if (response) {
         this.$toast.success('Successfully deleted project!')
+
+        setTimeout(() => {
+          this.$router.push('../Projects')
+        }, 1000)
       } else {
         this.$toast.error('Failed to delete project')
       }
