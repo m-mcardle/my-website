@@ -6,8 +6,8 @@
       class="section flex flex-col p-8"
     >
       <hr class="w-full">
-      <div class="section-body flex flex-row">
-        <div class="content flex flex-col w-[40%]">
+      <div class="section-body flex flex-col md:flex-row space-y-4">
+        <div class="content flex flex-col md:w-[40%]">
           <h3 class="title pt-8">
             {{ section.title }}
           </h3>
@@ -15,8 +15,8 @@
             {{ section.body }}
           </p>
         </div>
-        <div class="images flex flex-col w-[60%] justify-center items-end">
-          <div v-if="section.images" class="flex flex-row justify-between">
+        <div class="images flex flex-col md:w-[60%] justify-center items-center md:items-end">
+          <div v-if="section.images" class="flex flex-row justify-between space-x-2">
             <img v-for="(image) in section.images" :key="image" class="h-32 bg-white" :src="image">
           </div>
         </div>
