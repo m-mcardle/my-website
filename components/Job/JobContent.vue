@@ -1,11 +1,11 @@
 <template>
   <div>
     <div
-      v-for="(section) in content"
+      v-for="(section, i) in content"
       :key="section.title"
       class="section flex flex-col p-8"
     >
-      <hr class="w-full">
+      <hr v-if="i > 0" class="w-full">
       <div class="section-body flex flex-col md:flex-row space-y-4">
         <div class="content flex flex-col md:w-[40%]">
           <h3 class="title pt-8">

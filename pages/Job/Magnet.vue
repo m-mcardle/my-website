@@ -7,8 +7,10 @@
       date-string="May 2021 - December 2022"
       :image-url="require('~/assets/images/Magnet-Logo.png')"
     />
+    <hr>
     <JobContent :content="content" />
-    <GoalsSection />
+    <hr>
+    <GoalsSection :goals="goals" />
   </div>
 </template>
 
@@ -18,6 +20,15 @@ import Vue from 'vue'
 import JobHeader from '~/components/Job/JobHeader.vue'
 import NavHeader from '~/components/NavHeader.vue'
 import JobContent from '~/components/Job/JobContent.vue'
+import GoalsSection from '~/components/Job/GoalsSection.vue'
+
+const goalRatings = {
+  Outstanding: 0,
+  Success: 1,
+  Satisfactory: 2,
+  Difficulty: 3,
+  Failure: 4
+}
 
 export default Vue.extend({
   name: 'MagnetPage',
@@ -25,7 +36,8 @@ export default Vue.extend({
   components: {
     JobHeader,
     NavHeader,
-    JobContent
+    JobContent,
+    GoalsSection
   },
 
   data () {
@@ -85,6 +97,14 @@ export default Vue.extend({
           title: 'Refactoring a Microservice',
           body: "When nearing the end of my co-op I discovered some inflexibility in one of our microservices when I was working on what should have been a small fix. I brought this to the attention of one of the team's Senior Developers, Rob. To my amazement, he suggested I should take on the tall task of refactoring the problematic areas of the microservice. He explained that it had become a bit of a mess due to some bad practices sneaking their way into production. For the next few weeks I took on this super exciting project, with Rob acting as somewhat of a project manager/mentor for concerns and questions I had while working on it.\n\nThrough this experience I learned many fascinating concepts involving code completeness and best practices. I also of course learned the methodology involved with refactoring production code. I developed whitebox tests, blackbox tests, learned about what makes code hard to maintain, learned concepts of how to keep code flexible, and learned so much about how to not just write functional code, but maintainable and extendable code.",
           images: [require('assets/images/Magnet/Refactor.png')]
+        }
+      ],
+      goals: [
+        {
+          title: 'C#',
+          description: 'Become proficient in C#',
+          outcome: goalRatings.Outstanding,
+          body: "One goal was to become proficient using C#. I came into the work term with no prior experience with the language and considering almost all of our microservices are written in C# I knew I would need to ramp myself up on C#. I accomplished this goal by signing up on Pluralsight for a C# learning course to cover the language basics, and made a personal effort to give all code reviews written in C# a look so I can learn by example and by asking the other developer's questions about their code. Even with that personal effort I still have to say that I would not have learned so much so fast about the language if it wasn't for my pair programming experience I previously mentioned with Christian. By learning through my Pluralsight course, observing the other dev's new C# code, and an amazing hands-on learning experience working on our CLI, I can confidently say I am now comfortable developing in C#. I would certainly say I have accomplished this goal."
         }
       ]
     }
