@@ -8,15 +8,16 @@
       :image-url="require('~/assets/images/Magnet-Logo.png')"
     />
     <JobContent :content="content" />
+    <GoalsSection />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 
-import JobHeader from '~/components/JobHeader.vue'
+import JobHeader from '~/components/Job/JobHeader.vue'
 import NavHeader from '~/components/NavHeader.vue'
-import JobContent from '~/components/JobContent.vue'
+import JobContent from '~/components/Job/JobContent.vue'
 
 export default Vue.extend({
   name: 'MagnetPage',
@@ -48,17 +49,17 @@ export default Vue.extend({
         {
           title: 'MDIS',
           body: "While Magnet AXIOM certainly is the company's most successful product, there are some super exciting innovations earlier in their product lifecycle that are rapidly growing in popularity. The most mature of these innovations come as a trio of products that are marketed together as a part of the Magnet Digital Investigation Suite (MDIS).\n\nThese three tools are Magnet AUTOMATE which automates workflows that forensic examiners might otherwise have to perform manually, Magnet ATLAS which provides collaborative and case management tools for investigators, and Magnet REVIEW which is a web application to enable non-technical examiners to review evidence and build cases remotely while interacting with a more user-friendly interface than more forensically intensive products such as AXIOM. Magnet REVIEW ended up being the team I joined for my co-op term and I will go into far more detail later on.",
-          images: [require('assets/images/Magnet/Automate.png'), require('assets/images/Magnet/Review.png'), require('assets/images/Magnet/Review.png')]
+          images: [require('assets/images/Magnet/Automate.png'), require('assets/images/Magnet/Review.png'), require('assets/images/Magnet/Atlas.png')]
         },
         {
           title: 'Guest Speakers',
-          body: "One thing that I really came to appreciate about Magnet is its policy at each all-hands meetings to have a guest speaker from the field talk about their real-life experiences involving digital forensics. They would go over case after case of crimes that seemed straight out of a TV show, and hearing about the impact that Magnet was able to make on these cases was so powerful. When the stakes involve justice for the innocent it cannot be stressed enough how motivating it is to come into work with the right attitude and work ethic.I found it amazing how inspiring these detectives were. They were the real heros so to hear them talk about Magnet's products in such a good light made me so proud to be there (even as a lowly co-op). During my time here we got the chance to hear from guest speakers from Nashville, Scotland, and even Germany. Each speaker came with their own amazing stories about how real crimes were solved using the tools that Magnet has provided.",
+          body: "One thing that I really came to appreciate about Magnet is its policy at each all-hands meetings to have a guest speaker from the field talk about their real-life experiences involving digital forensics. They would go over case after case of crimes that seemed straight out of a TV show, and hearing about the impact that Magnet was able to make on these cases was so powerful. When the stakes involve justice for the innocent it cannot be stressed enough how motivating it is to come into work with the right attitude and work ethic. I found it amazing how inspiring these detectives were. They were the real heros so to hear them talk about Magnet's products in such a good light made me so proud to be there (even as a co-op). During my time here we got the chance to hear from guest speakers from Nashville, Scotland, and even Germany. Each speaker came with their own amazing stories about how real crimes were solved using the tools that Magnet has provided.",
           images: [require('assets/images/Magnet/Nashvile.jpeg'), require('assets/images/Magnet/Scotland.png')]
         },
         {
           title: 'My Team / Introduction',
           body: 'As mentioned before I joined the Magnet REVIEW team. More specially I originally joined the Taco sub-team which specializes in deployment and infrastructure primarily. This came as very exciting but terrifying news to know I would be surrounded by super cool tech which I unfortunately had little to no experience with. I knew that this term would certainly give me more than enough opportunities to try out new technologies and immediately knew I was on a team that was more than happy to help me learn.\n\nI want to take some time now to go over some important themes/tasks I performed during my time at Magnet to demonstrate some of the awesome opportunities I had to learn.',
-          images: [require('assets/images/AWS.png')] // Picture of Taco, Kubernetes AWS & Azure
+          images: [require('assets/images/Magnet/Taco.jpeg'), require('assets/images/Kubernetes.png'), require('assets/images/AWS.png')] // Picture of Taco, Kubernetes AWS & Azure
         },
         {
           title: 'Bash Installer',
@@ -82,7 +83,7 @@ export default Vue.extend({
         },
         {
           title: 'Refactoring a Microservice',
-          body: "When nearing the end of my co-op I discovered some inflexibility in one of our microservices when I was working on what should have been a small fix. I brought this to the attention of one of the team's Senior Developers, Rob. To my amazement, he suggested I should take on the tall task of refactoring the problematic areas of the microservice. He explained that it had become a bit of a mess due to some bad practices sneaking their way into production. For the next few weeks I took on this super exciting project, with Rob acting as somewhat of a project manager/mentor for concerns and questions I had while working on it.\n\nThrough this experience I learned many fascinating concepts involving code completeness and coding practices. I also of course learned the methodology involved with refactoring production code. I developed whitebox tests, blackbox tests, learned about what makes code hard to maintain, learned concepts of how to keep code flexible, and learned so much about how to not just write functional code, but maintainable and extendable code.",
+          body: "When nearing the end of my co-op I discovered some inflexibility in one of our microservices when I was working on what should have been a small fix. I brought this to the attention of one of the team's Senior Developers, Rob. To my amazement, he suggested I should take on the tall task of refactoring the problematic areas of the microservice. He explained that it had become a bit of a mess due to some bad practices sneaking their way into production. For the next few weeks I took on this super exciting project, with Rob acting as somewhat of a project manager/mentor for concerns and questions I had while working on it.\n\nThrough this experience I learned many fascinating concepts involving code completeness and best practices. I also of course learned the methodology involved with refactoring production code. I developed whitebox tests, blackbox tests, learned about what makes code hard to maintain, learned concepts of how to keep code flexible, and learned so much about how to not just write functional code, but maintainable and extendable code.",
           images: [require('assets/images/Magnet/Refactor.png')]
         }
       ]

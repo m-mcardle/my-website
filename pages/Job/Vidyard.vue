@@ -14,9 +14,9 @@
 <script lang="ts">
 import Vue from 'vue'
 
-import JobHeader from '~/components/JobHeader.vue'
+import JobHeader from '~/components/Job/JobHeader.vue'
 import NavHeader from '~/components/NavHeader.vue'
-import JobContent from '~/components/JobContent.vue'
+import JobContent from '~/components/Job/JobContent.vue'
 
 export default Vue.extend({
   name: 'VidyardPage',

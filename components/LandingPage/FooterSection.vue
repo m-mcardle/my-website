@@ -6,10 +6,10 @@
     <hr>
     <div class="logo-images flex flex-row justify-between">
       <img :class="mdImageClass" alt="University of Guelph Logo" src="~/assets/images/UoG-Logo.jpeg">
-      <NuxtLink to="/Coop/Magnet" class="magnet-link shadow hover:shadow-lg hover:shadow-blue/90 shadow-blue/50">
+      <NuxtLink to="/Job/Magnet" class="magnet-link shadow hover:shadow-lg hover:shadow-blue/90 shadow-blue/50">
         <img :class="mdImageClass" alt="Magnet Forensics Logo" src="~/assets/images/Magnet-Logo.png">
       </NuxtLink>
-      <NuxtLink to="/Coop/Vidyard" class="vidyard-link shadow hover:shadow-lg hover:shadow-green-400/90 shadow-green-400/50">
+      <NuxtLink to="/Job/Vidyard" class="vidyard-link shadow hover:shadow-lg hover:shadow-green-400/90 shadow-green-400/50">
         <img :class="mdImageClass" alt="Vidyard Logo" src="~/assets/images/Vidyard-Logo.png">
       </NuxtLink>
     </div>
