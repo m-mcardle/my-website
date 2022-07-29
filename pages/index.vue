@@ -1,5 +1,6 @@
 <template>
   <div class="body bg-black text-white">
+    <NavHeader />
     <div id="home" class="landing-page h-[125vh]">
       <div class="main w-full flex flex-row">
         <Greeting />
@@ -22,6 +23,7 @@ import ContactSection from '~/components/LandingPage/ContactSection.vue'
 import Greeting from '~/components/LandingPage/GreetingSection.vue'
 import InfoSection from '~/components/InfoPage/InfoSection.vue'
 import TimelineSection from '~/components/InfoPage/TimelineSection.vue'
+import NavHeader from '~/components/NavHeader.vue'
 
 export default Vue.extend({
   name: 'IndexPage',
@@ -31,7 +33,8 @@ export default Vue.extend({
     ContactSection,
     Greeting,
     InfoSection,
-    TimelineSection
+    TimelineSection,
+    NavHeader
   },
 
   data () {
@@ -43,3 +46,10 @@ export default Vue.extend({
   }
 })
 </script>
+
+<style scoped>
+.icon {
+  width: 8em;
+  height: 8em;
+}
+</style>

@@ -35,11 +35,3 @@ hr {
 img {
   background-color: white;
 }
-
-li {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  text-align: right;
-  align-items: center;
-}
