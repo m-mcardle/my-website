@@ -68,7 +68,7 @@ export default Vue.extend({
         {
           title: 'Jenkins Automation / Azure CLI',
           body: "The next phase of my co-op involved entering the world of Jenkins. For the unfamiliar, Jenkins is a pipeline based automation and continuous integration tool to build, test, and deploy our product. I first worked on a ticket to address an issue that I saw arising involving what I would call orphaned clusters. There seemed to be an issue where one of our build jobs would be triggered to spin up an instance of our product to do some testing on, but after the testing was completed, the cluster was not being torn down. This can be quite a problem when these clusters can cost over $2000 a month. I decided to familiarize myself with the Jenkins pipeline used to build these clusters and the Azure CLI to interact with the resources being created. I ended up using Jenkins environment variables to determine who kicked off the job and then the Azure CLI to automatically tag the resources with the name of the person who started the build in order to maintain responsibility for the clusters. Because of this, it is now far easier to clean up these clusters and save ourselves from spending $2000 a month on a cluster we weren't even using.",
-          images: [''] // Jenkins and Azure logos
+          images: [require('assets/images/Jenkins.png'), require('assets/images/Azure.webp')] // Jenkins and Azure logos
         },
         {
           title: 'C# (CLI XML Parsing)',
