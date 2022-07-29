@@ -14,8 +14,8 @@
 <script lang="ts">
 import Vue from 'vue'
 
-import JobHeader from '../components/JobHeader.vue'
-import NavHeader from '../components/NavHeader.vue'
+import JobHeader from '~/components/JobHeader.vue'
+import NavHeader from '~/components/NavHeader.vue'
 import JobContent from '~/components/JobContent.vue'
 
 export default Vue.extend({
