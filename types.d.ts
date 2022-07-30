@@ -3,6 +3,12 @@ interface Section {
   body: string
   images: Array<string>
 }
+interface Goal {
+  title: string,
+  description: string,
+  outcome: number,
+  body: string
+}
 
 interface Image {
   text: string,

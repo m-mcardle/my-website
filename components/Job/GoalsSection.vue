@@ -3,7 +3,7 @@
     <h2>My Goals / Outcomes</h2>
     <div
       v-for="(goal) in goals"
-      :key="goal"
+      :key="goal.title"
       class="section flex flex-col p-8"
     >
       <h3>
@@ -27,7 +27,7 @@ export default Vue.extend({
 
   props: {
     goals: {
-      type: Array as () => ArrayConstructor<Object>,
+      type: Array as () => Array<Goal>,
       required: true
     }
   }
