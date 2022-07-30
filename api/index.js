@@ -31,7 +31,8 @@ app.get('/projects', async (_, res) => {
       year: 'desc'
     },
     include: {
-      infrastructure: true
+      infrastructure: true,
+      image: true
     }
   })
   res.json(projects)
