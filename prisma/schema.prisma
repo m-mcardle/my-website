@@ -12,8 +12,17 @@ datasource db {
 
 model Image {
   id          Int     @id @default(autoincrement())
-  text        String
   path        String  @default("NotFound.png")
+  alt         String
+  projects    Project[]
+  tech        Tech[]
+}
+
+model Tech {
+  id          Int     @id @default(autoincrement())
+  text        String
+  image       Image   @relation(fields: [imageId], references: [id])
+  imageId     Int
   projects    Project[]
   description String?
 }
@@ -23,9 +32,10 @@ model Project {
   title             String
   github            String
   content           String?
-  image             String   @default("NotFound.png")
+  image             Image?   @relation(fields: [imageId], references: [id])
+  imageId           Int    
   year              String   @default("2022")
-  infrastructure    Image[]
+  infrastructure    Tech[]
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
   published         Boolean  @default(false)
