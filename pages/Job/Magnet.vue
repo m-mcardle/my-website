@@ -71,7 +71,7 @@ export default Vue.extend({
         {
           title: 'My Team / Introduction',
           body: 'As mentioned before I joined the Magnet REVIEW team. More specially I originally joined the Taco sub-team which specializes in deployment and infrastructure primarily. This came as very exciting but terrifying news to know I would be surrounded by super cool tech which I unfortunately had little to no experience with. I knew that this term would certainly give me more than enough opportunities to try out new technologies and immediately knew I was on a team that was more than happy to help me learn.\n\nI want to take some time now to go over some important themes/tasks I performed during my time at Magnet to demonstrate some of the awesome opportunities I had to learn.',
-          images: [require('assets/images/Magnet/Taco.jpeg'), require('assets/images/Kubernetes.png'), require('assets/images/AWS.png')] // Picture of Taco, Kubernetes AWS & Azure
+          images: [require('assets/images/Magnet/Taco.jpeg'), require('assets/images/Logos/Kubernetes.png'), require('assets/images/Logos/AWS.png')] // Picture of Taco, Kubernetes AWS & Azure
         },
         {
           title: 'Bash Installer',
@@ -81,17 +81,17 @@ export default Vue.extend({
         {
           title: 'Jenkins Automation / Azure CLI',
           body: "The next phase of my co-op involved entering the world of Jenkins. For the unfamiliar, Jenkins is a pipeline based automation and continuous integration tool to build, test, and deploy our product. I first worked on a ticket to address an issue that I saw arising involving what I would call orphaned clusters. There seemed to be an issue where one of our build jobs would be triggered to spin up an instance of our product to do some testing on, but after the testing was completed, the cluster was not being torn down. This can be quite a problem when these clusters can cost over $2000 a month. I decided to familiarize myself with the Jenkins pipeline used to build these clusters and the Azure CLI to interact with the resources being created. I ended up using Jenkins environment variables to determine who kicked off the job and then the Azure CLI to automatically tag the resources with the name of the person who started the build in order to maintain responsibility for the clusters. Because of this, it is now far easier to clean up these clusters and save ourselves from spending $2000 a month on a cluster we weren't even using.",
-          images: [require('assets/images/Jenkins.png'), require('assets/images/Azure.webp')] // Jenkins and Azure logos
+          images: [require('assets/images/Logos/Jenkins.png'), require('assets/images/Logos/Azure.webp')] // Jenkins and Azure logos
         },
         {
           title: 'C# (CLI XML Parsing)',
           body: "My next (and probably my favourite) project of my co-op involved pair-programming with another developer on the team to develop new parsers for our CLI. For context, our CLI is used to ingest evidence into REVIEW by parsing either JSON or XML files and extracting the needed information from elements to populate models used in REVIEW. Specifically we were tasked with supporting one of our competitor's data formats which came as an XML export. I should probably add that this was my first major involvement with one of our C# services, so this was an amazing learning experience for myself. This also was about the time where I really felt myself being able to contribute meaningfully to design discussions as I became more comfortable and familiar with our CLI's infrastructure. I remember this so fondly because it felt amazing to contribute to a customer requested Epic in such a meaningful way. It also was so enjoyable to work alongside such an amazing mentor who was so open to collaborate. I think I owe a lot of my growth during my co-op to Christian for being such a great mentor during the work on the project, and it remains one of my most fond memories during my work term.",
-          images: [require('~/assets/images/CSharp.png')] // C# Logo CLI Logo?? XML Logo
+          images: [require('~/assets/images/Logos/CSharp.png')] // C# Logo CLI Logo?? XML Logo
         },
         {
           title: 'React.js Front-End Development',
           body: 'During the back half of my co-op there arose a concern about a large release we were supposed to deliver. However, it just so happened to involve almost entirely front-end and minor application level changes.This meant my Taco sub-team had very few priority items to deliver for this specific release.For this reason we came to the decision that it might be beneficial for me to switch over to the other sub-team (aka the Gadgeteers) to lend a hand.\n\nThis gave me an amazing opportunity to get experience with front-end development. I learned how to develop using component driven design in React.js and found it super cool to work with one of these powerful frameworks.I also got experience with developing packages as we have an internal npm library which I had to work on.This gave me experience working with the Bootstrap library as our main packages are built on top of it.',
-          images: [require('~/assets/images/React.png')] // React logo npm logo
+          images: [require('~/assets/images/Logos/React.png')] // React logo npm logo
         },
         {
           title: 'Refactoring a Microservice',
