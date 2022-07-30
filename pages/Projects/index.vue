@@ -9,7 +9,7 @@
         v-for="(project) in allProjects"
         :key="project.title"
         class="flex flex-col w-[500px] h-[600px] bg-gray-600 mx-auto p-4 hover:shadow-lg hover:shadow-blue"
-        :to="project.title ? `/Projects/${project.title}` : ''"
+        :to="project.link ? `/Projects/${project.link}` : ''"
       >
         <p class="self-end">
           {{ project.year }}

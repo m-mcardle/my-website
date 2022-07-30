@@ -47,7 +47,7 @@ export default (Vue as VueConstructor<Vue & InstanceType<typeof UserAuth>>).exte
       title: '',
       github: '',
       content: '',
-      image: '',
+      image: {} as Image,
       year: ''
     }
   },

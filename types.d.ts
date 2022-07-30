@@ -11,9 +11,14 @@ interface Goal {
 }
 
 interface Image {
-  text: string,
+  alt: string,
   path: string,
-  description: string | null
+}
+
+interface Tech {
+  text: string,
+  description: string,
+  image: Image
 }
 
 interface Project {
@@ -21,7 +26,8 @@ interface Project {
   title: string,
   github: string,
   content?: string,
-  image: string,
+  link?: string,
+  image: Image,
   year: string,
   infrastructure?: Image[]
   createdAt?: Date,
