@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { json } from 'express'
 import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
@@ -9,7 +9,7 @@ const ADMIN_USERS = [
   process.env.ADMIN_UID2
 ]
 
-app.use(express.json())
+app.use(json())
 
 app.post('/project', async (req, res) => {
   const { title, content, github, image, year } = req.body
