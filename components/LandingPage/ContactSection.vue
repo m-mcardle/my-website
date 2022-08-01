@@ -3,7 +3,7 @@
     <img class="image" alt="Matt McArdle" src="~/assets/images/MatthewMcArdleIcon.jpg">
     <div class="contact-info flex flex-row my-5 justify-between">
       <a href="https://www.linkedin.com/in/matthew-j-mcardle/">
-        <FontAwesomeIcon class="icon text-[#0072b1]" icon="fa-brands fa-linkedin" />
+        <FontAwesomeIcon class="icon" icon="fa-brands fa-linkedin" />
       </a>
       <a href="https://www.github.com/m-mcardle">
         <FontAwesomeIcon class="icon" icon="fa-brands fa-github" />
