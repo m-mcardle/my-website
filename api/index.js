@@ -27,30 +27,36 @@ app.post('/project', async (req, res) => {
 
 app.get('/projects', async (_, res) => {
   const projects = await prisma.project.findMany({
-    orderBy: {
-      year: 'desc'
-    },
+    orderBy: [
+      {
+        year: 'desc'
+      },
+      {
+        id: 'desc'
+      }
+    ],
     include: {
-      infrastructure: true
+      infrastructure: true,
+      image: true
     }
   })
   res.json(projects)
 })
 
-app.get('/project/:title', async (req, res) => {
-  const { title } = req.params
+app.get('/project/:link', async (req, res) => {
+  const { link } = req.params
   const project = await prisma.project.findFirst({
-    where: { title }
+    where: { link }
   })
   res.json(project)
 })
 
 app.delete('/project/:title', async (req, res) => {
-  const { title } = req.params
+  const { link } = req.params
 
   try {
     const project = await prisma.project.findFirst({
-      where: { title }
+      where: { link }
     })
 
     if (!project) {

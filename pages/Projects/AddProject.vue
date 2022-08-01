@@ -13,7 +13,7 @@
         <label for="content">Description</label>
         <input id="content" v-model="content" placeholder="Description">
         <label for="image">Image Path</label>
-        <input id="image" v-model="image" placeholder="Image Path">
+        <input id="image" v-model="image.path" placeholder="Image Path">
         <label for="year">Year</label>
         <input id="year" v-model="year" placeholder="Year">
         <button class="bg-blue hover:bg-blue/30" :disabled="submitDisabled" @click="submit">
@@ -47,7 +47,10 @@ export default (Vue as VueConstructor<Vue & InstanceType<typeof UserAuth>>).exte
       title: '',
       github: '',
       content: '',
-      image: '',
+      image: {
+        alt: '',
+        path: ''
+      },
       year: ''
     }
   },

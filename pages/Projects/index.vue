@@ -18,13 +18,13 @@
           {{ project.title }}
         </h3>
         <div class="w-full h-[250px]">
-          <img class="max-h-[250px] w-[350px] mx-auto" :alt="project.title" :src="require(`~/assets/images/${project.image}`)">
+          <img class="max-h-[250px] w-[350px] mx-auto" :alt="project.image.alt" :src="require(`~/assets/images/${project.image.path}`) || ''">
         </div>
         <p class="mt-8">
           {{ project.content }}
         </p>
         <div class="flex flex-row w-full justify-around mt-auto mb-0">
-          <div
+          <!-- <div
             v-for="(item) in project.infrastructure"
             :key="item.text"
             class="flex flex-col justify-evenly items-center"
@@ -35,7 +35,7 @@
             >
               {{ item.description }}
             </p>
-          </div>
+          </div> -->
         </div>
       </NuxtLink>
       <NuxtLink

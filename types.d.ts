@@ -1,7 +1,6 @@
 interface Image {
-  text: string,
-  path: string,
-  description: string | null
+  alt: string,
+  path: string
 }
 
 interface Project {
@@ -9,7 +8,7 @@ interface Project {
   title: string,
   github: string,
   content?: string,
-  image: string,
+  image: Image,
   year: string,
   infrastructure?: Image[]
   createdAt?: Date,
