@@ -36,7 +36,11 @@ app.get('/projects', async (_, res) => {
       }
     ],
     include: {
-      infrastructure: true,
+      infrastructure: {
+        include: {
+          image: true
+        }
+      },
       image: true
     }
   })

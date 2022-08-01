@@ -24,18 +24,18 @@
           {{ project.content }}
         </p>
         <div class="flex flex-row w-full justify-around mt-auto mb-0">
-          <!-- <div
+          <div
             v-for="(item) in project.infrastructure"
             :key="item.text"
             class="flex flex-col justify-evenly items-center"
           >
-            <img class="h-8 w-auto bg-white" :alt="item.text" :src="require(`~/assets/images/${item.path}`)">
+            <img class="h-8 w-auto bg-white" :alt="item.image.alt" :src="require(`~/assets/images/${item.image.path}`)">
             <p
               class="font-bold"
             >
-              {{ item.description }}
+              {{ item.text }}
             </p>
-          </div> -->
+          </div>
         </div>
       </NuxtLink>
       <NuxtLink

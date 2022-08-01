@@ -3,6 +3,12 @@ interface Image {
   path: string
 }
 
+interface Tech {
+  text: string,
+  description?: string
+  image: Image
+}
+
 interface Project {
   id?: Number,
   link?: string,
@@ -11,7 +17,7 @@ interface Project {
   content?: string,
   image: Image,
   year: string,
-  infrastructure?: Image[]
+  infrastructure?: Tech[]
   createdAt?: Date,
   updatedAt?: Date,
   published?: Boolean,
