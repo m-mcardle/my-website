@@ -1,7 +1,23 @@
 <template>
-  <div class="main bg-black text-white min-h-screen h-fit p-8">
-    <NavHeader />
-    <ProjectContainer :title="title" :github="github" :updated-at="updatedAt" :raw-markdown="rawMarkdown" />
+  <div class="flex flex-row w-full">
+    <!-- Disable no-v-html rule because we are sanitizing it, the rule is to protect from XSS attacks -->
+    <!-- eslint-disable-next-line vue/no-v-html -->
+    <div class="markdown w-[60%]" v-html="parsedMarkdown" />
+    <div class="flex flex-col h-full ml-auto mr-0">
+      <a :href="github || 'https://www.github.com/m-mcardle'">
+        <FontAwesomeIcon class="icon" icon="fa-brands fa-github" />
+      </a>
+      <p class="text-right">
+        Updated: {{ new Date(updatedAt).toDateString() }}
+      </p>
+      <button
+        v-if="isAdmin"
+        class="delete ml-auto mr-0 text-red-400 hover:shadow-red-700 hover:shadow-lg bg-white px-1"
+        @click="deleteProject(title)"
+      >
+        <FontAwesomeIcon size="xl" icon="fa-solid fa-xmark" />
+      </button>
+    </div>
   </div>
 </template>
 
@@ -12,38 +28,31 @@ import sanitizeHtml from 'sanitize-html'
 
 import UserAuth from '~/mixins/UserAuth.vue'
 
-import NavHeader from '~/components/NavHeader.vue'
-import ProjectContainer from '~/components/Projects/ProjectContainer.vue'
-
 export default (Vue as VueConstructor<Vue & InstanceType<typeof UserAuth>>).extend({
-  name: 'ProjectPage',
+  name: 'ProjectContainer',
 
-  components: {
-    NavHeader,
-    ProjectContainer
-  },
+  mixins: [
+    UserAuth
+  ],
 
-  data () {
-    return {
-      title: '',
-      github: '',
-      updatedAt: 0,
-      rawMarkdown: '# Loading...'
+  props: {
+    title: {
+      type: String,
+      required: true
+    },
+    github: {
+      type: String,
+      required: true
+    },
+    updatedAt: {
+      type: Number,
+      required: true
+    },
+    rawMarkdown: {
+      type: String,
+      required: true
     }
   },
-
-  async fetch () {
-    const response = await this.$axios.$get(`/api/project/${this.project}`)
-
-    if (response) {
-      this.title = response.title
-      this.github = response.github
-      this.updatedAt = response.updatedAt
-    }
-  },
-
-  fetchOnServer: false,
-
   computed: {
     parsedMarkdown (): string {
       const markdown = sanitizeHtml(this.rawMarkdown)
@@ -52,19 +61,6 @@ export default (Vue as VueConstructor<Vue & InstanceType<typeof UserAuth>>).exte
 
     project (): string {
       return this.$route.params.project
-    }
-  },
-
-  mounted () {
-    this.$fetch()
-    try {
-      this.rawMarkdown = require(`~/assets/markdown/${this.project}.md`).default
-    } catch (ex) {
-      if (ex.message.includes('Cannot find module')) {
-        this.rawMarkdown = '## Error - Project Not Found :('
-      } else {
-        this.rawMarkdown = '## Error fetching data :('
-      }
     }
   },
 
