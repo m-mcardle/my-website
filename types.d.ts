@@ -5,6 +5,7 @@ interface Image {
 
 interface Project {
   id?: Number,
+  link?: string,
   title: string,
   github: string,
   content?: string,
