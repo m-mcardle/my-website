@@ -12,8 +12,6 @@
         <input id="github" v-model="github" placeholder="GitHub Link">
         <label for="content">Description</label>
         <input id="content" v-model="content" placeholder="Description">
-        <label for="image">Image Path</label>
-        <input id="image" v-model="image.path" placeholder="Image Path">
         <label for="year">Year</label>
         <input id="year" v-model="year" placeholder="Year">
         <button class="bg-blue hover:bg-blue/30" :disabled="submitDisabled" @click="submit">
@@ -48,7 +46,7 @@ export default (Vue as VueConstructor<Vue & InstanceType<typeof UserAuth>>).exte
       github: '',
       content: '',
       image: {
-        alt: '',
+        alt: 'Unknown',
         path: ''
       },
       year: ''
@@ -56,19 +54,8 @@ export default (Vue as VueConstructor<Vue & InstanceType<typeof UserAuth>>).exte
   },
 
   computed: {
-    validImage (): boolean {
-      if (!this.image) { return true }
-
-      try {
-        require(`~/assets/images/${this.image}`)
-        return true
-      } catch (error) {
-        return false
-      }
-    },
-
     submitDisabled (): boolean {
-      return !this.isAdmin || !this.validImage || !this.title || !this.github || !this.content
+      return !this.isAdmin || !this.title || !this.github || !this.content
     }
   },
 
@@ -79,7 +66,6 @@ export default (Vue as VueConstructor<Vue & InstanceType<typeof UserAuth>>).exte
         title: this.title,
         github: this.github,
         content: this.content,
-        image: this.image || undefined,
         year: this.year
       })
 
