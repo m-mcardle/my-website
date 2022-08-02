@@ -87,39 +87,3 @@ export default (Vue as VueConstructor<Vue & InstanceType<typeof UserAuth>>).exte
   }
 })
 </script>
-
-<style scoped>
-::v-deep(.markdown > h1) {
-  text-align: center;
-}
-
-::v-deep(.markdown > h2) {
-  text-align: center;
-}
-
-::v-deep(.markdown > h3) {
-  padding: 16px 0;
-}
-
-::v-deep(.markdown > a) {
-  font-weight: bold;
-}
-
-::v-deep(.markdown > ul) {
-  list-style: disc inside;
-}
-
-::v-deep(.markdown > p > a) {
-  color: lightskyblue;
-}
-
-.icon {
-  width: 8rem;
-  height: 8rem;
-
-  @media screen and (min-width: 800px) {
-    width: 16rem;
-    height: 16rem;
-  }
-}
-</style>
