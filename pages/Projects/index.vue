@@ -9,7 +9,7 @@
         v-for="(project) in allProjects"
         :key="project.title"
         class="flex flex-col w-[500px] h-[600px] bg-gray-600 mx-auto p-4 hover:shadow-lg hover:shadow-blue"
-        :to="project.title ? `/Projects/${project.title}` : ''"
+        :to="project.link ? `/Projects/${project.link}` : ''"
       >
         <p class="self-end">
           {{ project.year }}
@@ -18,7 +18,7 @@
           {{ project.title }}
         </h3>
         <div class="w-full h-[250px]">
-          <img class="max-h-[250px] w-[350px] mx-auto" :alt="project.title" :src="require(`~/assets/images/${project.image}`)">
+          <img class="max-h-[250px] w-[350px] mx-auto" :alt="project.image.alt" :src="require(`~/assets/images/${project.image.path}`) || ''">
         </div>
         <p class="mt-8">
           {{ project.content }}
@@ -29,11 +29,11 @@
             :key="item.text"
             class="flex flex-col justify-evenly items-center"
           >
-            <img class="h-8 w-auto bg-white" :alt="item.text" :src="require(`~/assets/images/${item.path}`)">
+            <img class="h-8 w-auto bg-white" :alt="item.image.alt" :src="require(`~/assets/images/${item.image.path}`)">
             <p
               class="font-bold"
             >
-              {{ item.description }}
+              {{ item.text }}
             </p>
           </div>
         </div>
