@@ -12,24 +12,24 @@ interface Goal {
 
 interface Image {
   alt: string,
-  path: string,
+  path: string
 }
 
 interface Tech {
   text: string,
-  description: string,
+  description?: string
   image: Image
 }
 
 interface Project {
   id?: Number,
+  link?: string,
   title: string,
   github: string,
   content?: string,
-  link?: string,
   image: Image,
   year: string,
-  infrastructure?: Image[]
+  infrastructure?: Tech[]
   createdAt?: Date,
   updatedAt?: Date,
   published?: Boolean,

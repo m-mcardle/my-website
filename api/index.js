@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { json } from 'express'
 import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
@@ -9,17 +9,22 @@ const ADMIN_USERS = [
   process.env.ADMIN_UID2
 ]
 
-app.use(express.json())
+app.use(json())
 
 app.post('/project', async (req, res) => {
-  const { title, content, github, image, year } = req.body
+  const { title, content, github, year } = req.body
   const project = await prisma.project.create({
     data: {
       title,
       content,
       github,
-      image,
-      year
+      year,
+      image: {
+        connect: { id: 1 }
+      }
+    },
+    include: {
+      image: true
     }
   })
   res.status(200).json(project)
@@ -36,7 +41,11 @@ app.get('/projects', async (_, res) => {
       }
     ],
     include: {
-      infrastructure: true,
+      infrastructure: {
+        include: {
+          image: true
+        }
+      },
       image: true
     }
   })
