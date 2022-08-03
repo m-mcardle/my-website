@@ -8,6 +8,8 @@
       :image-url="require('~/assets/images/Vidyard-Logo.png')"
     />
     <JobContent :content="content" />
+    <hr>
+    <GoalsSection :goals="goals" />
   </div>
 </template>
 
@@ -17,6 +19,9 @@ import Vue from 'vue'
 import JobHeader from '~/components/Job/JobHeader.vue'
 import NavHeader from '~/components/NavHeader.vue'
 import JobContent from '~/components/Job/JobContent.vue'
+import GoalsSection from '~/components/Job/GoalsSection.vue'
+
+import { goalRatings } from '~/src/goals'
 
 export default Vue.extend({
   name: 'VidyardPage',
@@ -24,7 +29,8 @@ export default Vue.extend({
   components: {
     JobHeader,
     NavHeader,
-    JobContent
+    JobContent,
+    GoalsSection
   },
 
   data () {
@@ -34,6 +40,38 @@ export default Vue.extend({
           title: 'Welcome!',
           body: 'My name is Matthew McArdle and I am a Software Engineering Student at the University of Guelph. On this page I will be going into great detail about my co-op placement during my time at the amazing Kitchener company Vidyard.',
           images: [require('assets/images/Vidyard-Logo.png')]
+        }
+      ],
+      goals: [
+        {
+          title: 'Personal Projects',
+          description: 'Apply myself outside of work to enhance my portfolio',
+          outcome: goalRatings.Outstanding,
+          body: "foobarbaz'"
+        },
+        {
+          title: 'Project Lead',
+          description: 'Lead a phase of a project',
+          outcome: goalRatings.Outstanding,
+          body: "foobarbaz'"
+        },
+        {
+          title: 'Test Driven Development',
+          description: 'Gain experience with TDD',
+          outcome: goalRatings.Success,
+          body: "foobarbaz'"
+        },
+        {
+          title: 'Technical Proficiency',
+          description: 'Ruby Vue.js',
+          outcome: goalRatings.Outstanding,
+          body: "foobarbaz'"
+        },
+        {
+          title: 'Internal Project',
+          description: 'GIF Police Guild',
+          outcome: goalRatings.Outstanding,
+          body: "foobarbaz'"
         }
       ]
     }

@@ -6,7 +6,7 @@ interface Section {
 interface Goal {
   title: string,
   description: string,
-  outcome: number,
+  outcome: string,
   body: string
 }
 
