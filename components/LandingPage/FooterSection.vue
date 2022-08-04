@@ -71,4 +71,8 @@ export default Vue.extend({
     font-size: 24px;
   }
 }
+
+b {
+  font-weight: 800;
+}
 </style>
