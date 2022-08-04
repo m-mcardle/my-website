@@ -84,7 +84,7 @@ export default Vue.extend({
         },
         {
           title: 'React.js Front-End Development',
-          body: 'During the back half of my co-op there arose a concern about a large release we were supposed to deliver. However, it just so happened to involve almost entirely front-end and minor application level changes.This meant my Taco sub-team had very few priority items to deliver for this specific release.For this reason we came to the decision that it might be beneficial for me to switch over to the other sub-team (aka the Gadgeteers) to lend a hand.\n\nThis gave me an amazing opportunity to get experience with front-end development. I learned how to develop using component driven design in React.js and found it super cool to work with one of these powerful frameworks.I also got experience with developing packages as we have an internal npm library which I had to work on.This gave me experience working with the Bootstrap library as our main packages are built on top of it.',
+          body: 'During the back half of my co-op there arose a concern about a large release we were supposed to deliver. However, it just so happened to involve almost entirely front-end and minor application level changes. This meant my Taco sub-team had very few priority items to deliver for this specific release. For this reason we came to the decision that it might be beneficial for me to switch over to the other sub-team (aka the Gadgeteers) to lend a hand.\n\nThis gave me an amazing opportunity to get experience with front-end development. I learned how to develop using component driven design in React.js and found it super cool to work with one of these powerful frameworks. I also got experience with developing packages as we have an internal npm library which I had to work on. This gave me experience working with the Bootstrap library as our main packages are built on top of it.',
           images: [require('~/assets/images/Logos/React.png')] // React logo npm logo
         },
         {
@@ -98,54 +98,90 @@ export default Vue.extend({
           title: 'C#',
           description: 'Become proficient in C#',
           outcome: goalRatings.Outstanding,
+          image: {
+            path: 'Logos/CSharp.png',
+            alt: 'CSharp Logo'
+          },
           body: "One goal was to become proficient using C#. I came into the work term with no prior experience with the language and considering almost all of our microservices are written in C# I knew I would need to ramp myself up on C#. I accomplished this goal by signing up on Pluralsight for a C# learning course to cover the language basics, and made a personal effort to give all code reviews written in C# a look so I can learn by example and by asking the other developer's questions about their code. Even with that personal effort I still have to say that I would not have learned so much so fast about the language if it wasn't for my pair programming experience I previously mentioned with Christian. By learning through my Pluralsight course, observing the other dev's new C# code, and an amazing hands-on learning experience working on our CLI, I can confidently say I am now comfortable developing in C#. I would certainly say I have accomplished this goal."
         },
         {
           title: 'AWS',
           description: 'Become an AWS Certified Cloud Practitioner',
           outcome: goalRatings.Satisfactory,
-          body: "Looking back this is my most regretted goal. My Magnet mentor Chris warned me that as I became more involved with the team I would find this goal not as appealing and unfortunately that was exactly the case.I believed getting a certification would be a great tangible evidence of my learnings during my co-op, but as I became completely integrated into the team, I found little time to dedicate to this goal.On top of that, the certification itself became less and less appealing as I did more and more AWS courses. It turns out that the certification is targeted at product management or other roles with less of a focus on technical ability.This essentially made the course focused on using the AWS dashboard and learning the high-level definitions of each AWS product. It also put more of a focus on cost-management and other tasks that a employee in a leadership role would care about, and as a co-op hoping to learn about implementations, that didn't align with my current career status.I ended up accepting that this goal would not be accomplished in lieu of the issues I just mentioned. However, I would honestly measure it a slight success because through my co-op term I learned so much about AWS just through hands on experience (even if I don't have a certification to show for it)."
+          image: {
+            path: 'Logos/AWS.png',
+            alt: 'AWS Logo'
+          },
+          body: "Looking back this is my most regretted goal. My Magnet mentor Chris warned me that as I became more involved with the team I would find this goal not as appealing and unfortunately that was exactly the case. I believed getting a certification would be a great tangible evidence of my learnings during my co-op, but as I became completely integrated into the team, I found little time to dedicate to this goal. On top of that, the certification itself became less and less appealing as I did more and more AWS courses. It turns out that the certification is targeted at product management or other roles with less of a focus on technical ability. This essentially made the course focused on using the AWS dashboard and learning the high-level definitions of each AWS product. It also put more of a focus on cost-management and other tasks that a employee in a leadership role would care about, and as a co-op hoping to learn about implementations, that didn't align with my current career status. I ended up accepting that this goal would not be accomplished in lieu of the issues I just mentioned. However, I would honestly measure it a slight success because through my co-op term I learned so much about AWS just through hands on experience (even if I don't have a certification to show for it)."
         },
         {
           title: 'Soft Skills',
           description: 'Improve my ability to engage in technical and design conversations',
           outcome: goalRatings.Outstanding,
-          body: "Early on in my co-op I felt myself lurking in group conversations about implementations and design orientated conversations, especially when it involved a technology I hadn't worked with yet.I wanted to be able to contribute to these conversations so I made it a goal of mine to learn from my coworkers about how they approach those types of conversations, and also research any technologies or concepts that I was unfamiliar with when they were brought up in these conversations.This turned out to be one of my favourite goals looking back as it pushed me out of my comfort zone to learn about so many new technologies during my term. I also think this goal helped develop a very important skill, engaging in discussions without an expert-level of knowledge about the subject. By the end of the term I feel I learned how to ask the important questions during this discussions to understand the problems and possible solutions, without needing to be very experienced with the technologies involved in the problem.This allowed me to contribute my opinion far more during design discussions and when creating acceptance-criteria for a ticket, and I think this growth in my abilities really unlocked a huge aspect of the job for me once I was able to engage in these conversations.I am very proud of how this goal turned out and I would certainly say I achieved it."
+          image: {
+            path: 'Magnet/Conversation.png',
+            alt: 'Conversation Icon'
+          },
+          body: "Early on in my co-op I felt myself lurking in group conversations about implementations and design orientated conversations, especially when it involved a technology I hadn't worked with yet. I wanted to be able to contribute to these conversations so I made it a goal of mine to learn from my coworkers about how they approach those types of conversations, and also research any technologies or concepts that I was unfamiliar with when they were brought up in these conversations. This turned out to be one of my favourite goals looking back as it pushed me out of my comfort zone to learn about so many new technologies during my term. I also think this goal helped develop a very important skill, engaging in discussions without an expert-level of knowledge about the subject. By the end of the term I feel I learned how to ask the important questions during this discussions to understand the problems and possible solutions, without needing to be very experienced with the technologies involved in the problem. This allowed me to contribute my opinion far more during design discussions and when creating acceptance-criteria for a ticket, and I think this growth in my abilities really unlocked a huge aspect of the job for me once I was able to engage in these conversations. I am very proud of how this goal turned out and I would certainly say I achieved it."
         },
         {
           title: 'Business',
-          description: 'Learn from Product Managers about the business aspects of software development',
+          description: 'Learn about the business aspects of software development',
           outcome: goalRatings.Success,
-          body: "Because of my ongoing pursuit of a Minor in Business arts, I figured during my work-term I should avoid only focusing only on the software development aspects of the team and also try and get some learnings about the business of the company.To achieve this I made it a goal of mine to make an extra effort to interact and pay close attention to my team's Product Managers.By paying attention to how they make decisions and set priorities for the team, I hoped to learn how software can be valued from a business perspective.Luckily for me, I had plenty of opportunities to be involved in timeline and priority discussions with our Product Managers, and even had some 1-on-1 opportunities to discuss specific feature requests with them.This allowed me to ask questions about risk management and customer relations, and give me real life experience in a highly active business environment.I never got quite comfortable enough to ask for personal discussions as I had hoped to, but because of all of the amazing interactions that I was involved in naturally with our Product Managers, I would mark this goal as a success."
+          image: {
+            path: 'Magnet/Business.jpeg',
+            alt: 'Business Logo'
+          },
+          body: "Because of my ongoing pursuit of a Minor in Business arts, I figured during my work-term I should avoid only focusing only on the software development aspects of the team and also try and get some learnings about the business of the company. To achieve this I made it a goal of mine to make an extra effort to interact and pay close attention to my team's Product Managers. Ay paying attention to how they make decisions and set priorities for the team, I hoped to learn how software can be valued from a business perspective. Luckily for me, I had plenty of opportunities to be involved in timeline and priority discussions with our Product Managers, and even had some 1-on-1 opportunities to discuss specific feature requests with them. This allowed me to ask questions about risk management and customer relations, and give me real life experience in a highly active business environment. I never got quite comfortable enough to ask for personal discussions as I had hoped to, but because of all of the amazing interactions that I was involved in naturally with our Product Managers, I would mark this goal as a success."
         },
         {
           title: 'Kubernetes',
           description: 'Familiarize myself with our Kubernetes infrastructure',
           outcome: goalRatings.Success,
-          body: 'During my first four months of my co-op I learned the base level knowledge needed to understand our Kubernetes infrastructure, but knew there is just so much more for me to learn about it.Because of this, I made it a goal of mine in my last four months to become much more familiar with Kubernetes.To accomplish this I planned on completing more Kubernetes related tickets during my last months at Magnet, but ran into difficulty when priorities were set on front-end related tickets.However, I stayed determined to surround myself with Kubernetes and volunteered as a Support Tribute to help troubleshoot issues in active REVIEW environments.Luckily for me most of the issues require navigation through Kubernetes to at the very least diagnose the issue, and sometimes the issue is even Kubernetes related.This allowed me to slowly expand my familiarity with Kubernetes environments, and during my last month I even ran a seminar with two of our new hires to give a surface level tutorial with our installations and Kubernetes deployments.Because I was able to run a seminar for a new hires, I would certainly say I achieved my goal of becoming familiar with Kubernetes.'
+          image: {
+            path: 'Logos/Kubernetes.png',
+            alt: 'Kubernetes Logo'
+          },
+          body: 'During my first four months of my co-op I learned the base level knowledge needed to understand our Kubernetes infrastructure, but knew there is just so much more for me to learn about it. Aecause of this, I made it a goal of mine in my last four months to become much more familiar with Kubernetes. To accomplish this I planned on completing more Kubernetes related tickets during my last months at Magnet, but ran into difficulty when priorities were set on front-end related tickets. However, I stayed determined to surround myself with Kubernetes and volunteered as a Support Tribute to help troubleshoot issues in active REVIEW environments. Luckily for me most of the issues require navigation through Kubernetes to at the very least diagnose the issue, and sometimes the issue is even Kubernetes related. This allowed me to slowly expand my familiarity with Kubernetes environments, and during my last month I even ran a seminar with two of our new hires to give a surface level tutorial with our installations and Kubernetes deployments. Aecause I was able to run a seminar for a new hires, I would certainly say I achieved my goal of becoming familiar with Kubernetes.'
         },
         {
           title: 'Co-op Relations',
           description: 'Become more involved with co-op social events',
           outcome: goalRatings.Outstanding,
-          body: "After four months at Magnet I realized I had been focusing too much on maximizing my productivity during work hours, and was missing out on some great social opportunities that Magnet was providing.Magnet has a weekly meeting for co-op students to attend to relax and play games and socialize, and during my first term I was taking myself too seriously and rarely attended.This meant I missed out of meeting some awesome people and possible future connections to use in my career. For this reason, I made it a goal of mine to attend all social events presented to me (work-permitting).After attending almost all of the term's co-op meetings, I have made friends with plenty of the other co-op students and have remained in touch even after the term.Therefore I would mark this goal as an outstanding success."
+          image: {
+            path: 'Magnet/Friends.jpeg',
+            alt: 'Friends Icon'
+          },
+          body: "After four months at Magnet I realized I had been focusing too much on maximizing my productivity during work hours, and was missing out on some great social opportunities that Magnet was providing. Magnet has a weekly meeting for co-op students to attend to relax and play games and socialize, and during my first term I was taking myself too seriously and rarely attended. This meant I missed out of meeting some awesome people and possible future connections to use in my career. For this reason, I made it a goal of mine to attend all social events presented to me (work-permitting). After attending almost all of the term's co-op meetings, I have made friends with plenty of the other co-op students and have remained in touch even after the term. Therefore I would mark this goal as an outstanding success."
         },
         {
           title: 'Python',
           description: 'Become familiar with the Python programming language',
           outcome: goalRatings.Outstanding,
-          body: "During my first four months of my co-op, I worked with Python for my first time to develop load-testing tests using the Locust framework.I found the language to be pretty fun to learn, and knew with its reputation I should certainly be more comfortable with the language.Therefore, I made it a goal for my second term to learn Python through any means I could.When I originally made this goal I did it with the information that we were planning to create new deployment scripts in Python, but unfortunately that task was delegating to another team, and I didn't get the opportunity to develop it.This didn't stop my goal however, as when the code moved into code review, I gave it plenty of my attention and learned from the other developers code.On top of this, I completed two side projects using the language to give myself ample opportunity to learn it.These projects were my F1 Standings Visualizer and the yearly Advent of Code challenge (which I did in Python).After these two projects, and my learnings during my work term, I would certainly say I am familiar with the language and this goal has been achieved."
+          image: {
+            path: 'Logos/Python.png',
+            alt: 'Python Logo'
+          },
+          body: "During my first four months of my co-op, I worked with Python for my first time to develop load-testing tests using the Locust framework. I found the language to be pretty fun to learn, and knew with its reputation I should certainly be more comfortable with the language. Therefore, I made it a goal for my second term to learn Python through any means I could. When I originally made this goal I did it with the information that we were planning to create new deployment scripts in Python, but unfortunately that task was delegating to another team, and I didn't get the opportunity to develop it. This didn't stop my goal however, as when the code moved into code review, I gave it plenty of my attention and learned from the other developers code. On top of this, I completed two side projects using the language to give myself ample opportunity to learn it. These projects were my F1 Standings Visualizer and the yearly Advent of Code challenge (which I did in Python). After these two projects, and my learnings during my work term, I would certainly say I am familiar with the language and this goal has been achieved."
         },
         {
           title: 'BVT',
-          description: 'Take on the responsibility of being a BVT (Build Verification) champion or co-champion',
+          description: 'Take on the responsibility of being a Build Verification Testing co-champion',
           outcome: goalRatings.Outstanding,
+          image: {
+            path: 'Testing.png',
+            alt: 'Testing Logo'
+          },
           body: 'I became very interested in the responsibilities required to run a smooth BVT before a release. However, I knew that the only release left before my term was over was going to be a very important one. For this reason, I decided to take on the responsibility as a co-champion with another developer to ensure all went smoothly. This gave me an opportunity to lead the whole team to ensure all necessary behaviour is tested and all procedure is followed before a release. It was quite a stressful goal to take on, but I am so glad I gave myself the opportunity to take on such an important role during my time at Magnet.'
         },
         {
           title: 'Personal Projects',
           description: 'Apply myself outside of work to enhance my portfolio',
           outcome: goalRatings.Outstanding,
+          image: {
+            path: 'Logos/CSharp.png',
+            alt: 'CSharp Logo'
+          },
           body: "As my co-op term came closer to its end, I realized I had learned so much but didn't apply my learnings to any projects for my portfolio. Because of this, I made it a goal to apply learnings from work hours into personal projects during my leisure time. This gave me opportunity to develop projects in Python, React.js, Bash, and C that I can add to my portfolio to show future employers. I ended up developing a F1 Standings Visualizer in Python, this whole website in React.js and Tailwind, some helper scripts for both projects in Bash, a Roulette simulator for a roommate of mine in C, and a hangman game in C as well. Of course I always will wish I had completed even more projects, but I am very happy with what resulted from this goal and would mark it as a great success."
         }
       ]
