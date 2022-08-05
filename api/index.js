@@ -1,6 +1,8 @@
 import express, { json } from 'express'
 import { PrismaClient } from '@prisma/client'
 
+import { createFilter } from './helpers/filters.js'
+
 const prisma = new PrismaClient()
 const app = express()
 
@@ -30,8 +32,15 @@ app.post('/project', async (req, res) => {
   res.status(200).json(project)
 })
 
-app.get('/projects', async (_, res) => {
+app.get('/projects', async (req, res) => {
+  const { technologies } = req.query
+
+  const filters = technologies
+    ? createFilter(technologies)
+    : {}
+
   const projects = await prisma.project.findMany({
+    ...filters,
     orderBy: [
       {
         year: 'desc'
@@ -80,6 +89,17 @@ app.delete('/project/:title', async (req, res) => {
   } catch (ex) {
     res.status(404).send(false)
   }
+})
+
+app.get('/tech', async (_, res) => {
+  const technologies = await prisma.tech.findMany({
+    orderBy: [
+      {
+        text: 'desc'
+      }
+    ]
+  })
+  res.json(technologies)
 })
 
 app.get('/validate-user/:uid', (req, res) => {

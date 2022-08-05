@@ -4,6 +4,16 @@
     <h1 class="text-center w-full pb-16">
       My Projects
     </h1>
+    <div class="w-full py-8">
+      <MultiSelect
+        v-model="filterValue"
+        class="tech-filter"
+        multiple
+        :close-on-select="false"
+        :clear-on-select="false"
+        :options="filterOptions"
+      />
+    </div>
     <div class="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-12">
       <NuxtLink
         v-for="(project) in allProjects"
@@ -56,11 +66,16 @@
 
 <script lang="ts">
 import Vue, { VueConstructor } from 'vue'
+import MultiSelect from 'vue-multiselect'
 
 import UserAuth from '~/mixins/UserAuth.vue'
 
 export default (Vue as VueConstructor<Vue & InstanceType<typeof UserAuth>>).extend({
   name: 'VidyardPage',
+
+  components: {
+    MultiSelect
+  },
 
   mixins: [
     UserAuth
@@ -68,15 +83,29 @@ export default (Vue as VueConstructor<Vue & InstanceType<typeof UserAuth>>).exte
 
   data () {
     return {
-      allProjects: [] as Project[]
+      allProjects: [] as Project[],
+      filterValue: [] as Array<string>,
+      filterOptions: [] as Array<string>
     }
   },
 
   async fetch () {
-    const response = await this.$axios.$get('/api/projects')
+    const projects = await this.$axios.$get('/api/projects/')
 
-    if (response) {
-      this.allProjects = response
+    if (projects) {
+      this.allProjects = projects
+    }
+
+    const technologies = await this.$axios.$get('/api/tech') as Array<Tech>
+
+    if (technologies) {
+      this.filterOptions = technologies.map(tech => tech.text)
+    }
+  },
+
+  watch: {
+    async filterValue () {
+      await this.fetchFilteredProjects()
     }
   },
 
@@ -84,7 +113,28 @@ export default (Vue as VueConstructor<Vue & InstanceType<typeof UserAuth>>).exte
 
   mounted () {
     this.$fetch()
-  }
+  },
 
+  methods: {
+    async fetchFilteredProjects () {
+      const projects = await this.$axios.$get('/api/projects/', {
+        params: {
+          technologies: this.filterValue
+        }
+      })
+
+      if (projects) {
+        this.allProjects = projects
+      }
+    }
+  }
 })
 </script>
+
+<style src="vue-multiselect/dist/vue-multiselect.min.css"/>
+
+<style scoped>
+.tech-filter {
+  width: 350px !important;
+}
+</style>
