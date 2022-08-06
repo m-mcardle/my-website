@@ -94,7 +94,7 @@ app.get('/tech', async (_, res) => {
   const technologies = await prisma.tech.findMany({
     orderBy: [
       {
-        text: 'desc'
+        text: 'asc'
       }
     ]
   })

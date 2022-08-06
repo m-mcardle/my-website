@@ -4,15 +4,29 @@
     <h1 class="text-center w-full pb-16">
       My Projects
     </h1>
-    <div class="w-full py-8">
-      <MultiSelect
-        v-model="filterValue"
-        class="tech-filter"
-        multiple
-        :close-on-select="false"
-        :clear-on-select="false"
-        :options="filterOptions"
-      />
+    <div class="w-full py-8 flex flex-row">
+      <div class="min-h-[100px]">
+        <label for="tech-filter">Technologies</label>
+        <MultiSelect
+          id="tech-filter"
+          v-model="filterValue"
+          class="tech-filter"
+          multiple
+          open-direction="bottom"
+          :close-on-select="false"
+          :clear-on-select="false"
+          :limit="2"
+          :limit-text="limitText"
+          :options="filterOptions"
+        >
+          <template #noResult>
+            No results
+          </template>
+        </MultiSelect>
+      </div>
+      <div class="ml-auto mr-0">
+        {{ allProjects.length }} projects found
+      </div>
     </div>
     <div class="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-12">
       <NuxtLink
@@ -126,6 +140,10 @@ export default (Vue as VueConstructor<Vue & InstanceType<typeof UserAuth>>).exte
       if (projects) {
         this.allProjects = projects
       }
+    },
+
+    limitText (count: number) {
+      return `+ ${count} more`
     }
   }
 })
@@ -135,6 +153,17 @@ export default (Vue as VueConstructor<Vue & InstanceType<typeof UserAuth>>).exte
 
 <style scoped>
 .tech-filter {
-  width: 350px !important;
+  min-width: 350px !important;
+  max-width: 450px !important;
+  z-index: 1;
 }
+
+.tech-filter :deep(.multiselect__tag) {
+  background: #00B9E1;
+}
+
+.tech-filter :deep(.multiselect__option--highlight) {
+  background: #00B9E1;
+}
+
 </style>
