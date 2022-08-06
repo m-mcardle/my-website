@@ -1,9 +1,8 @@
 import express, { json } from 'express'
-import { PrismaClient } from '@prisma/client'
+import prisma from './helpers/prisma'
 
 import { createFilter } from './helpers/filters.js'
 
-const prisma = new PrismaClient()
 const app = express()
 
 const ADMIN_USERS = [
