@@ -13,7 +13,7 @@
       <button
         v-if="admin"
         class="delete ml-auto mr-0 text-red-400 hover:shadow-red-700 hover:shadow-lg bg-white px-1"
-        @click="deleteProject(title)"
+        @click="deleteProject()"
       >
         <FontAwesomeIcon size="xl" icon="fa-solid fa-xmark" />
       </button>
@@ -61,9 +61,9 @@ export default Vue.extend({
   },
 
   methods: {
-    async deleteProject (title: string) {
+    async deleteProject () {
       const loadingToast = this.$toast.show('Deleting project...')
-      const response = await this.$axios.$delete(`/api/project/${title}`)
+      const response = await this.$axios.$delete(`/api/project/${this.project}`)
 
       loadingToast.goAway(0)
       if (response) {

@@ -60,8 +60,10 @@ app.get('/project/:link', async (req, res) => {
   res.json(project)
 })
 
-app.delete('/project/:title', async (req, res) => {
+app.delete('/project/:link', async (req, res) => {
   const { link } = req.params
+
+  if (!link) { res.status(404).send(false) }
 
   try {
     const project = await prisma.project.findFirst({
