@@ -12,13 +12,14 @@ const ADMIN_USERS = [
 app.use(json())
 
 app.post('/project', async (req, res) => {
-  const { title, content, github, year } = req.body
+  const { title, content, github, year, link } = req.body
   const project = await prisma.project.create({
     data: {
       title,
       content,
       github,
       year,
+      link,
       image: {
         connect: { id: 1 }
       }
