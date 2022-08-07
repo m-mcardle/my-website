@@ -11,7 +11,7 @@
         Updated: {{ new Date(updatedAt).toDateString() }}
       </p>
       <button
-        v-if="isAdmin"
+        v-if="admin"
         class="delete ml-auto mr-0 text-red-400 hover:shadow-red-700 hover:shadow-lg bg-white px-1"
         @click="deleteProject(title)"
       >
@@ -22,18 +22,13 @@
 </template>
 
 <script lang="ts">
-import Vue, { VueConstructor } from 'vue'
+import Vue from 'vue'
+import { mapState } from 'vuex'
 import { marked } from 'marked'
 import sanitizeHtml from 'sanitize-html'
 
-import UserAuth from '~/mixins/UserAuth.vue'
-
-export default (Vue as VueConstructor<Vue & InstanceType<typeof UserAuth>>).extend({
+export default Vue.extend({
   name: 'ProjectContainer',
-
-  mixins: [
-    UserAuth
-  ],
 
   props: {
     title: {
@@ -54,6 +49,7 @@ export default (Vue as VueConstructor<Vue & InstanceType<typeof UserAuth>>).exte
     }
   },
   computed: {
+    ...mapState(['admin']),
     parsedMarkdown (): string {
       const markdown = sanitizeHtml(this.rawMarkdown)
       return marked.parse(markdown)

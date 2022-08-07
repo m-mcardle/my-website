@@ -23,22 +23,17 @@
 </template>
 
 <script lang="ts">
-import Vue, { VueConstructor } from 'vue'
-
-import UserAuth from '~/mixins/UserAuth.vue'
+import Vue from 'vue'
+import { mapState } from 'vuex'
 
 import NavHeader from '~/components/NavHeader.vue'
 
-export default (Vue as VueConstructor<Vue & InstanceType<typeof UserAuth>>).extend({
+export default Vue.extend({
   name: 'AddProjectPage',
 
   components: {
     NavHeader
   },
-
-  mixins: [
-    UserAuth
-  ],
 
   data (): Project {
     return {
@@ -54,8 +49,9 @@ export default (Vue as VueConstructor<Vue & InstanceType<typeof UserAuth>>).exte
   },
 
   computed: {
+    ...mapState(['admin']),
     submitDisabled (): boolean {
-      return !this.isAdmin || !this.title || !this.github || !this.content
+      return !this.admin || !this.title || !this.github || !this.content
     }
   },
 
