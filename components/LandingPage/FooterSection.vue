@@ -34,13 +34,13 @@ export default Vue.extend({
 <style scoped>
 @keyframes blink {
   0% {
-    opacity: 0%;
+    opacity: 0;
   }
   50% {
-    opacity: 100%;
+    opacity: 100;
   }
   100% {
-    opacity: 0%;
+    opacity: 0;
   }
 }
 
@@ -48,13 +48,17 @@ export default Vue.extend({
   width: 2rem;
   height: 2rem;
   animation: blink 2s infinite linear;
+}
 
-  @media screen and (min-width: 600px) {
+@media screen and (min-width: 600px) {
+  .scroll-icon {
     width: 4rem;
     height: 4rem;
   }
+}
 
-  @media screen and (min-width: 900px) {
+@media screen and (min-width: 900px) {
+  .scroll-icon {
     width: 8rem;
     height: 8rem;
   }
@@ -62,12 +66,16 @@ export default Vue.extend({
 
 .footer-text {
   font-size: 12px;
+}
 
-  @media screen and (min-width: 575px) {
+@media screen and (min-width: 575px) {
+  .footer-text {
     font-size: 16px;
   }
+}
 
-  @media screen and (min-width: 750px) {
+@media screen and (min-width: 750px) {
+  .footer-text {
     font-size: 24px;
   }
 }
