@@ -119,7 +119,7 @@ export default Vue.extend({
   animation-timing-function: linear;
 }
 
-.timeline-items:hover {
+.timeline-box:hover > .timeline-items {
   animation-play-state: paused;
 }
 </style>
