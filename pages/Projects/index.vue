@@ -39,7 +39,7 @@
         </div>
       </NuxtLink>
       <NuxtLink
-        v-if="isAdmin"
+        v-if="admin"
         class="flex flex-col w-[500px] h-[600px] bg-gray-600 mx-auto p-4 hover:shadow-lg hover:shadow-blue"
         to="/Projects/AddProject"
       >
@@ -55,16 +55,11 @@
 </template>
 
 <script lang="ts">
-import Vue, { VueConstructor } from 'vue'
+import Vue from 'vue'
+import { mapState } from 'vuex'
 
-import UserAuth from '~/mixins/UserAuth.vue'
-
-export default (Vue as VueConstructor<Vue & InstanceType<typeof UserAuth>>).extend({
+export default Vue.extend({
   name: 'VidyardPage',
-
-  mixins: [
-    UserAuth
-  ],
 
   data () {
     return {
@@ -78,6 +73,10 @@ export default (Vue as VueConstructor<Vue & InstanceType<typeof UserAuth>>).exte
     if (response) {
       this.allProjects = response
     }
+  },
+
+  computed: {
+    ...mapState(['admin'])
   },
 
   fetchOnServer: false,

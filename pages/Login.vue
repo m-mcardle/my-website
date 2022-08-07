@@ -10,25 +10,25 @@
             <label for="password">Password</label>
             <input id="password" v-model="password" type="password" name="password">
             <div class="flex flex-row mt-8 justify-evenly">
-              <button :disabled="!!user" class="bg-blue mx-auto py-2 px-16 h-16 w-64 rounded-xl border-2 hover:bg-blue/30" @click="handleSignInClick">
+              <button :disabled="!!user?.uid" class="bg-blue mx-auto py-2 px-16 h-16 w-64 rounded-xl border-2 hover:bg-blue/30" @click="handleSignInClick">
                 Sign In
               </button>
               <p>OR</p>
-              <button :disabled="!!user" class="bg-blue mx-auto py-2 px-16 h-16 w-64 rounded-xl border-2 hover:bg-blue/30" @click="handleGoogleClick">
+              <button :disabled="!!user?.uid" class="bg-blue mx-auto py-2 px-16 h-16 w-64 rounded-xl border-2 hover:bg-blue/30" @click="handleGoogleClick">
                 Sign in with Google
               </button>
             </div>
           </div>
-          <button :disabled="!user" class="bg-blue mx-auto py-4 px-16 h-16 rounded-xl border-2 hover:bg-blue/30" @click="handleLogOutClick">
+          <button :disabled="!user?.uid" class="bg-blue mx-auto py-4 px-16 h-16 rounded-xl border-2 hover:bg-blue/30" @click="handleLogOutClick">
             Log Out
           </button>
           <p>Current user: {{ user?.email }}</p>
         </div>
-        <p v-if="error || userError">
-          Error: {{ error }} {{ userError }}
+        <p v-if="error">
+          Error: {{ error }}
         </p>
         <p>
-          {{ isAdmin }}
+          {{ admin }}
         </p>
       </div>
     </div>
@@ -37,6 +37,7 @@
 
 <script lang="ts">
 import Vue, { VueConstructor } from 'vue'
+import { mapState } from 'vuex'
 
 import NavHeader from '../components/NavHeader.vue'
 
@@ -59,6 +60,10 @@ export default (Vue as VueConstructor<Vue & InstanceType<typeof UserAuth>>).exte
       password: '',
       error: ''
     }
+  },
+
+  computed: {
+    ...mapState(['user', 'admin'])
   },
 
   methods: {
