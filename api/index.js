@@ -12,13 +12,14 @@ const ADMIN_USERS = [
 app.use(json())
 
 app.post('/project', async (req, res) => {
-  const { title, content, github, year } = req.body
+  const { title, content, github, year, link } = req.body
   const project = await prisma.project.create({
     data: {
       title,
       content,
       github,
       year,
+      link,
       image: {
         connect: { id: 1 }
       }
@@ -60,8 +61,10 @@ app.get('/project/:link', async (req, res) => {
   res.json(project)
 })
 
-app.delete('/project/:title', async (req, res) => {
+app.delete('/project/:link', async (req, res) => {
   const { link } = req.params
+
+  if (!link) { res.status(404).send(false) }
 
   try {
     const project = await prisma.project.findFirst({
