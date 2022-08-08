@@ -12,4 +12,6 @@ Built using the AWS Simple Notification Service (SNS). The code execution itself
 ### Related Concepts / Learnings 💭
 
 * Amazon SNS
+* Amazon Lambda
 * Ruby
+* Cron Jobs
