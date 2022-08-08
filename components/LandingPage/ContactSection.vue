@@ -30,18 +30,20 @@ export default Vue.extend({
 .icon {
   width: 1rem;
   height: 1rem;
-
-  @media screen and (min-width: 800px) {
-    width: 2rem;
-    height: 2rem;
-  }
 }
 
 .image {
   height: 8rem;
   width: 8rem;
+}
 
-  @media screen and (min-width: 800px) {
+@media screen and (min-width: 800px) {
+  .icon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .image {
     height: 16rem;
     width: 16rem;
   }

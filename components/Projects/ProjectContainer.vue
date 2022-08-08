@@ -108,8 +108,10 @@ export default Vue.extend({
 .icon {
   width: 8rem;
   height: 8rem;
+}
 
-  @media screen and (min-width: 800px) {
+@media screen and (min-width: 800px) {
+  .icon {
     width: 16rem;
     height: 16rem;
   }
