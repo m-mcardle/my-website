@@ -6,12 +6,16 @@ h1 {
   font-size: 32px;
   font-weight: 700;
   text-shadow: 2px 1px #00B9E1;
+}
 
-  @media screen and (min-width: 600px) {
+@media screen and (min-width: 600px) {
+  h1 {
     font-size: 48px;
   }
+}
 
-  @media screen and (min-width: 900px) {
+@media screen and (min-width: 900px) {
+  h1 {
     font-size: 64px;
   }
 }
