@@ -1,5 +1,5 @@
 <template>
-  <div class="skills-interests w-full flex flex-row justify-around">
+  <div class="skills-interests w-full grid grid-cols-1 2xl:grid-cols-2 px-64 gap-16 pb-16">
     <SkillsSection />
     <InterestsSection />
   </div>

@@ -8,7 +8,7 @@
       </div>
       <Footer />
     </div>
-    <div id="info" class="info-page h-screen w-full flex flex-col">
+    <div id="info" class="info-page pt-16 h-screen w-full flex flex-col">
       <InfoSection />
       <TimelineSection />
     </div>
