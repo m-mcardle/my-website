@@ -1,5 +1,5 @@
 <template>
-  <div class="body bg-black text-white">
+  <div class="body bg-black w-full text-white">
     <NavHeader />
     <div id="home" class="landing-page h-[125vh]">
       <div class="main w-full flex flex-row">
@@ -8,7 +8,7 @@
       </div>
       <Footer />
     </div>
-    <div id="info" class="info-page pt-16 h-screen w-full flex flex-col">
+    <div id="info" class="info-page pt-16 h-[105vh] w-full flex flex-col">
       <InfoSection />
       <TimelineSection />
     </div>

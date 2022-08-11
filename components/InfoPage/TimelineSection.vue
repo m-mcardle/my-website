@@ -1,5 +1,5 @@
 <template>
-  <div class="timeline w-full px-64 flex justify-center mt-auto mb-64">
+  <div class="timeline w-full px-16 lg:px-64 flex justify-center mt-auto mb-64">
     <div class="w-full flex flex-col">
       <h2 class="text-center">
         TIMELINE
