@@ -25,14 +25,7 @@ import InfoSection from '~/components/InfoPage/InfoSection.vue'
 import TimelineSection from '~/components/InfoPage/TimelineSection.vue'
 import NavHeader from '~/components/NavHeader.vue'
 
-const array: Array<HTMLElement> = []
-
-const isElemVisible = (el: Element) => {
-  const rect = el.getBoundingClientRect()
-  const elemTop = rect.top + 200 // 200 = buffer
-  const elemBottom = rect.bottom
-  return elemTop < window.innerHeight && elemBottom >= 0
-}
+import FadeMixin from '~/mixins/FadeOnScroll.vue'
 
 export default Vue.extend({
   name: 'IndexPage',
@@ -46,34 +39,9 @@ export default Vue.extend({
     NavHeader
   },
 
-  data () {
-    return {
-      fadeInElements: array
-    }
-  },
-
-  mounted () {
-    this.fadeInElements = Array.from(document.getElementsByClassName('fade-in') as HTMLCollectionOf<HTMLElement>)
-    document.addEventListener('scroll', this.handleScroll)
-  },
-
-  destroyed () {
-    document.removeEventListener('scroll', this.handleScroll)
-  },
-
-  methods: {
-    handleScroll (_: Event) {
-      for (let i = 0; i < this.fadeInElements.length; i++) {
-        const elem = this.fadeInElements[i]
-
-        if (isElemVisible(elem)) {
-          elem.style.opacity = '1'
-          elem.style.transform = 'scale(1)'
-          this.fadeInElements.splice(i, 1) // only allow it to run once
-        }
-      }
-    }
-  }
+  mixins: [
+    FadeMixin
+  ]
 })
 </script>
 
