@@ -1,5 +1,6 @@
 <template>
-  <div class="body bg-black text-white">
+  <div class="body bg-black w-full text-white">
+    <NavHeader />
     <div id="home" class="landing-page h-[125vh]">
       <div class="main w-full flex flex-row">
         <Greeting />
@@ -7,7 +8,7 @@
       </div>
       <Footer />
     </div>
-    <div id="info" class="info-page h-screen w-full flex flex-col">
+    <div id="info" class="info-page pt-16 h-[105vh] w-full flex flex-col">
       <InfoSection />
       <TimelineSection />
     </div>
@@ -22,6 +23,7 @@ import ContactSection from '~/components/LandingPage/ContactSection.vue'
 import Greeting from '~/components/LandingPage/GreetingSection.vue'
 import InfoSection from '~/components/InfoPage/InfoSection.vue'
 import TimelineSection from '~/components/InfoPage/TimelineSection.vue'
+import NavHeader from '~/components/NavHeader.vue'
 
 const array: Array<HTMLElement> = []
 
@@ -40,15 +42,13 @@ export default Vue.extend({
     ContactSection,
     Greeting,
     InfoSection,
-    TimelineSection
+    TimelineSection,
+    NavHeader
   },
 
   data () {
     return {
-      fadeInElements: array,
-      lgImageClass: 'w-32 h-32 md:w-64 md:h-64',
-      mdImageClass: 'w-16 h-16 md:w-32 md:h-32',
-      smImageClass: 'w-4 h-4 md:w-8 md:h-8'
+      fadeInElements: array
     }
   },
 
@@ -77,7 +77,11 @@ export default Vue.extend({
 })
 </script>
 
-<style>
+<style scoped>
+.icon {
+  width: 8em;
+  height: 8em;
+}
 .fade-in {
   opacity: 0;
   transition: 0.3s all ease-out;

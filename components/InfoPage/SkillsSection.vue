@@ -1,5 +1,5 @@
 <template>
-  <div class="w-[40%] flex flex-row">
+  <div class="w-full flex flex-col 2xl:flex-row">
     <h2 class="skills-title self-center">
       SKILLS
     </h2>
@@ -31,11 +31,11 @@ export default Vue.extend({
   data () {
     return {
       skills: [
-        { name: 'React', value: 95, image: require('~/assets/images/React.png') },
-        { name: 'Vue', value: 90, image: require('~/assets/images/Vue.png') },
-        { name: 'Python', value: 88, image: require('~/assets/images/Python.png') },
-        { name: 'CSharp', value: 85, image: require('~/assets/images/CSharp.png') },
-        { name: 'Ruby', value: 80, image: require('~/assets/images/Ruby.png') }
+        { name: 'React', value: 95, image: require('~/assets/images/Logos/React.png') },
+        { name: 'Vue', value: 90, image: require('~/assets/images/Logos/Vue.png') },
+        { name: 'Python', value: 88, image: require('~/assets/images/Logos/Python.png') },
+        { name: 'CSharp', value: 85, image: require('~/assets/images/Logos/CSharp.png') },
+        { name: 'Ruby', value: 80, image: require('~/assets/images/Logos/Ruby.png') }
       ]
     }
   }
@@ -43,7 +43,10 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-.skills-title {
-  transform: rotate(-90deg);
+
+@media screen and (min-width: 1536px) {
+  .skills-title {
+    transform: rotate(-90deg);
+  }
 }
 </style>

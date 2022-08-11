@@ -1,12 +1,12 @@
 <template>
-  <div class="timeline fade-in w-full flex justify-center mt-auto mb-64">
-    <div class="w-[70%] flex flex-col">
+  <div class="timeline fade-in w-full px-16 lg:px-64 flex justify-center mt-auto mb-64">
+    <div class="w-full flex flex-col">
       <h2 class="text-center">
         TIMELINE
       </h2>
-      <div class="timeline-box flex flex-col bg-grey text-black h-64 w-full px-16 overflow-x-scroll">
-        <div class="timeline-bar shrink-0 bg-blue min-h-[3px] mt-24 mb-32" :style="{ width: getPosition(2023) }" />
-        <div class="relative bottom-0 w-full">
+      <div class="timeline-box flex flex-col bg-grey text-black h-64 w-full overflow-x-hidden">
+        <div class="timeline-bar shrink-0 bg-blue min-h-[3px] mt-24 mb-32 w-full" />
+        <div class="timeline-items relative bottom-0 w-full">
           <div
             v-for="(year) in years"
             :key="year"
@@ -85,61 +85,16 @@ export default Vue.extend({
           year: 2022,
           image: require('~/assets/images/Vidyard-Logo.png')
         }
-      ],
-      scrollPosition: 0,
-      maxScrollPosition: 1000,
-      resetting: false,
-      customScrolling: false,
-      customScrollCountdown: 20
+      ]
     }
   },
 
   mounted () {
-    this.$el.querySelector('.timeline-box')?.addEventListener('scroll', this.handleScroll)
-
-    const timelineBox = this.$el.querySelector('.timeline-box')
-    this.maxScrollPosition = timelineBox ? timelineBox.scrollWidth - timelineBox.clientWidth : 1000
-
-    setInterval(() => {
-      if (this.customScrolling) {
-        this.customScrollCountdown -= 1
-        if (this.customScrollCountdown < 1) {
-          this.customScrolling = false
-        }
-        return
-      }
-
-      if (this.scrollPosition > this.maxScrollPosition) {
-        this.scrollPosition = 0
-        this.resetting = true
-        this.$el.querySelector('.timeline-box')?.scrollTo({ left: 0, top: 0 })
-        return
-      }
-
-      const newScrollPosition = this.scrollPosition + 1
-      this.$el.querySelector('.timeline-box')?.scrollTo({ left: newScrollPosition, top: 0, behavior: 'smooth' })
-      this.scrollPosition = newScrollPosition
-    }, 50)
   },
 
   methods: {
     getPosition: (year: number) => {
       return `${(90 + (year - 2018) * 360)}px`
-    },
-
-    handleScroll (event: Event) {
-      if (!event?.target) { return }
-
-      const target = event.target as HTMLDivElement
-      const currentScrollPosition = target.scrollLeft
-      if (currentScrollPosition === 0) { this.resetting = false }
-
-      const diff = Math.abs(currentScrollPosition - this.scrollPosition)
-      if (!this.resetting && (diff > 20)) {
-        this.customScrolling = true
-        this.customScrollCountdown = 20
-        this.scrollPosition = currentScrollPosition
-      }
     }
   }
 
@@ -151,14 +106,20 @@ export default Vue.extend({
   transform: translateX(-50%);
 }
 
- /* Hide scrollbar for Chrome, Safari and Opera */
-.timeline-box::-webkit-scrollbar {
-  display: none;
+@keyframes timeline {
+  0% {transform: translateX(0)}
+  50% {transform: translateX(-45%)}
+  100% {transform: translateX(0)}
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
-.timeline-box {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+.timeline-items {
+  animation-name: timeline;
+  animation-duration: 60s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.timeline-box:hover > .timeline-items {
+  animation-play-state: paused;
 }
 </style>
