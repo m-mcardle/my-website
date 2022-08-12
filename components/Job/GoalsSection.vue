@@ -32,7 +32,7 @@
             {{ goal.body }}
           </p>
           <div class="h-[200px] ml-auto mr-0">
-            <img class="h-full w-fit" :src="require(`~/assets/images/${goal.image?.path || 'NotFound.png'}`)" :alt="goal.image?.alt">
+            <img v-if="goal.image" class="h-full w-fit" :src="require(`~/assets/images/${goal.image.path || 'NotFound.png'}`)" :alt="goal.image.alt">
           </div>
         </div>
       </div>
