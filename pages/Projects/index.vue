@@ -8,7 +8,7 @@
       <NuxtLink
         v-for="(project) in allProjects"
         :key="project.title"
-        class="flex flex-col w-9/10 md:w-[500px] md:h-[600px] bg-gray-600 mx-auto p-4 hover:shadow-lg hover:shadow-blue"
+        class="flex flex-col w-9/10 md:w-[500px] md:h-[625px] bg-gray-600 mx-auto p-4 hover:shadow-lg hover:shadow-blue"
         :to="project.link ? `/Projects/${project.link}` : ''"
       >
         <p class="self-end">
