@@ -1,6 +1,6 @@
 export const state = () => ({
   admin: false,
-  user: undefined
+  user: {}
 })
 
 export const getters = {
@@ -16,7 +16,7 @@ export const getters = {
 export const mutations = {
   clearUser (state) {
     state.admin = false
-    state.user = undefined
+    state.user = {}
   },
 
   setAdmin (state, isAdmin) {
@@ -26,7 +26,7 @@ export const mutations = {
   ON_AUTH_STATE_CHANGED_MUTATION (state, { authUser }) {
     if (!authUser) {
       state.admin = false
-      state.user = undefined
+      state.user = {}
     } else {
       const { uid, email, emailVerified } = authUser
       state.user = { uid, email, emailVerified }
@@ -36,7 +36,7 @@ export const mutations = {
 
 export const actions = {
   async checkIsUserAdmin ({ commit, state }) {
-    if (!state.user?.uid) {
+    if (!state.user.uid) {
       commit('setAdmin', false)
       return false
     }
