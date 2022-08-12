@@ -4,7 +4,8 @@ import MainPage from '../pages/index'
 describe('Main Page', () => {
   const mount = () => shallowMount(MainPage, {
     stubs: {
-      NuxtLink: RouterLinkStub
+      NuxtLink: RouterLinkStub,
+      FontAwesomeIcon: true
     }
   })
 
