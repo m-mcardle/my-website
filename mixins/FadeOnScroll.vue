@@ -5,7 +5,7 @@ const array: Array<HTMLElement> = []
 
 const isElemVisible = (el: Element) => {
   const rect = el.getBoundingClientRect()
-  const elemTop = rect.top + 200 // 200 = buffer
+  const elemTop = rect.top + 100 // 100 = buffer
   const elemBottom = rect.bottom
   return elemTop < window.innerHeight && elemBottom >= 0
 }
