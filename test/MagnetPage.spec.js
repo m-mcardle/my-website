@@ -1,5 +1,5 @@
 import { shallowMount, RouterLinkStub } from '@vue/test-utils'
-import MagnetPage from '../pages/Magnet'
+import MagnetPage from '../pages/Job/Magnet.vue'
 
 describe('Magnet Page', () => {
   const mount = () => shallowMount(MagnetPage, {

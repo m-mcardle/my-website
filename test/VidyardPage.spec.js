@@ -1,5 +1,5 @@
 import { shallowMount, RouterLinkStub } from '@vue/test-utils'
-import VidyardPage from '../pages/Vidyard'
+import VidyardPage from '../pages/Job/Vidyard.vue'
 
 describe('Vidyard Page', () => {
   const mount = () => shallowMount(VidyardPage, {
