@@ -8,7 +8,7 @@
       <NuxtLink
         v-for="(project) in allProjects"
         :key="project.title"
-        class="flex flex-col w-[500px] h-[600px] bg-gray-600 mx-auto p-4 hover:shadow-lg hover:shadow-blue"
+        class="flex flex-col w-9/10 md:w-[500px] md:h-[625px] bg-gray-600 mx-auto p-4 hover:shadow-lg hover:shadow-blue"
         :to="project.link ? `/Projects/${project.link}` : ''"
       >
         <p class="self-end">
@@ -17,10 +17,10 @@
         <h3 class="text-center w-full mb-4">
           {{ project.title }}
         </h3>
-        <div class="w-full h-[250px]">
-          <img class="max-h-[250px] w-[350px] mx-auto" :alt="project.image.alt" :src="require(`~/assets/images/${project.image.path}`) || ''">
+        <div class="w-full h-[125px] md:h-[250px]">
+          <img class="max-h-[125px] md:max-h-[250px] w-[175px] md:w-[350px] mx-auto" :alt="project.image.alt" :src="require(`~/assets/images/${project.image.path}`) || ''">
         </div>
-        <p class="mt-8">
+        <p class="mt-8 mb-4">
           {{ project.content }}
         </p>
         <div class="flex flex-row w-full justify-around mt-auto mb-0">
@@ -39,7 +39,7 @@
         </div>
       </NuxtLink>
       <NuxtLink
-        v-if="isAdmin"
+        v-if="admin"
         class="flex flex-col w-[500px] h-[600px] bg-gray-600 mx-auto p-4 hover:shadow-lg hover:shadow-blue"
         to="/Projects/AddProject"
       >
@@ -55,16 +55,11 @@
 </template>
 
 <script lang="ts">
-import Vue, { VueConstructor } from 'vue'
+import Vue from 'vue'
+import { mapState } from 'vuex'
 
-import UserAuth from '~/mixins/UserAuth.vue'
-
-export default (Vue as VueConstructor<Vue & InstanceType<typeof UserAuth>>).extend({
+export default Vue.extend({
   name: 'VidyardPage',
-
-  mixins: [
-    UserAuth
-  ],
 
   data () {
     return {
@@ -78,6 +73,10 @@ export default (Vue as VueConstructor<Vue & InstanceType<typeof UserAuth>>).exte
     if (response) {
       this.allProjects = response
     }
+  },
+
+  computed: {
+    ...mapState(['admin'])
   },
 
   fetchOnServer: false,

@@ -12,6 +12,8 @@
         <input id="github" v-model="github" placeholder="GitHub Link">
         <label for="content">Description</label>
         <input id="content" v-model="content" placeholder="Description">
+        <label for="content">Page Link</label>
+        <input id="content" v-model="link" placeholder="Link">
         <label for="year">Year</label>
         <input id="year" v-model="year" placeholder="Year">
         <button class="bg-blue hover:bg-blue/30" :disabled="submitDisabled" @click="submit">
@@ -23,27 +25,23 @@
 </template>
 
 <script lang="ts">
-import Vue, { VueConstructor } from 'vue'
-
-import UserAuth from '~/mixins/UserAuth.vue'
+import Vue from 'vue'
+import { mapState } from 'vuex'
 
 import NavHeader from '~/components/NavHeader.vue'
 
-export default (Vue as VueConstructor<Vue & InstanceType<typeof UserAuth>>).extend({
+export default Vue.extend({
   name: 'AddProjectPage',
 
   components: {
     NavHeader
   },
 
-  mixins: [
-    UserAuth
-  ],
-
   data (): Project {
     return {
       title: '',
       github: '',
+      link: '',
       content: '',
       image: {} as Image,
       year: ''
@@ -51,8 +49,9 @@ export default (Vue as VueConstructor<Vue & InstanceType<typeof UserAuth>>).exte
   },
 
   computed: {
+    ...mapState(['admin']),
     submitDisabled (): boolean {
-      return !this.isAdmin || !this.title || !this.github || !this.content
+      return !this.admin || !this.title || !this.github || !this.content
     }
   },
 
@@ -63,6 +62,7 @@ export default (Vue as VueConstructor<Vue & InstanceType<typeof UserAuth>>).exte
         title: this.title,
         github: this.github,
         content: this.content,
+        link: this.link || this.title,
         year: this.year
       })
 

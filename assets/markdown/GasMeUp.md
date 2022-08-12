@@ -13,4 +13,6 @@ The front end of this app was written in React Native and built using the Expo p
 ### Related Concepts / Learnings 💭
 
 * React Native
+* Node.js
 * Expo
+* Consuming APIs

@@ -1,16 +1,16 @@
 <template>
-  <div class="body bg-black text-white">
+  <div class="body bg-black w-full text-white">
     <NavHeader />
     <div id="home" class="landing-page h-[125vh]">
       <div class="main w-full flex flex-row">
-        <Greeting />
-        <ContactSection />
+        <Greeting class="fade-in-immediate" />
+        <ContactSection class="fade-in-immediate" />
       </div>
-      <Footer />
+      <Footer class="fade-in-immediate" />
     </div>
-    <div id="info" class="info-page h-screen w-full flex flex-col">
-      <InfoSection />
-      <TimelineSection />
+    <div id="info" class="info-page pt-16 h-[105vh] w-full flex flex-col">
+      <InfoSection class="fade-in" />
+      <TimelineSection class="fade-in" />
     </div>
   </div>
 </template>
@@ -25,6 +25,8 @@ import InfoSection from '~/components/InfoPage/InfoSection.vue'
 import TimelineSection from '~/components/InfoPage/TimelineSection.vue'
 import NavHeader from '~/components/NavHeader.vue'
 
+import FadeMixin from '~/mixins/FadeOnScroll.vue'
+
 export default Vue.extend({
   name: 'IndexPage',
 
@@ -37,19 +39,37 @@ export default Vue.extend({
     NavHeader
   },
 
-  data () {
-    return {
-      lgImageClass: 'w-32 h-32 md:w-64 md:h-64',
-      mdImageClass: 'w-16 h-16 md:w-32 md:h-32',
-      smImageClass: 'w-4 h-4 md:w-8 md:h-8'
-    }
-  }
+  mixins: [
+    FadeMixin
+  ]
 })
 </script>
 
 <style scoped>
+@keyframes fade-in {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.fade-in-immediate {
+  opacity: 0;
+  transform: scale(0.8);
+  animation: fade-in 0.8s ease-out 0.5s normal forwards;
+}
+
 .icon {
   width: 8em;
   height: 8em;
+}
+.fade-in {
+  opacity: 0;
+  transition: 0.8s all ease-out;
+  transform: scale(0.8);
 }
 </style>

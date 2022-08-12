@@ -18,3 +18,4 @@ Built using vanilla JavaScript to manipulate the DOM and embed the offical Twitc
 * HTML
 * CSS
 
+![Twitch Chat Extension](https://user-images.githubusercontent.com/5607044/183523401-bc00c084-fd3c-4e29-8534-4967b11b47f4.png)
