@@ -79,6 +79,8 @@ export default Vue.extend({
     ...mapState(['admin'])
   },
 
+  // Needed to remove `ERROR  Error in fetch(): connect ECONNREFUSED 127.0.0.1:80`
+  // Can't fetch on server because we are fetching TO the server
   fetchOnServer: false,
 
   mounted () {
