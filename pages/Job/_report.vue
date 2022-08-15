@@ -8,16 +8,15 @@
       :date-string="period"
       :image-url="require(`~/assets/images/${image}`)"
     />
-    <!-- Disable no-v-html rule because we are sanitizing it, the rule is to protect from XSS attacks -->
+    <!-- TODO: Make sure this is safe -->
     <!-- eslint-disable-next-line vue/no-v-html -->
-    <div class="markdown w-full" v-html="parsedMarkdown" />
+    <div class="markdown p-8 w-full" v-html="parsedMarkdown" />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import { marked } from 'marked'
-import sanitizeHtml from 'sanitize-html'
 
 import JobHeader from '~/components/Job/JobHeader.vue'
 import NavHeader from '~/components/NavHeader.vue'
@@ -63,8 +62,7 @@ export default Vue.extend({
     },
 
     parsedMarkdown (): string {
-      const markdown = sanitizeHtml(this.rawMarkdown)
-      return marked.parse(markdown)
+      return marked.parse(this.rawMarkdown)
     }
   },
 
@@ -84,31 +82,56 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-::v-deep(.markdown > h1) {
+::v-deep(.markdown h1) {
   text-align: center;
 }
 
-::v-deep(.markdown > h2) {
+::v-deep(.markdown h2) {
   text-align: center;
 }
 
-::v-deep(.markdown > h3) {
+::v-deep(.markdown h3) {
   padding: 16px 0;
 }
 
-::v-deep(.markdown > a) {
+::v-deep(.markdown a) {
   font-weight: bold;
 }
 
-::v-deep(.markdown > ul) {
+::v-deep(.markdown ul) {
   list-style: disc inside;
 }
 
-::v-deep(.markdown > p > a) {
+::v-deep(.markdown a) {
   color: lightskyblue;
 }
 
-::v-deep(.markdown > hr) {
-  margin: 16px 0;
+::v-deep(.markdown hr) {
+  margin: 32px 0;
+}
+
+::v-deep(.markdown img) {
+  display: inline;
+  height: 125px;
+}
+
+::v-deep(.markdown row) {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+::v-deep(.markdown column) {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+::v-deep(.markdown row column:nth-child(2) p) {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: 0;
 }
 </style>
