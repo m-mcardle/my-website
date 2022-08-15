@@ -90,7 +90,12 @@ app.get('/report/:link', async (req, res) => {
   const report = await prisma.report.findFirst({
     where: { link },
     include: {
-      image: true
+      image: true,
+      goals: {
+        include: {
+          image: true
+        }
+      }
     }
   })
   res.json(report)

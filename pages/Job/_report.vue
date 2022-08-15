@@ -11,6 +11,7 @@
     <!-- TODO: Make sure this is safe -->
     <!-- eslint-disable-next-line vue/no-v-html -->
     <div class="markdown p-8 w-full" v-html="parsedMarkdown" />
+    <GoalsSection v-if="loaded" :goals="goals" />
   </div>
 </template>
 
@@ -19,6 +20,7 @@ import Vue from 'vue'
 import { marked } from 'marked'
 
 import JobHeader from '~/components/Job/JobHeader.vue'
+import GoalsSection from '~/components/Job/GoalsSection.vue'
 import NavHeader from '~/components/NavHeader.vue'
 
 export default Vue.extend({
@@ -26,7 +28,8 @@ export default Vue.extend({
 
   components: {
     JobHeader,
-    NavHeader
+    NavHeader,
+    GoalsSection
   },
 
   data () {
@@ -36,7 +39,8 @@ export default Vue.extend({
       period: '',
       image: 'NotFound.png',
       loaded: false,
-      rawMarkdown: '# Loading...'
+      rawMarkdown: '# Loading...',
+      goals: []
     }
   },
 
@@ -48,6 +52,7 @@ export default Vue.extend({
       this.period = response.period
       this.jobTitle = response.job
       this.image = response.image.path
+      this.goals = response.goals
       this.loaded = true
     }
   },

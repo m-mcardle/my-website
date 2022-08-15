@@ -17,6 +17,7 @@ model Image {
   projects    Project[]
   reports     Report[]
   tech        Tech[]
+  goals       Goal[]
 }
 
 model Tech {
@@ -50,6 +51,19 @@ model Report {
   company           String
   link              String?
   period            String
+  goals             Goal[]
+  image             Image    @relation(fields: [imageId], references: [id])
+  imageId           Int
+}
+
+model Goal {
+  id                Int      @id @default(autoincrement())
+  title             String
+  subtitle          String
+  body              String
+  outcome           String
+  report            Report?   @relation(fields: [reportId], references: [id])
+  reportId          Int?
   image             Image    @relation(fields: [imageId], references: [id])
   imageId           Int
 }
