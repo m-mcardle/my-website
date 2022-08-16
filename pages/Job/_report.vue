@@ -11,6 +11,7 @@
     <!-- TODO: Make sure this is safe -->
     <!-- eslint-disable-next-line vue/no-v-html -->
     <div class="markdown p-8 w-full" v-html="parsedMarkdown" />
+    <hr>
     <GoalsSection v-if="loaded" :goals="goals" />
   </div>
 </template>
@@ -19,18 +20,8 @@
 import Vue from 'vue'
 import { marked } from 'marked'
 
-import JobHeader from '~/components/Job/JobHeader.vue'
-import GoalsSection from '~/components/Job/GoalsSection.vue'
-import NavHeader from '~/components/NavHeader.vue'
-
 export default Vue.extend({
   name: 'JobPage',
-
-  components: {
-    JobHeader,
-    NavHeader,
-    GoalsSection
-  },
 
   data () {
     return {

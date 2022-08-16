@@ -17,22 +17,10 @@
 <script lang="ts">
 import Vue from 'vue'
 
-import JobHeader from '~/components/Job/JobHeader.vue'
-import NavHeader from '~/components/NavHeader.vue'
-import JobContent from '~/components/Job/JobContent.vue'
-import GoalsSection from '~/components/Job/GoalsSection.vue'
-
 import { goalRatings } from '~/src/goals'
 
 export default Vue.extend({
   name: 'MagnetPage',
-
-  components: {
-    JobHeader,
-    NavHeader,
-    JobContent,
-    GoalsSection
-  },
 
   data () {
     return {
