@@ -5,7 +5,7 @@
       title="Vidyard"
       job-title="Software Developer (Co-op)"
       date-string="May 2022 - August 2022"
-      :image-url="require('~/assets/images/Vidyard-Logo.png')"
+      image-url="Vidyard-Logo.png"
     />
     <JobContent :content="content" />
     <hr>

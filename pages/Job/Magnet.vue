@@ -5,7 +5,7 @@
       title="Magnet Forensics"
       job-title="Software Developer (Co-op)"
       date-string="May 2021 - December 2022"
-      :image-url="require('~/assets/images/Magnet-Logo.png')"
+      image-url="Magnet-Logo.png"
     />
     <hr>
     <JobContent :content="content" />

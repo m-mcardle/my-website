@@ -1,6 +1,6 @@
 <template>
   <div class="header flex flex-row p-8">
-    <img class="w-72 bg-white" :alt="title" :src="imageUrl">
+    <DbImage class="w-72 bg-white" :alt="title" :src="imageUrl" />
     <div class="titles flex flex-col pl-12">
       <h1>{{ title }}</h1>
       <h2>{{ jobTitle }}</h2>

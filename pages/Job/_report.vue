@@ -6,7 +6,7 @@
       :title="company"
       :job-title="jobTitle"
       :date-string="period"
-      :image-url="require(`~/assets/images/${image}`)"
+      :image-url="image"
     />
     <!-- TODO: Make sure this is safe -->
     <!-- eslint-disable-next-line vue/no-v-html -->
