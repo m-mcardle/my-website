@@ -10,16 +10,8 @@ import Vue from 'vue'
 import { marked } from 'marked'
 import sanitizeHtml from 'sanitize-html'
 
-import NavHeader from '~/components/NavHeader.vue'
-import ProjectContainer from '~/components/Projects/ProjectContainer.vue'
-
 export default Vue.extend({
   name: 'ProjectPage',
-
-  components: {
-    NavHeader,
-    ProjectContainer
-  },
 
   data () {
     return {
