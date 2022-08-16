@@ -19,14 +19,9 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import SkillWidget from './SkillWidget.vue'
 
 export default Vue.extend({
   name: 'SkillsSection',
-
-  components: {
-    SkillWidget
-  },
 
   data () {
     return {

@@ -12,14 +12,9 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import SkillbarWidget from './SkillbarWidget.vue'
 
 export default Vue.extend({
   name: 'SkillWidget',
-
-  components: {
-    SkillbarWidget
-  },
 
   props: {
     name: {
