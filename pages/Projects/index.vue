@@ -18,7 +18,7 @@
           {{ project.title }}
         </h3>
         <div class="w-full h-[125px] md:h-[250px]">
-          <img class="max-h-[125px] md:max-h-[250px] w-[175px] md:w-[350px] mx-auto" :alt="project.image.alt" :src="require(`~/assets/images/${project.image.path}`) || ''">
+          <DbImage class="max-h-[125px] md:max-h-[250px] w-[175px] md:w-[350px] mx-auto" :alt="project.image.alt" :src="project.image.path" />
         </div>
         <p class="mt-8 mb-4">
           {{ project.content }}
@@ -29,7 +29,7 @@
             :key="item.text"
             class="flex flex-col justify-evenly items-center"
           >
-            <img class="h-8 w-auto bg-white" :alt="item.image.alt" :src="require(`~/assets/images/${item.image.path}`)">
+            <DbImage class="h-8 w-auto bg-white" :alt="item.image.alt" :src="item.image.path" />
             <p
               class="font-bold"
             >

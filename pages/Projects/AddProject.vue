@@ -28,14 +28,8 @@
 import Vue from 'vue'
 import { mapState } from 'vuex'
 
-import NavHeader from '~/components/NavHeader.vue'
-
 export default Vue.extend({
   name: 'AddProjectPage',
-
-  components: {
-    NavHeader
-  },
 
   data (): Project {
     return {

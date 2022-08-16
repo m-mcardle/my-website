@@ -39,16 +39,10 @@
 import Vue, { VueConstructor } from 'vue'
 import { mapState } from 'vuex'
 
-import NavHeader from '../components/NavHeader.vue'
-
 import UserAuth from '../mixins/UserAuth.vue'
 
 export default (Vue as VueConstructor<Vue & InstanceType<typeof UserAuth>>).extend({
   name: 'LoginPage',
-
-  components: {
-    NavHeader
-  },
 
   mixins: [
     UserAuth

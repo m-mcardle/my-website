@@ -7,15 +7,8 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import InterestsSection from './InterestsSection.vue'
-import SkillsSection from './SkillsSection.vue'
 
 export default Vue.extend({
-  name: 'InfoSection',
-
-  components: {
-    InterestsSection,
-    SkillsSection
-  }
+  name: 'InfoSection'
 })
 </script>
