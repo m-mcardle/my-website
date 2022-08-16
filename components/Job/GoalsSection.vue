@@ -32,7 +32,7 @@
             {{ goal.body }}
           </p>
           <div class="h-[200px] ml-auto mr-0">
-            <img v-if="goal.image" class="h-full w-fit" :src="require(`~/assets/images/${goal.image.path || 'NotFound.png'}`)" :alt="goal.image.alt">
+            <DbImage v-if="goal.image" class="h-full w-fit" :src="goal.image.path" :alt="goal.image.alt" />
           </div>
         </div>
       </div>
