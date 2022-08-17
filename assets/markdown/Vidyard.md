@@ -13,7 +13,7 @@
 
   <column>
 
-  ![Magnet Forensics logo](https://www.magnetforensics.com/wp-content/uploads/2019/03/logo.png)
+  ![Vidyard logo](https://www.productboard.com/wp-content/uploads/2020/06/vidyard.png)
 
   </column>
 
@@ -27,7 +27,7 @@
 
   ### About Vidyard
   
-  Foobarbaz
+  Coming soon...
 
   </column>
 
@@ -47,7 +47,7 @@
 
   ### Dashboard
   
-  Foobarbaz
+  Coming soon...
 
   </column>
 
@@ -67,7 +67,7 @@
 
   ### Team Performance Dashboard
   
-  Foobarbaz
+  Coming soon...
 
   </column>
 
@@ -87,7 +87,7 @@
 
   ### ConstructionYard
   
-  Foobarbaz
+  Coming soon...
 
   </column>
 
@@ -107,7 +107,7 @@
 
   ### My Team / Introduction
   
-  Foobarbaz
+  Coming soon...
 
   </column>
 
@@ -127,7 +127,7 @@
 
   ### Bug Fixes
   
-  Foobarbaz
+  Coming soon...
 
   </column>
 
@@ -147,7 +147,7 @@
 
   ### Custom Date Picker
   
-  Foobarbaz
+  Coming soon...
 
   </column>
 
@@ -167,7 +167,7 @@
 
   ### See More
   
-  Foobarbaz
+  Coming soon...
 
   </column>
 
@@ -187,7 +187,7 @@
 
   ### GIF Police Guild
   
-  Foobarbaz
+  Coming soon...
 
   </column>
 
@@ -207,7 +207,7 @@
 
   ### Multi-Select Team Filter
   
-  Foobarbaz
+  Coming soon...
 
   </column>
 
