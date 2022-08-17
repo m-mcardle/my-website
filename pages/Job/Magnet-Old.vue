@@ -84,7 +84,7 @@ export default Vue.extend({
       goals: [
         {
           title: 'C#',
-          description: 'Become proficient in C#',
+          subtitle: 'Become proficient in C#',
           outcome: goalRatings.Outstanding,
           image: {
             path: 'Logos/CSharp.png',
@@ -94,7 +94,7 @@ export default Vue.extend({
         },
         {
           title: 'AWS',
-          description: 'Become an AWS Certified Cloud Practitioner',
+          subtitle: 'Become an AWS Certified Cloud Practitioner',
           outcome: goalRatings.Satisfactory,
           image: {
             path: 'Logos/AWS.png',
@@ -104,7 +104,7 @@ export default Vue.extend({
         },
         {
           title: 'Soft Skills',
-          description: 'Improve my ability to engage in technical and design conversations',
+          subtitle: 'Improve my ability to engage in technical and design conversations',
           outcome: goalRatings.Outstanding,
           image: {
             path: 'Magnet/Conversation.png',
@@ -114,7 +114,7 @@ export default Vue.extend({
         },
         {
           title: 'Business',
-          description: 'Learn about the business aspects of software development',
+          subtitle: 'Learn about the business aspects of software development',
           outcome: goalRatings.Success,
           image: {
             path: 'Magnet/Business.jpeg',
@@ -124,7 +124,7 @@ export default Vue.extend({
         },
         {
           title: 'Kubernetes',
-          description: 'Familiarize myself with our Kubernetes infrastructure',
+          subtitle: 'Familiarize myself with our Kubernetes infrastructure',
           outcome: goalRatings.Success,
           image: {
             path: 'Logos/Kubernetes.png',
@@ -134,7 +134,7 @@ export default Vue.extend({
         },
         {
           title: 'Co-op Relations',
-          description: 'Become more involved with co-op social events',
+          subtitle: 'Become more involved with co-op social events',
           outcome: goalRatings.Outstanding,
           image: {
             path: 'Magnet/Friends.jpeg',
@@ -144,7 +144,7 @@ export default Vue.extend({
         },
         {
           title: 'Python',
-          description: 'Become familiar with the Python programming language',
+          subtitle: 'Become familiar with the Python programming language',
           outcome: goalRatings.Outstanding,
           image: {
             path: 'Logos/Python.png',
@@ -154,7 +154,7 @@ export default Vue.extend({
         },
         {
           title: 'BVT',
-          description: 'Take on the responsibility of being a Build Verification Testing co-champion',
+          subtitle: 'Take on the responsibility of being a Build Verification Testing co-champion',
           outcome: goalRatings.Outstanding,
           image: {
             path: 'Testing.png',
@@ -164,7 +164,7 @@ export default Vue.extend({
         },
         {
           title: 'Personal Projects',
-          description: 'Apply myself outside of work to enhance my portfolio',
+          subtitle: 'Apply myself outside of work to enhance my portfolio',
           outcome: goalRatings.Outstanding,
           image: {
             path: 'Logos/CSharp.png',

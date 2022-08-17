@@ -31,7 +31,7 @@ interface Project {
 
 interface Goal {
   title: string,
-  description: string,
+  subtitle: string,
   outcome: string,
   image: Image,
   body: string

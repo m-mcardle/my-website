@@ -15,7 +15,7 @@
             {{ goal.title }}
           </h3>
           <h4 class="mx-2">
-            {{ goal.description }}
+            {{ goal.subtitle }}
           </h4>
           <div
             class="ml-auto mr-0 border rounded-md p-1"

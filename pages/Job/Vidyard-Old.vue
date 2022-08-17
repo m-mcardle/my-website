@@ -33,31 +33,31 @@ export default Vue.extend({
       goals: [
         {
           title: 'Personal Projects',
-          description: 'Apply myself outside of work to enhance my portfolio',
+          subtitle: 'Apply myself outside of work to enhance my portfolio',
           outcome: goalRatings.Outstanding,
           body: "foobarbaz'"
         },
         {
           title: 'Project Lead',
-          description: 'Lead a phase of a project',
+          subtitle: 'Lead a phase of a project',
           outcome: goalRatings.Outstanding,
           body: "foobarbaz'"
         },
         {
           title: 'Test Driven Development',
-          description: 'Gain experience with TDD',
+          subtitle: 'Gain experience with TDD',
           outcome: goalRatings.Success,
           body: "foobarbaz'"
         },
         {
           title: 'Technical Proficiency',
-          description: 'Ruby Vue.js',
+          subtitle: 'Ruby Vue.js',
           outcome: goalRatings.Outstanding,
           body: "foobarbaz'"
         },
         {
           title: 'Internal Project',
-          description: 'GIF Police Guild',
+          subtitle: 'GIF Police Guild',
           outcome: goalRatings.Outstanding,
           body: "foobarbaz'"
         }

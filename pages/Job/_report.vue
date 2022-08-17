@@ -65,7 +65,7 @@ export default Vue.extend({
   mounted () {
     this.$fetch()
     try {
-      this.rawMarkdown = require('~/assets/markdown/Magnet.md').default
+      this.rawMarkdown = require(`~/assets/markdown/${this.report}.md`).default
     } catch (ex) {
       if (ex.message.includes('Cannot find module')) {
         this.rawMarkdown = '## Error - Project Not Found :('
