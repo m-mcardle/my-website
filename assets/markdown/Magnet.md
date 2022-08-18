@@ -212,3 +212,31 @@
   </column>
 
 </row>
+
+---
+
+### Kudos
+
+I want to close this page out by giving out some much deserved credit to those who helped me during my term. I first would like the REVIEW team as a whole for how amazing of an environment it was to join. Everyone on the team was always so willing to collaborate and help me learn, and this made REVIEW such a pleasure to be a part of. However, there are three individuals I would like to specifically acknowledge for all the above and beyond support they gave me over the past eight months.
+
+<br/>
+
+First and foremost, I need to extend a huge thank you to my co-op advisor at Magnet, [Chris Chevreau](https://www.linkedin.com/in/chris-chevreau-8b596b239/). As my supervisor he was my go-to guy for any issues or support I needed during my time there. He was always happy to help and kept me on the right track whenever I started to get lost. Not only did he offer his own support, he also always made an effort to direct me to the person or resources that might answer some questions I've had. As someone who was new to almost everything during my co-op, having someone point me in the right direction to even figure out where I can learn was so beneficial. He also gave me the feedback I needed to achieve my goals and grow to my full potential during my time there. I owe so much to Chris for how well I was able to integrate into the Magnet REVIEW team.
+
+<br/>
+
+Next I would like to extend another huge thank you to [Christian Cornelis](https://www.linkedin.com/in/christiancornelis/) for his awesome collaborative spirit and his teachings during work we completed together during our parsing epic. I have him to thank for so much of my technical learnings as he ramped me up in C#, unit tests, microservices, and all of our parsing infrastructure. He not only was a great mentor, he was also an absolute pleasure to work with as he always had a great attitude and always maintained a upbeat spirit.
+
+<br/>
+
+I also need to extend a huge thank you to [Robert Nelson](https://www.linkedin.com/in/robert-nelson-0936542a/), one of the Senior Developers on the Taco team. I remember during my very first week he stayed on a call with me until 7pm just happily answering all my never-ending questions about all the new things I saw during my first few days. As our resident expert on our Kubernetes infrastructure, he was a crucial resource for me as started my co-op without ever even hearing about Kubernetes. Even after eight months working with Rob, I'm still convinced hes some sort of software developing wizard as he had just a mind boggling amount of knowledge available. Rob was an amazing resource but an even more amazing mentor, and I am so grateful that I got the privilege to work alongside him.
+
+<br/>
+
+I seriously cannot stress enough how amazing the people were during my time at Magnet. I was blown away each and every day with their willingness to collaborate and educate, and maintain a super fun environment to work in as well. For a first co-op experience, I cannot imagine anything better and I am so grateful I got the opportunity to work with such amazing people.
+
+---
+
+### Conclusion / Summary
+
+Overall my co-op term was an absolutely amazing experience and I am so grateful for all the opportunities to learn from such intelligent and passionate people. I am also super grateful that I got experience with so many fascinating and powerful technologies during my time there such as Jenkins, AWS, Grafana, Gerrit, Locust, ElasticSearch, Python, Kubernetes, Azure, Docker, C#, Bootstrap, React.js, and Bash. For my first co-op opportunity, I could never have imagined it being so successful and enjoyable, and it has made me even more excited about my future career.
