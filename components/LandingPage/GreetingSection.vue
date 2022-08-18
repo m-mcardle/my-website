@@ -23,7 +23,7 @@ export default Vue.extend({
 })
 </script>
 
-<style>
+<style scoped>
 @keyframes waving {
   0% {
     transform: rotate(-20deg);

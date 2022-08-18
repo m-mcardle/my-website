@@ -37,10 +37,7 @@ export default Vue.extend({
       github: '',
       link: '',
       content: '',
-      image: {
-        alt: 'Unknown',
-        path: ''
-      },
+      image: {} as Image,
       year: ''
     }
   },

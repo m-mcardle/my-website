@@ -37,7 +37,8 @@ export default {
       '~/components',
       '~/components/InfoPage',
       '~/components/LandingPage',
-      '~/components/Projects'
+      '~/components/Projects',
+      '~/components/Job'
     ]
   },
 

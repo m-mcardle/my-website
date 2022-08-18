@@ -85,6 +85,22 @@ app.delete('/project/:link', async (req, res) => {
   }
 })
 
+app.get('/report/:link', async (req, res) => {
+  const { link } = req.params
+  const report = await prisma.report.findFirst({
+    where: { link },
+    include: {
+      image: true,
+      goals: {
+        include: {
+          image: true
+        }
+      }
+    }
+  })
+  res.json(report)
+})
+
 app.get('/validate-user/:uid', (req, res) => {
   const { uid } = req.params
   const isAdmin = ADMIN_USERS.includes(uid)
