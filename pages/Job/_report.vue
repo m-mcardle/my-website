@@ -144,13 +144,13 @@ export default Vue.extend({
 
 @keyframes blink {
   0% {
-    opacity: 30%;
+    opacity: 0.3;
   }
   50% {
-    opacity: 100%;
+    opacity: 1;
   }
   100% {
-    opacity: 30%;
+    opacity: 0.3;
   }
 }
 
