@@ -6,6 +6,12 @@
     </h1>
     <div class="w-full py-8 flex flex-row">
       <div class="min-h-[100px]">
+        <label for="search-bar">Search</label>
+        <div class="search-container border rounded">
+          <input id="search-bar" v-model="searchQuery" class="search-bar p-2 w-72 h-10 text-black" type="text" placeholder="Search">
+        </div>
+      </div>
+      <div class="min-h-[100px] mx-8">
         <label for="tech-filter">Technologies</label>
         <MultiSelect
           id="tech-filter"
@@ -81,6 +87,7 @@ export default Vue.extend({
       allProjects: [] as Project[],
       filterValue: [] as string[],
       filterOptions: [] as string[],
+      searchQuery: '',
       loaded: false
     }
   },
@@ -107,6 +114,10 @@ export default Vue.extend({
   watch: {
     async filterValue () {
       await this.fetchFilteredProjects()
+    },
+
+    async searchQuery () {
+      await this.fetchFilteredProjects()
     }
   },
 
@@ -122,7 +133,8 @@ export default Vue.extend({
     async fetchFilteredProjects () {
       const projects = await this.$axios.$get('/api/projects/', {
         params: {
-          technologies: this.filterValue
+          technologies: this.filterValue,
+          searchQuery: this.searchQuery
         }
       })
 
@@ -155,6 +167,11 @@ export default Vue.extend({
 
 .loading {
   animation: blink 2s infinite linear;
+}
+
+.search-bar {
+  font-weight: 400;
+  font-size: 14px;
 }
 
 .tech-filter {

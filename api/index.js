@@ -33,10 +33,10 @@ app.post('/project', async (req, res) => {
 })
 
 app.get('/projects', async (req, res) => {
-  const { technologies } = req.query
+  const { technologies, searchQuery } = req.query
 
-  const filters = technologies
-    ? createFilter(technologies)
+  const filters = technologies || searchQuery
+    ? createFilter(technologies, searchQuery)
     : {}
 
   const projects = await prisma.project.findMany({
