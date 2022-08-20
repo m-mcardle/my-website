@@ -53,7 +53,7 @@
       </NuxtLink>
       <NuxtLink
         v-if="admin"
-        class="flex flex-col w-[500px] h-[600px] bg-gray-600 mx-auto p-4 hover:shadow-lg hover:shadow-blue"
+        class="flex flex-col w-[90%] min-h-[350px] md:w-[500px] md:h-[625px] bg-gray-600 mx-auto p-4 hover:shadow-lg hover:shadow-blue"
         to="/Projects/AddProject"
       >
         <h1 class="text-center">

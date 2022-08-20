@@ -36,11 +36,6 @@ export default Vue.extend({
     dateString: {
       type: String,
       required: true
-    },
-
-    loaded: {
-      type: Boolean,
-      default: false
     }
   }
 })
