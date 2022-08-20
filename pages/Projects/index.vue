@@ -28,14 +28,24 @@
         {{ allProjects.length }} projects found
       </div>
     </div>
-    <div class="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-12">
+    <div
+      v-if="!loaded"
+      class="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-12"
+    >
+      <div
+        v-for="(i) in [0, 1, 2]"
+        :key="i"
+        class="loading flex flex-col w-[90%] h-[450px] md:w-[500px] md:h-[625px] bg-gray-600 mx-auto p-4"
+      />
+    </div>
+    <div v-else class="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-12">
       <ProjectCard
         v-for="(project) in allProjects"
         :key="project.title"
         :project="project"
       />
       <Card
-        v-if="isAdmin"
+        v-if="admin"
         link="/Projects/AddProject"
       >
         <h1 class="text-center">
@@ -66,42 +76,38 @@ export default Vue.extend({
     Card
   },
 
-  mixins: [
-    UserAuth
-  ],
-
   data () {
     return {
       allProjects: [] as Project[],
-      filterValue: [] as Array<string>,
-      filterOptions: [] as Array<string>,
+      filterValue: [] as string[],
+      filterOptions: [] as string[],
       loaded: false
     }
   },
 
   async fetch () {
-    const projects = await this.$axios.$get('/api/projects/')
+    const projects = await this.$axios.$get('/api/projects/') as Project[]
 
     if (projects) {
       this.allProjects = projects
+      this.loaded = true
     }
 
-    const technologies = await this.$axios.$get('/api/tech') as Array<Tech>
+    const technologies = await this.$axios.$get('/api/tech') as Tech[]
 
     if (technologies) {
       this.filterOptions = technologies.map(tech => tech.text)
     }
   },
 
+  computed: {
+    ...mapState(['admin'])
+  },
+
   watch: {
     async filterValue () {
       await this.fetchFilteredProjects()
-      this.loaded = true
     }
-  },
-
-  computed: {
-    ...mapState(['admin'])
   },
 
   // Needed to remove `ERROR  Error in fetch(): connect ECONNREFUSED 127.0.0.1:80`
@@ -132,6 +138,8 @@ export default Vue.extend({
 })
 </script>
 
+<style src="vue-multiselect/dist/vue-multiselect.min.css"/>
+
 <style scoped>
 @keyframes blink {
   0% {
@@ -148,11 +156,7 @@ export default Vue.extend({
 .loading {
   animation: blink 2s infinite linear;
 }
-</style>
 
-<style src="vue-multiselect/dist/vue-multiselect.min.css"/>
-
-<style scoped>
 .tech-filter {
   min-width: 350px !important;
   max-width: 450px !important;
@@ -166,5 +170,4 @@ export default Vue.extend({
 .tech-filter :deep(.multiselect__option--highlight) {
   background: #00B9E1;
 }
-
 </style>

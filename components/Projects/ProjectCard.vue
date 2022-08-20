@@ -7,9 +7,9 @@
       {{ project.title }}
     </h3>
     <div class="w-full h-[250px]">
-      <img class="max-h-[250px] w-[350px] mx-auto" :alt="project.image.alt" :src="require(`~/assets/images/${project.image.path}`) || ''">
+      <DbImage class="max-h-[250px] w-[350px] mx-auto" :alt="project.image.alt" :src="project.image.path" />
     </div>
-    <p class="mt-8">
+    <p class="mt-8 mb-4">
       {{ project.content }}
     </p>
     <div class="flex flex-row w-full justify-around mt-auto mb-0">
@@ -18,7 +18,7 @@
         :key="item.text"
         class="flex flex-col justify-evenly items-center"
       >
-        <img class="h-8 w-auto bg-white" :alt="item.image.alt" :src="require(`~/assets/images/${item.image.path}`)">
+        <DbImage class="h-8 w-auto bg-white" :alt="item.image.alt" :src="item.image.path" />
         <p
           class="font-bold"
         >
@@ -33,12 +33,14 @@
 import Vue from 'vue'
 
 import Card from '~/components/Card.vue'
+import DbImage from '~/components/DbImage.vue'
 
 export default Vue.extend({
   name: 'ProjectCard',
 
   components: {
-    Card
+    Card,
+    DbImage
   },
 
   props: {
