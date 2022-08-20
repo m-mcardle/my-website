@@ -4,11 +4,24 @@
     <h1 class="text-center w-full pb-16">
       My Projects
     </h1>
-    <div class="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-12">
+    <div
+      v-if="!loaded"
+      class="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-12"
+    >
+      <div
+        v-for="(i) in [0, 1, 2]"
+        :key="i"
+        class="loading flex flex-col w-[90%] h-[450px] md:w-[500px] md:h-[625px] bg-gray-600 mx-auto p-4"
+      />
+    </div>
+    <div
+      v-else
+      class="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-12"
+    >
       <NuxtLink
         v-for="(project) in allProjects"
         :key="project.title"
-        class="flex flex-col w-9/10 md:w-[500px] md:h-[625px] bg-gray-600 mx-auto p-4 hover:shadow-lg hover:shadow-blue"
+        class="flex flex-col w-[90%] md:w-[500px] md:h-[625px] bg-gray-600 mx-auto p-4 hover:shadow-lg hover:shadow-blue"
         :to="project.link ? `/Projects/${project.link}` : ''"
       >
         <p class="self-end">
@@ -63,7 +76,8 @@ export default Vue.extend({
 
   data () {
     return {
-      allProjects: [] as Project[]
+      allProjects: [] as Project[],
+      loaded: false
     }
   },
 
@@ -72,6 +86,7 @@ export default Vue.extend({
 
     if (response) {
       this.allProjects = response
+      this.loaded = true
     }
   },
 
@@ -89,3 +104,21 @@ export default Vue.extend({
 
 })
 </script>
+
+<style scoped>
+@keyframes blink {
+  0% {
+    opacity: 30%;
+  }
+  50% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 30%;
+  }
+}
+
+.loading {
+  animation: blink 2s infinite linear;
+}
+</style>
