@@ -26,7 +26,7 @@
   <column>
 
   ### About Magnet Forensics
-  Magnet Forensics is a Waterloo-based company that develops tools used primarily by law enforcement or private investigators to uncover digital evidence left on suspects' or victims' devices. I joined Magnet in May of 2021, which just so happened to be at a very exciting time for the company. On April 28th they became the first Waterloo company to have an IPO in 15 years.
+  [Magnet Forensics](https://www.magnetforensics.com/) is a Waterloo-based company that develops tools used primarily by law enforcement or private investigators to uncover digital evidence left on suspects' or victims' devices. I joined Magnet in May of 2021, which just so happened to be at a very exciting time for the company. On April 28th they became the first Waterloo company to have an IPO in 15 years.
 
   </column>
 
@@ -45,7 +45,7 @@
   <column>
 
   ### AXIOM
-  Their flagship product is Magnet AXIOM, the desktop tool used to uncover and examine digital evidence from mobile, computer, or cloud sources. Many different teams work together to develop AXIOM. For example, there is a dedicated team to parse/extract artifacts (digital evidence that may come in many formats, ex: Skype Call Metadata), and another team to develop EXAMINE, the interface used to analyze and build cases from the data extracted.
+  Their flagship product is [Magnet AXIOM](https://www.magnetforensics.com/products/magnet-axiom/), the desktop tool used to uncover and examine digital evidence from mobile, computer, or cloud sources. Many different teams work together to develop AXIOM. For example, there is a dedicated team to parse/extract artifacts (digital evidence that may come in many formats, ex: Skype Call Metadata), and another team to develop EXAMINE, the interface used to analyze and build cases from the data extracted.
 
   </column>
 
@@ -64,7 +64,7 @@
   <column>
 
   ### MDIS
-  While Magnet AXIOM certainly is the company's most successful product, there are some super exciting innovations earlier in their product lifecycle that are rapidly growing in popularity. The most mature of these innovations come as a trio of products that are marketed together as a part of the Magnet Digital Investigation Suite (MDIS). These three tools are Magnet AUTOMATE which automates workflows that forensic examiners might otherwise have to perform manually, Magnet ATLAS which provides collaborative and case management tools for investigators, and Magnet REVIEW which is a web application to enable non-technical examiners to review evidence and build cases remotely while interacting with a more user-friendly interface than more forensically intensive products such as AXIOM. Magnet REVIEW ended up being the team I joined for my co-op term and I will go into far more detail later on.
+  While Magnet AXIOM certainly is the company's most successful product, there are some super exciting innovations earlier in their product lifecycle that are rapidly growing in popularity. The most mature of these innovations come as a trio of products that are marketed together as a part of the Magnet Digital Investigation Suite (MDIS). These three tools are [Magnet AUTOMATE](https://www.magnetforensics.com/products/magnet-automate/) which automates workflows that forensic examiners might otherwise have to perform manually, [Magnet ATLAS](https://www.magnetforensics.com/products/magnet-atlas/) which provides collaborative and case management tools for investigators, and [Magnet REVIEW](https://www.magnetforensics.com/products/magnet-review/) which is a web application to enable non-technical examiners to review evidence and build cases remotely while interacting with a more user-friendly interface than more forensically intensive products such as AXIOM. Magnet REVIEW ended up being the team I joined for my co-op term and I will go into far more detail later on.
 
   </column>
 
