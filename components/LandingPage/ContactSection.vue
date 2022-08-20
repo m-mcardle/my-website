@@ -1,9 +1,9 @@
 <template>
-  <div class="p-16 ml-auto mr-0">
-    <img class="image" alt="Matt McArdle" src="~/assets/images/MatthewMcArdleIcon.jpg">
-    <div class="contact-info flex flex-row my-5 justify-between">
+  <div class="py-16 px-8 md:p-16 ml-auto mr-auto md:mr-0">
+    <img class="image hidden md:block" alt="Matt McArdle" src="~/assets/images/MatthewMcArdleIcon.jpg">
+    <div class="contact-info flex flex-col md:flex-row my-5 justify-between items-center h-full md:h-auto">
       <a href="https://www.linkedin.com/in/matthew-j-mcardle/">
-        <FontAwesomeIcon class="icon text-[#0072b1]" icon="fa-brands fa-linkedin" />
+        <FontAwesomeIcon class="icon" icon="fa-brands fa-linkedin" />
       </a>
       <a href="https://www.github.com/m-mcardle">
         <FontAwesomeIcon class="icon" icon="fa-brands fa-github" />
@@ -28,22 +28,12 @@ export default Vue.extend({
 
 <style scoped>
 .icon {
-  width: 1rem;
-  height: 1rem;
-
-  @media screen and (min-width: 800px) {
-    width: 2rem;
-    height: 2rem;
-  }
+  width: 2rem;
+  height: 2rem;
 }
 
 .image {
-  height: 8rem;
-  width: 8rem;
-
-  @media screen and (min-width: 800px) {
-    height: 16rem;
-    width: 16rem;
-  }
+  height: 16rem;
+  width: 16rem;
 }
 </style>

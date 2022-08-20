@@ -1,5 +1,5 @@
 <template>
-  <div class="w-[30%] flex flex-col">
+  <div class="w-full flex flex-col">
     <h2 class="text-center">
       INTERESTS
     </h2>

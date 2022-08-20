@@ -50,15 +50,14 @@
 </template>
 
 <script lang="ts">
-import Vue, { VueConstructor } from 'vue'
+import Vue from 'vue'
+import { mapState } from 'vuex'
 import MultiSelect from 'vue-multiselect'
-
-import UserAuth from '~/mixins/UserAuth.vue'
 
 import ProjectCard from '~/components/Projects/ProjectCard.vue'
 import Card from '~/components/Card.vue'
 
-export default (Vue as VueConstructor<Vue & InstanceType<typeof UserAuth>>).extend({
+export default Vue.extend({
   name: 'ProjectsPage',
 
   components: {
@@ -75,7 +74,8 @@ export default (Vue as VueConstructor<Vue & InstanceType<typeof UserAuth>>).exte
     return {
       allProjects: [] as Project[],
       filterValue: [] as Array<string>,
-      filterOptions: [] as Array<string>
+      filterOptions: [] as Array<string>,
+      loaded: false
     }
   },
 
@@ -96,9 +96,16 @@ export default (Vue as VueConstructor<Vue & InstanceType<typeof UserAuth>>).exte
   watch: {
     async filterValue () {
       await this.fetchFilteredProjects()
+      this.loaded = true
     }
   },
 
+  computed: {
+    ...mapState(['admin'])
+  },
+
+  // Needed to remove `ERROR  Error in fetch(): connect ECONNREFUSED 127.0.0.1:80`
+  // Can't fetch on server because we are fetching TO the server
   fetchOnServer: false,
 
   mounted () {
@@ -124,6 +131,24 @@ export default (Vue as VueConstructor<Vue & InstanceType<typeof UserAuth>>).exte
   }
 })
 </script>
+
+<style scoped>
+@keyframes blink {
+  0% {
+    opacity: 30%;
+  }
+  50% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 30%;
+  }
+}
+
+.loading {
+  animation: blink 2s infinite linear;
+}
+</style>
 
 <style src="vue-multiselect/dist/vue-multiselect.min.css"/>
 

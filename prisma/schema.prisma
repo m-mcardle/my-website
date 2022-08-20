@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -12,42 +9,59 @@ datasource db {
 }
 
 model Image {
-  id          Int     @id @default(autoincrement())
-  path        String  @unique @default("NotFound.png")
-  alt         String
-  projects    Project[]
-  reports     Report[]
-  tech        Tech[]
+  id       Int       @id @default(autoincrement())
+  path     String    @unique @default("NotFound.png")
+  alt      String
+  goals    Goal[]
+  projects Project[]
+  reports  Report[]
+  tech     Tech[]
 }
 
 model Tech {
-  id          Int     @id @default(autoincrement())
+  id          Int       @id @default(autoincrement())
   text        String
-  image       Image   @relation(fields: [imageId], references: [id])
-  imageId     Int
-  projects    Project[]
   description String?
+  imageId     Int
+  image       Image     @relation(fields: [imageId], references: [id])
+  projects    Project[]
 }
 
 model Project {
-  id                Int      @id @default(autoincrement())
-  title             String
-  github            String
-  content           String?
-  link              String?
-  image             Image?   @relation(fields: [imageId], references: [id])
-  imageId           Int    
-  year              String   @default("2022")
-  infrastructure    Tech[]
-  createdAt         DateTime @default(now())
-  updatedAt         DateTime @updatedAt
-  published         Boolean  @default(false)
+  id             Int      @id @default(autoincrement())
+  title          String
+  github         String
+  content        String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  published      Boolean  @default(false)
+  year           String   @default("2022")
+  imageId        Int
+  link           String?
+  image          Image    @relation(fields: [imageId], references: [id])
+  infrastructure Tech[]
 }
 
 model Report {
-  id                Int      @id @default(autoincrement())
-  title             String
-  period            String
-  image             Image    @relation(fields: [imageId], references: [id])
-  imageId           Int
+  id      Int     @id @default(autoincrement())
+  title   String
+  period  String
+  imageId Int
+  company String
+  job     String
+  link    String?
+  image   Image   @relation(fields: [imageId], references: [id])
+  goals   Goal[]
+}
+
+model Goal {
+  id       Int     @id @default(autoincrement())
+  title    String
+  subtitle String
+  body     String
+  outcome  String
+  imageId  Int
+  reportId Int?
+  image    Image   @relation(fields: [imageId], references: [id])
+  report   Report? @relation(fields: [reportId], references: [id])
 }

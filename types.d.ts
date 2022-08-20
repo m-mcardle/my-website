@@ -1,3 +1,9 @@
+interface Section {
+  title: string,
+  body: string
+  images: Array<string>
+}
+
 interface Image {
   alt: string,
   path: string
@@ -21,4 +27,12 @@ interface Project {
   createdAt?: Date,
   updatedAt?: Date,
   published?: Boolean,
+}
+
+interface Goal {
+  title: string,
+  subtitle: string,
+  outcome: string,
+  image: Image,
+  body: string
 }

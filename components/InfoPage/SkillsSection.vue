@@ -1,5 +1,5 @@
 <template>
-  <div class="w-[40%] flex flex-row">
+  <div class="w-full flex flex-col 2xl:flex-row">
     <h2 class="skills-title self-center">
       SKILLS
     </h2>
@@ -19,14 +19,9 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import SkillWidget from './SkillWidget.vue'
 
 export default Vue.extend({
   name: 'SkillsSection',
-
-  components: {
-    SkillWidget
-  },
 
   data () {
     return {
@@ -43,7 +38,10 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-.skills-title {
-  transform: rotate(-90deg);
+
+@media screen and (min-width: 1536px) {
+  .skills-title {
+    transform: rotate(-90deg);
+  }
 }
 </style>

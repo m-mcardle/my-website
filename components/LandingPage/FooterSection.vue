@@ -1,13 +1,17 @@
 <template>
   <div class="bottom-0 absolute p-16 pb-0 w-full">
     <h3 class="footer-text text-md">
-      Come read about my <b>skills</b>, <b>experiences</b>, and <b>interests</b>!
+      Come read about my <b><a href="#info">skills</a></b>, <b>experiences</b>, and <b><a href="#info">interests</a></b>!
     </h3>
     <hr>
     <div class="logo-images flex flex-row justify-between">
-      <img :class="`${mdImageClass}`" alt="University of Guelph Logo" src="~/assets/images/UoG-Logo.jpeg">
-      <img :class="`${mdImageClass}`" alt="Magnet Forensics Logo" src="~/assets/images/Magnet-Logo.png">
-      <img :class="`${mdImageClass}`" alt="Vidyard Logo" src="~/assets/images/Vidyard-Logo.png">
+      <img :class="mdImageClass" alt="University of Guelph Logo" src="~/assets/images/UoG-Logo.jpeg">
+      <NuxtLink to="/Job/Magnet" class="magnet-link shadow hover:shadow-lg hover:shadow-blue/90 shadow-blue/50">
+        <img :class="mdImageClass" alt="Magnet Forensics Logo" src="~/assets/images/Magnet-Logo.png">
+      </NuxtLink>
+      <NuxtLink to="/Job/Vidyard" class="vidyard-link shadow hover:shadow-lg hover:shadow-green-400/90 shadow-green-400/50">
+        <img :class="mdImageClass" alt="Vidyard Logo" src="~/assets/images/Vidyard-Logo.png">
+      </NuxtLink>
     </div>
     <div class="flex w-full">
       <FontAwesomeIcon class="scroll-icon mx-auto" icon="fa-solid fa-chevron-down" size="2xl" />
@@ -34,13 +38,13 @@ export default Vue.extend({
 <style scoped>
 @keyframes blink {
   0% {
-    opacity: 0%;
+    opacity: 0;
   }
   50% {
-    opacity: 100%;
+    opacity: 100;
   }
   100% {
-    opacity: 0%;
+    opacity: 0;
   }
 }
 
@@ -48,13 +52,17 @@ export default Vue.extend({
   width: 2rem;
   height: 2rem;
   animation: blink 2s infinite linear;
+}
 
-  @media screen and (min-width: 600px) {
+@media screen and (min-width: 600px) {
+  .scroll-icon {
     width: 4rem;
     height: 4rem;
   }
+}
 
-  @media screen and (min-width: 900px) {
+@media screen and (min-width: 900px) {
+  .scroll-icon {
     width: 8rem;
     height: 8rem;
   }
@@ -62,13 +70,21 @@ export default Vue.extend({
 
 .footer-text {
   font-size: 12px;
+}
 
-  @media screen and (min-width: 575px) {
+@media screen and (min-width: 575px) {
+  .footer-text {
     font-size: 16px;
   }
+}
 
-  @media screen and (min-width: 750px) {
+@media screen and (min-width: 750px) {
+  .footer-text {
     font-size: 24px;
   }
+}
+
+b {
+  font-weight: 800;
 }
 </style>

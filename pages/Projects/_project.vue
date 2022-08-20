@@ -6,22 +6,12 @@
 </template>
 
 <script lang="ts">
-import Vue, { VueConstructor } from 'vue'
+import Vue from 'vue'
 import { marked } from 'marked'
 import sanitizeHtml from 'sanitize-html'
 
-import UserAuth from '~/mixins/UserAuth.vue'
-
-import NavHeader from '~/components/NavHeader.vue'
-import ProjectContainer from '~/components/Projects/ProjectContainer.vue'
-
-export default (Vue as VueConstructor<Vue & InstanceType<typeof UserAuth>>).extend({
+export default Vue.extend({
   name: 'ProjectPage',
-
-  components: {
-    NavHeader,
-    ProjectContainer
-  },
 
   data () {
     return {
@@ -42,6 +32,8 @@ export default (Vue as VueConstructor<Vue & InstanceType<typeof UserAuth>>).exte
     }
   },
 
+  // Needed to remove `ERROR  Error in fetch(): connect ECONNREFUSED 127.0.0.1:80`
+  // Can't fetch on server because we are fetching TO the server
   fetchOnServer: false,
 
   computed: {
@@ -64,24 +56,6 @@ export default (Vue as VueConstructor<Vue & InstanceType<typeof UserAuth>>).exte
         this.rawMarkdown = '## Error - Project Not Found :('
       } else {
         this.rawMarkdown = '## Error fetching data :('
-      }
-    }
-  },
-
-  methods: {
-    async deleteProject (title: string) {
-      const loadingToast = this.$toast.show('Deleting project...')
-      const response = await this.$axios.$delete(`/api/project/${title}`)
-
-      loadingToast.goAway(0)
-      if (response) {
-        this.$toast.success('Successfully deleted project!')
-
-        setTimeout(() => {
-          this.$router.push('../Projects')
-        }, 1000)
-      } else {
-        this.$toast.error('Failed to delete project')
       }
     }
   }

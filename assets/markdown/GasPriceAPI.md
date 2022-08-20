@@ -18,4 +18,3 @@ This was made as an Express API built with Node.js that is hosted as on an AWS E
 * Web Scraping
 * API Hosting
 * AWS EC2
-
