@@ -44,7 +44,10 @@
         class="loading flex flex-col w-[90%] h-[450px] md:w-[500px] md:h-[625px] bg-gray-600 mx-auto p-4"
       />
     </div>
-    <div v-else class="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-12">
+    <div
+      v-else
+      class="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-12"
+    >
       <ProjectCard
         v-for="(project) in allProjects"
         :key="project.title"
