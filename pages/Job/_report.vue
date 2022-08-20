@@ -8,6 +8,17 @@
       :date-string="period"
       :image-url="image"
     />
+    <div
+      v-else
+      class="loading flex flex-row h-[350px] p-8"
+    >
+      <div class="w-72 h-72 bg-gray-600" />
+      <div class="titles flex flex-col pl-12">
+        <div class="my-2 w-[400px] h-16 bg-gray-600" />
+        <div class="my-2 w-[350px] h-10 bg-gray-600" />
+        <div class="mb-0 mt-auto w-72 h-6 bg-gray-600" />
+      </div>
+    </div>
     <!-- TODO: Make sure this is safe -->
     <!-- eslint-disable-next-line vue/no-v-html -->
     <div class="markdown p-8 w-full" v-html="parsedMarkdown" />
@@ -129,5 +140,21 @@ export default Vue.extend({
   margin-bottom: auto;
   margin-left: auto;
   margin-right: 0;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 30%;
+  }
+  50% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 30%;
+  }
+}
+
+.loading {
+  animation: blink 2s infinite linear;
 }
 </style>

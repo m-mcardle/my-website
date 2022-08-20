@@ -1,5 +1,5 @@
 <template>
-  <div class="header flex flex-row p-8">
+  <div class="header flex flex-row h-[350px] p-8">
     <DbImage class="w-72 bg-white" :alt="title" :src="imageUrl" />
     <div class="titles flex flex-col pl-12">
       <h1>{{ title }}</h1>
