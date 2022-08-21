@@ -13,6 +13,9 @@ module.exports = {
         black: '#282828',
         blue: '#00B9E1',
         grey: '#D9D9D9'
+      },
+      fontSize: {
+        tiny: '0.5rem'
       }
     }
   },

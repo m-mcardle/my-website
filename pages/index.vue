@@ -1,14 +1,14 @@
 <template>
   <div class="body bg-black w-full text-white">
     <NavHeader />
-    <div id="home" class="landing-page h-[125vh]">
+    <div id="home" class="landing-page flex flex-col min-h-[860px] h-[125vh]">
       <div class="main w-full flex flex-row">
         <GreetingSection class="fade-in-immediate" />
         <ContactSection class="fade-in-immediate" />
       </div>
       <FooterSection class="fade-in-immediate" />
     </div>
-    <div id="info" class="info-page pt-16 h-[105vh] w-full flex flex-col">
+    <div id="info" class="info-page pt-16 h-[120vh] w-full flex flex-col">
       <InfoSection class="fade-in" />
       <TimelineSection class="fade-in" />
     </div>
