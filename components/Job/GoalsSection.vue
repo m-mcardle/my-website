@@ -27,11 +27,11 @@
           </div>
         </div>
         <hr>
-        <div class="flex flex-row">
-          <p class="w-[70%] mr-4">
+        <div class="flex flex-col md:flex-row">
+          <p class="md:w-[70%] mr-4">
             {{ goal.body }}
           </p>
-          <div class="h-[200px] ml-auto mr-0">
+          <div class="h-[200px] mx-auto md:ml-auto md:mr-0">
             <DbImage v-if="goal.image" class="h-full w-fit" :src="goal.image.path" :alt="goal.image.alt" />
           </div>
         </div>
