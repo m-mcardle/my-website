@@ -124,22 +124,41 @@ export default Vue.extend({
 
 ::v-deep(.markdown row) {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   width: 100%;
+}
+
+@media screen and (min-width: 800px) {
+  ::v-deep(.markdown row) {
+    flex-direction: row;
+  }
 }
 
 ::v-deep(.markdown column) {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 100%;
+}
+
+@media screen and (min-width: 800px) {
+  ::v-deep(.markdown column) {
+    width: 50%;
+  }
 }
 
 ::v-deep(.markdown row column:nth-child(2) p) {
   margin-top: auto;
   margin-bottom: auto;
   margin-left: auto;
-  margin-right: 0;
+  margin-right: auto;
+}
+
+@media screen and (min-width: 800px) {
+
+  ::v-deep(.markdown row column:nth-child(2) p) {
+    margin-right: 0;
+  }
 }
 
 @keyframes blink {
