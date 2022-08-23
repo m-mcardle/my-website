@@ -4,14 +4,14 @@
     <h1 class="text-center w-full pb-16">
       My Projects
     </h1>
-    <div class="w-full py-8 flex flex-row">
+    <div class="w-full py-2 flex flex-col lg:flex-row justify-between items-center">
       <div class="min-h-[100px]">
         <label for="search-bar">Search</label>
-        <div class="search-container border rounded">
-          <input id="search-bar" v-model="searchQuery" class="search-bar p-2 w-72 h-10 text-black" type="text" placeholder="Search">
+        <div class="search-container w-full">
+          <input id="search-bar" v-model="searchQuery" class="search-bar px-2 py-5 w-[400px] h-10 text-black border rounded" type="text" placeholder="Search">
         </div>
       </div>
-      <div class="min-h-[100px] mx-8">
+      <div class="min-h-[100px]">
         <label for="tech-filter">Technologies</label>
         <MultiSelect
           id="tech-filter"
@@ -30,7 +30,7 @@
           </template>
         </MultiSelect>
       </div>
-      <div class="ml-auto mr-0">
+      <div class="">
         {{ allProjects.length }} projects found
       </div>
     </div>
@@ -134,6 +134,7 @@ export default Vue.extend({
 
   methods: {
     async fetchFilteredProjects () {
+      this.loaded = false
       const projects = await this.$axios.$get('/api/projects/', {
         params: {
           technologies: this.filterValue,
@@ -143,6 +144,7 @@ export default Vue.extend({
 
       if (projects) {
         this.allProjects = projects
+        this.loaded = true
       }
     },
 
@@ -178,8 +180,7 @@ export default Vue.extend({
 }
 
 .tech-filter {
-  min-width: 350px !important;
-  max-width: 450px !important;
+  width: 400px !important;
   z-index: 1;
 }
 
