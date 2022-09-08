@@ -147,8 +147,8 @@ export default Vue.extend({
   }
 }
 
-::v-deep(.markdown row column:nth-child(2) p) {
-  margin-top: auto;
+::v-deep(.markdown row column:nth-child(2) *) {
+  margin-top: 10px;
   margin-bottom: auto;
   margin-left: auto;
   margin-right: auto;
@@ -156,7 +156,7 @@ export default Vue.extend({
 
 @media screen and (min-width: 800px) {
 
-  ::v-deep(.markdown row column:nth-child(2) p) {
+  ::v-deep(.markdown row column:nth-child(2) *) {
     margin-right: 0;
   }
 }
