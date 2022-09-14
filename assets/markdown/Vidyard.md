@@ -68,7 +68,7 @@
 
   ### Team Performance Dashboard
   
-  More specifically, I would be working primarily on the **Team Performance Dashboard** which was an analytics dashboard that was currently in BETA when I joined. It's focus was on providing engagement metrics based on who on your team is creating the most videos, receiving the most views, and invoking the most actions from their viewers. When I joined it was a mere prototype of what was intended, and through the course of my four months there, my team and I would bring the dashboard out of a BETA and fully release it to our enterprise customers. If you have a Vidyard account you should be able to view the demo dashboard [here](https://secure.vidyard.com/organizations/0/upgrades/team-performance), and check out the our marketing team's awesome promo for the page when it was originally announced.
+  More specifically, I would be working primarily on the **Team Performance Dashboard** which was an analytics dashboard that was currently in BETA when I joined. It's focus was on providing engagement metrics based on who on your team is creating the most videos, receiving the most views, and invoking the most actions from their viewers. When I joined it was a mere prototype of what was intended, and through the course of my four months there, my team and I would bring the dashboard out of a BETA and fully release it to our enterprise customers. If you have a Vidyard account you should be able to view the demo dashboard [here](https://secure.vidyard.com/organizations/0/upgrades/team-performance), and check out the adjacent video for our marketing team's awesome promo for the page.
 
   </column>
 
@@ -109,7 +109,7 @@
 
   ### My Team / Introduction
   
-  I joined during an interesting time for the company as engineering was going through a major reorganization. When I joined it was the first week of my team's formal existence as the Sales Track team. This team was put together to have a focus on our analytics service as well as developing monitors for the health of our platform. Of course because a team of developers will never accept their formal name, my team decided to internally call ourselves the **Sales Trek** team.
+  I joined during an interesting time for the company as engineering was going through a major reorganization. When I joined it was the first week of my team's formal existence as the Sales Track team. This team was put together to have a focus on our analytics service as well as developing monitors for the health of our platform. Of course because a team of developers will never accept their formal name, my team decided to internally call ourselves the **Star Track** team.
 
   </column>
 
@@ -129,7 +129,7 @@
 
   ### Bug Fixes
   
-  When I first joined the Track team they were in the closing stages of an ongoing project with an expected competition date within the first two weeks of my term. Because of this, there was no value in me being ramped up on months of progress for only a week of contributions to the project. To make myself useful I dove straight into our backlog of bugs to investigate and resolve. Unfortunately for me, there were no easy 'slam-dunk' fixes sitting there for me.
+  When I first joined the Track team they were in the closing stages of an ongoing project with an expected competition date within the first two weeks of my term. Because of this, there was no value in me being ramped up on months of progress for only a week of contribution to the project. To make myself useful I dove straight into our backlog of bugs to investigate and resolve. Unfortunately for me, there were no easy 'slam-dunk' fixes sitting there for me.
   
 
   <br/>
@@ -138,11 +138,11 @@
 
   <br/>
 
-  I quickly came up with a hunch about the Firefox browser altering expected behavior to avoid any user tracking via Facebook's `fbclid`. I eventually ended up reading through the Firefox browser's C++ source code to discover that in cases where a URL contains this new tracking id, Firefox alters the expected behavior of outbound requests. This bug fix game me a great opportunity to learn a lot about our player's infrastructure and brush off my JavaScript skills and was a fun and challenging first task of my term.
+  I quickly came up with a hunch about the Firefox browser altering expected behavior to avoid any user tracking via Facebook's `fbclid`. I eventually ended up reading through the Firefox browser's C++ source code to discover that in cases where a URL contains this new tracking id, Firefox alters the expected behavior of network requests. This bug fix gave me a great opportunity to learn a lot about our player's infrastructure and brush off my JavaScript skills and was a fun and challenging first task of my term.
 
   <br/>
 
-  The next bug I attempted to fix involved concerns about out player's 'Call to Actions' and GDPR guidelines. Before this ticket I had never heard of GDPR, so I had a lot to learn when it came to the legalities of the issue. The issue was filed by a member of our Customer Success team when a customer noticed they were receiving the emails that their viewers had submit via the Call to Action in their video, but the viewers were not being identified via our analytics service due to the fact they hadn't consented to be tracked according to GDPR guidelines. Essentially we just wanted to make sure that this is the expected behavior and fix it if it wasn't.
+  The next bug I attempted to fix involved concerns about out player's 'Call to Actions' and GDPR guidelines. Before this ticket I had never heard of GDPR, so I had a lot to learn when it came to the legalities of the issue. The issue was filed when a customer noticed they were receiving the data that their viewers had submit via a Call to Action in their video, but the viewers were not being identified in our analytics service because they hadn't consented to be tracked according to GDPR guidelines. Essentially we just wanted to make sure that this is the expected behavior and fix it if it wasn't.
 
   <br/>
   
@@ -150,7 +150,7 @@
 
   <br/>
 
-  With these two nasty bugs closed it was finally time for me to jump right into my teams next project!
+  With these two nasty bugs closed it was finally time for me to jump right into my team's next project!
 
   </column>
 
@@ -170,7 +170,7 @@
 
   ### Custom Date Picker
   
-  The first project I was able to contribute to involved extending the filters on the Team Performance Dashboard to build a new component to allow users to filter data by a custom date range through a calender selector. This involved building out the new component in our ConstructionYard Vue library and then replacing the old simple menu with this new component on the actual dashboard. My main contributions during this phase involved the logic behind disabling dates in the calender based on a preset maximum range of days along with a given earliest date. The solution involved in disabling dates in the calender itself was quite straightforward but I came to realize that both the technical design and UI design failed to accommodate for the manual text inputs that we planned to include in the component. This led me into many challenging and interesting design conversations with other developers on my team and my team's UI designer. I really enjoyed this as it was a great introduction to my team as I got to work alongside almost everyone on the team as we tried to remedy the oversights of our original plan. This project gave me some great experience with the Vue framework, and some great experience discussing complexity and design challenges with my peers.
+  The first project I was able to contribute to involved building a new component to allow users to filter data by a custom date range on the Team Performance Dashboard. This involved building out the new component in our ConstructionYard Vue library and then replacing the old simple menu with this new component on the actual dashboard. My main contributions during this phase involved the logic behind disabling dates in the calender based on a preset maximum range of days along with a given earliest date. The solution involved in disabling dates in the calender itself was quite straightforward but I came to realize that both the technical design and UI design failed to accommodate for the manual text inputs that we planned to include in the component. This led me into many challenging and interesting design conversations with other developers on my team and my team's UI designer. I really enjoyed this as it was a great introduction to my team as I got to work alongside almost everyone on the team as we tried to remedy the oversights of our original plan. This project gave me some great experience with the Vue framework, and some great experience discussing complexity and design challenges with my peers.
 
   </column>
 
@@ -190,7 +190,7 @@
 
   ### See More
   
-  The next phase of our project involved extending the charts and tables to allow them to be opened in a 'See More' view to have the data from all users on the team be displayed instead of just the top 5. This involved tweaking our API endpoints for querying for data to support returning all users on a team which meant I got to make some changes in our Ruby on Rails backend which was awesome. I ended up being responsible for adjusting our Vuex store to support storing and fetching the data for these new modals appropriately, and it was very fun to learn about centralized stores in a web application.
+  The next phase of our project involved extending the charts and tables to allow them to be opened in a 'See More' view to have the data from all users on the team be displayed instead of just the top 5. This involved tweaking our API endpoints for querying for data to support returning all users on a team which meant I got to make some changes in our Ruby on Rails backend which was awesome. I also ended up being responsible for adjusting our Vuex store to support storing and fetching the data for these new modals appropriately, and it was very fun to learn about centralized stores in a web application.
 
   </column>
 
@@ -210,11 +210,11 @@
 
   ### GIF Police Guild
   
-  One of my most fun projects I worked on was a side-project I started with a few other co-ops to utilize our **growth time** to learn new things and have some fun making something silly. As a developer at Vidyard one important rule to know is that when you open a Pull Request on GitHub, you **MUST** include a GIF inside the description. It came to my attention that some developers were somehow forgetting this golden rule, and leaving PRs "GIF-less". Luckily for Vidyard, they had lots of co-ops who could spend their time identifying these PRs and manually commenting "Needs a GIF" to address this issue.
+  One of my favorite projects I worked on was a side-project I started with a few other co-ops. All developers at Vidyard are entitled to "Growth Time" to spend time during the day working on something other than your required project work. To utilize this **growth time** we decided to try and build something together as a short side-project. As a developer at Vidyard one important rule to know is that when you open a Pull Request on GitHub, you **MUST** include a GIF inside the description. It came to my attention that some developers were somehow forgetting this golden rule, and leaving PRs "GIF-less". Luckily for Vidyard, they had lots of co-ops who could spend their time identifying these PRs and manually commenting "Needs a GIF" to address this issue.
   
   <br/>
 
-  However, after manually doing the same task a few times, I realized this was a prime opportunity to automate more of our PR workflow. We already had a service that would apply automated actions to JIRA tickets, Slack channels, and GitHub PRs using a series of webhooks so I knew this sort of concept would not be too foreign to Vidyard. We already had some basic auto-labelling on GitHub to inform the owner of the pull request that it has passed review or if it still requires a review so I was able to just extend the behavior in this repository to now validate the existence of a GIF in the PR's body.
+  However, after manually doing the same task a few times, I realized this was a prime opportunity to automate more of our PR workflow. We already had a service that would apply automated actions to JIRA tickets, Slack channels, and GitHub PRs using a series of webhooks, so I knew this sort of concept would not be too foreign to Vidyard. We already had some basic auto-labelling on GitHub to inform the owner of the pull request that it has passed review or if it still requires a review so I was able to just extend the behavior in this service to now validate the existence of a GIF in the PR's body.
 
   <br/>
 
@@ -225,6 +225,7 @@
   <column>
 
   ![Police officer clip art black and white](https://iconarchive.com/download/i91984/icons8/windows-8/Users-Police.ico)
+  ![Police officer GIF](https://media.giphy.com/media/81xwEHX23zhvy/giphy.gif)
 
   </column>
 
@@ -238,7 +239,7 @@
 
   ### Multi-Select Team Filter
   
-  The final phase of my team's project was to extend the functionality of the Dashboard to support querying across multiple teams. This involved once again building a new menu component for the "multi-selection" as well as tweaking our endpoints once again to support returning data from multiple teams. This was the most exciting part of my term as I actually was privileged enough to become the Project Lead for this phase. As the project leader my duties involved leading my team’s daily standup, organizing testing sessions to ensure coverage of expected behavior, and having discussions with developers, designers, and managers to ensure that all concerns are understood and the project’s development flowed smoothly. During my time as project lead I overcame challenges such as navigating work delegation when significant parts of the team were on vacation, made scope decisions to ensure we maintained on track for our targeted release, and helped shape new designs that more effectively solved the issues we were addressing. While managing the responsibilities of a Project Lead, I was still able to complete 42% of my team's tickets to ensure that I was contributing effectively as a developer.
+  The final phase of my team's project was to extend the functionality of the Dashboard to support querying across multiple teams. This involved once again building a new menu component for the "multi-selection" as well as tweaking our endpoints to support returning data from multiple teams. This was the most exciting part of my term as I actually was privileged enough to become the Project Lead for this phase. As the project leader my duties involved leading my team’s daily standup, organizing testing sessions to ensure coverage of expected behavior, and having discussions with developers, designers, and managers to ensure that all concerns are understood and the project’s development flowed smoothly. During my time as project lead I overcame challenges such as navigating work delegation when significant parts of the team were on vacation, made scope decisions to ensure we maintained on track for our targeted release, and helped shape new designs that more effectively solved the issues we were addressing. While managing the responsibilities of a Project Lead, I was still able to complete 42% of my team's tickets to ensure that I was contributing effectively as a developer.
 
   </column>
 
@@ -258,7 +259,7 @@ I would now like to take some time to thank some of the amazing people who have 
 
 <br/>
 
-First off I would like to extend a huge thank you to my manager [Jenn Bilawski](https://www.linkedin.com/in/bilawski/). Throughout the term she helped me re-imagine what a manager can be. Our weekly one-on-ones were always a delight where no subject was off-limits. Through these conversations she helped me better understand career progression, transitioning to a leadership position, and understanding compensation as I progress through my early career. Not only were our discussions amazing, but her management provided me with fantastic opportunities to grow throughout my term. As my manager she appointed me as the project leader for the last phase of the Team Performance Dashboard epic. This was a fantastic opportunity to get real leadership and management experience, and I was very lucky to get the opportunity as it is very uncommon for co-ops to hold the title. Jenn truly believed in me and I could feel that through here amazing support every single day.
+First off I would like to extend a huge thank you to my manager [Jenn Bilawski](https://www.linkedin.com/in/bilawski/). Throughout the term she helped me re-imagine what a manager can be. Our weekly one-on-ones were always a delight where no subject was off-limits. Through these conversations she helped me better understand career progression, transitioning to a leadership position, and understanding compensation as I progress through my early career. Not only were our discussions amazing, but her management provided me with fantastic opportunities to grow throughout my term. As my manager she appointed me as the project leader for the last phase of the Team Performance Dashboard project. This was a fantastic opportunity to get real leadership and management experience, and I was very lucky to get the opportunity as it is very uncommon for co-ops to hold the title. Jenn truly believed in me and I could feel that through here amazing support every single day.
 
 <br/>
 
