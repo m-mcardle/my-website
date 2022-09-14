@@ -129,11 +129,7 @@
 
   ### Bug Fixes
   
-  When I first joined the Track team they were in the closing stages of a project to extend functionality to enable our enterprise customers to attach webhooks into our auditing and logging service so they can monitor Vidyard events through their own software.
-
-  <br/>
-
-  Because of this, there was no value in me being ramped up on months of progress for only a week of contributions to the project. To make myself useful I dove straight into our backlog of bugs to investigate and resolve. Unfortunately for me, there were no easy 'slam-dunk' fixes sitting there for me.
+  When I first joined the Track team they were in the closing stages of an ongoing project with an expected competition date within the first two weeks of my term. Because of this, there was no value in me being ramped up on months of progress for only a week of contributions to the project. To make myself useful I dove straight into our backlog of bugs to investigate and resolve. Unfortunately for me, there were no easy 'slam-dunk' fixes sitting there for me.
   
 
   <br/>
@@ -142,7 +138,7 @@
 
   <br/>
 
-  A few other developers had taken a stab at identifying the cause of the issue but other than providing steps to replicate the issue I was in the dark. I quickly came up with a hunch about the Firefox browser altering expected behavior to avoid any user tracking via Facebook's `fbclid`. I eventually ended up reading through the Firefox browser's C++ source code to discover that in cases where a URL contains this new tracking id, Firefox alters the expected behavior of outbound requests. This bug fix game me a great opportunity to learn a lot about our player's infrastructure and brush off my JavaScript skills and was a fun and challenging first task of my term.
+  I quickly came up with a hunch about the Firefox browser altering expected behavior to avoid any user tracking via Facebook's `fbclid`. I eventually ended up reading through the Firefox browser's C++ source code to discover that in cases where a URL contains this new tracking id, Firefox alters the expected behavior of outbound requests. This bug fix game me a great opportunity to learn a lot about our player's infrastructure and brush off my JavaScript skills and was a fun and challenging first task of my term.
 
   <br/>
 
@@ -214,7 +210,15 @@
 
   ### GIF Police Guild
   
-  Coming soon...
+  One of my most fun projects I worked on was a side-project I started with a few other co-ops to utilize our **growth time** to learn new things and have some fun making something silly. As a developer at Vidyard one important rule to know is that when you open a Pull Request on GitHub, you **MUST** include a GIF inside the description. It came to my attention that some developers were somehow forgetting this golden rule, and leaving PRs "GIF-less". Luckily for Vidyard, they had lots of co-ops who could spend their time identifying these PRs and manually commenting "Needs a GIF" to address this issue.
+  
+  <br/>
+
+  However, after manually doing the same task a few times, I realized this was a prime opportunity to automate more of our PR workflow. We already had a service that would apply automated actions to JIRA tickets, Slack channels, and GitHub PRs using a series of webhooks so I knew this sort of concept would not be too foreign to Vidyard. We already had some basic auto-labelling on GitHub to inform the owner of the pull request that it has passed review or if it still requires a review so I was able to just extend the behavior in this repository to now validate the existence of a GIF in the PR's body.
+
+  <br/>
+
+  After a short period of pair-programming with two fellow co-ops we were able to implement some fancy regex to parse for the supported image formats on GitHub and apply the new "Needs GIF" label appropriately. This was a very fun and valuable experience as I got to experience designing a new service and establishing a guild to accomplish a project.
 
   </column>
 
@@ -234,7 +238,7 @@
 
   ### Multi-Select Team Filter
   
-  Coming soon...
+  The final phase of my team's project was to extend the functionality of the Dashboard to support querying across multiple teams. This involved once again building a new menu component for the "multi-selection" as well as tweaking our endpoints once again to support returning data from multiple teams. This was the most exciting part of my term as I actually was privileged enough to become the Project Lead for this phase. As the project leader my duties involved leading my team’s daily standup, organizing testing sessions to ensure coverage of expected behavior, and having discussions with developers, designers, and managers to ensure that all concerns are understood and the project’s development flowed smoothly. During my time as project lead I overcame challenges such as navigating work delegation when significant parts of the team were on vacation, made scope decisions to ensure we maintained on track for our targeted release, and helped shape new designs that more effectively solved the issues we were addressing. While managing the responsibilities of a Project Lead, I was still able to complete 42% of my team's tickets to ensure that I was contributing effectively as a developer.
 
   </column>
 
@@ -250,10 +254,22 @@
 
 ### Kudos
 
-Coming soon...
+I would now like to take some time to thank some of the amazing people who have had an impact on me throughout the term. Vidyard is full of amazing people who all deserve recognition, but for the sake of keeping this brief I'll only go into detail about three of them.
+
+<br/>
+
+First off I would like to extend a huge thank you to my manager [Jenn Bilawski](https://www.linkedin.com/in/bilawski/). Throughout the term she helped me re-imagine what a manager can be. Our weekly one-on-ones were always a delight where no subject was off-limits. Through these conversations she helped me better understand career progression, transitioning to a leadership position, and understanding compensation as I progress through my early career. Not only were our discussions amazing, but her management provided me with fantastic opportunities to grow throughout my term. As my manager she appointed me as the project leader for the last phase of the Team Performance Dashboard epic. This was a fantastic opportunity to get real leadership and management experience, and I was very lucky to get the opportunity as it is very uncommon for co-ops to hold the title. Jenn truly believed in me and I could feel that through here amazing support every single day.
+
+<br/>
+
+I would also like to thank my amazing co-op buddy [Nyssa Wilfong](https://www.linkedin.com/in/nyssa-wilfong-4a22a527/). She was my go-to person for all my day-to-day questions and was always more than happy to help me with any issues or questions I came to her with. On top of being super helpful, she was also a delight to interact with. It seemed like she came everyday with a unfaltering positive attitude which was hard not to be positively affected by. My questions seemed to be never-ending throughout the term, but she never shied away from an opportunity to help me learn. I owe so much of my success to Nyssa for helping me stay on track and ramp myself up with all the powerful new tech I was surrounded with throughout my term.
+
+<br/>
+
+Last but not least I want to thank my fellow co-op [Massimo De Luca](https://ca.linkedin.com/in/massimo-deluca). He was my partner during my fun little "GIF-Police" side project and was an absolute blast to work with. It was such a joy to work alongside him and my co-op term would only have been a fraction as fun without being able to go out to lunch and share the office with such an great guy.
 
 ---
 
 ### Conclusion / Summary
 
-Coming soon...
+Overall, I was blown away with the amazing opportunities presented to me throughout my co-op term and feel so fortunate to be surrounded by such awesome people and such cool technology. This co-op term was an amazing four months of sharpening my front-end skills, getting my first real leadership experience, and lots of fun! I am so thankful I got great experience with powerful tech such as Vue, Ruby on Rails, Cypress, Vuex, Datadog, and Launch Darkly. After another successful co-op term, I cannot wait to see what my next placement will hold!
