@@ -3,7 +3,7 @@
     <h2 class="text-center">
       INTERESTS
     </h2>
-    <div class="bg-grey text-black w-full p-8 flex flex-row flex-wrap justify-around">
+    <div class="bg-grey text-black w-full px-4 py-8 flex flex-row flex-wrap justify-around">
       <div
         v-for="(interest) in interests"
         :key="interest.name"
@@ -28,7 +28,7 @@ export default Vue.extend({
     return {
       interests: [
         { name: 'Automation', image: 'Automation.png' },
-        { name: 'Cloud Computing', image: 'Cloud.png' },
+        { name: 'Cloud', image: 'Cloud.png' },
         { name: 'Testing', image: 'Testing.png' },
         { name: 'Learning', image: 'University.png' }
       ]

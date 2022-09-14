@@ -1,6 +1,6 @@
 <template>
   <div class="header flex flex-row h-[175px] md:h-[350px] p-8">
-    <DbImage class="w-32 h-fit md:w-72 bg-white my-auto" :alt="title" :src="imageUrl" />
+    <DbImage class="w-32 h-auto md:w-72 bg-white my-auto" :alt="title" :src="imageUrl" />
     <div class="titles flex flex-col pl-12">
       <h1>
         {{ title }}
