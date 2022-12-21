@@ -15,7 +15,7 @@ function createTechnologyFilter (technologies) {
   if (!technologies) { return {} }
 
   const filter = {
-    OR: technologies.map(tech => ({
+    AND: technologies.map(tech => ({
       infrastructure: {
         some: {
           text: {
@@ -36,12 +36,14 @@ function createSearchFilter (searchQuery) {
     OR: [
       {
         content: {
-          contains: searchQuery
+          contains: searchQuery,
+          mode: 'insensitive'
         }
       },
       {
         title: {
-          contains: searchQuery
+          contains: searchQuery,
+          mode: 'insensitive'
         }
       }
     ]

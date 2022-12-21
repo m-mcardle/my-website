@@ -5,13 +5,20 @@
       My Projects
     </h1>
     <div class="w-full py-2 flex flex-col lg:flex-row justify-between items-center">
-      <div class="min-h-[100px]">
+      <div>
+        <FontAwesomeIcon
+          class="bg-gray-600 hover:bg-gray-500 text-white font-bold py-5 px-4 rounded h-20px"
+          icon="fa-solid fa-filter"
+          @click="showFilters = !showFilters"
+        />
+      </div>
+      <div v-if="showFilters" class="min-h-[100px]">
         <label for="search-bar">Search</label>
         <div class="search-container w-full">
           <input id="search-bar" v-model="searchQuery" class="search-bar px-2 py-5 w-[400px] h-10 text-black border rounded" type="text" placeholder="Search">
         </div>
       </div>
-      <div class="min-h-[100px]">
+      <div v-if="showFilters" class="min-h-[100px]">
         <label for="tech-filter">Technologies</label>
         <MultiSelect
           id="tech-filter"
@@ -91,7 +98,8 @@ export default Vue.extend({
       filterValue: [] as string[],
       filterOptions: [] as string[],
       searchQuery: '',
-      loaded: false
+      loaded: false,
+      showFilters: false
     }
   },
 
