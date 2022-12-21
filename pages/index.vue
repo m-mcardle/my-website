@@ -1,40 +1,16 @@
 <template>
-  <div class="main bg-black text-white h-screen">
-    <div class="main w-full flex flex-row">
-      <div class="intro flex flex-col p-16 ml-0 mr-auto">
-        <div class="greeting flex flex-row py-8">
-          <h2>
-            Hi there!&nbsp;
-          </h2>
-          <div class="wave">
-            <h2>👋</h2>
-          </div>
-        </div>
-        <h3>My name is</h3>
-        <h1>Matt McArdle</h1>
-        <hr>
-        <p>Software Engineer / Student</p>
+  <div class="body bg-black w-full text-white">
+    <NavHeader />
+    <div id="home" class="landing-page flex flex-col min-h-[860px] h-[125vh]">
+      <div class="main w-full flex flex-row">
+        <GreetingSection class="fade-in-immediate" />
+        <ContactSection class="fade-in-immediate" />
       </div>
-      <div class="image p-16 ml-auto mr-0">
-        <img class="w-64 h-64" alt="Matt McArdle" src="~/assets/images/MatthewMcArdleIcon.jpg">
-        <div class="contact-info flex flex-row my-5">
-          <LinkedinBoxFill class="w-8 h-8 fill-[#0072b1] bg-white" />
-          <MailFill class="w-8 h-8 fill-black bg-white" />
-          <PhoneFill class="w-8 h-8 fill-black bg-white" />
-        </div>
-      </div>
+      <FooterSection class="fade-in-immediate" />
     </div>
-    <div class="bottom-0 absolute p-16 pb-0 w-full">
-      <h3>Come read about my <b>skills</b>, <b>experiences</b>, and <b>interests</b>!</h3>
-      <hr>
-      <div class="logo-images flex flex-row justify-between">
-        <img class="w-32 h-32" alt="University of Guelph Logo" src="~/assets/images/UoG-Logo.jpeg">
-        <img class="w-32 h-32" alt="Magnet Forensics Logo" src="~/assets/images/Magnet-Logo.png">
-        <img class="w-32 h-32" alt="Vidyard Logo" src="~/assets/images/Vidyard-Logo.png">
-      </div>
-      <div class="w-full">
-        <ChevronDownSolid class="scroll-icon w-32 h-32 mx-auto" />
-      </div>
+    <div id="info" class="info-page pt-16 h-[120vh] w-full flex flex-col">
+      <InfoSection class="fade-in" />
+      <TimelineSection class="fade-in" />
     </div>
   </div>
 </template>
@@ -44,20 +20,14 @@ import Vue from 'vue'
 
 import { init, trackPages } from 'insights-js'
 
-// @ts-ignore
-import { ChevronDownSolid } from 'vue-icon-packs/hi'
-// @ts-ignore
-import { LinkedinBoxFill, MailFill, PhoneFill } from 'vue-icon-packs/ri'
+import FadeMixin from '~/mixins/FadeOnScroll.vue'
 
 export default Vue.extend({
   name: 'IndexPage',
 
-  components: {
-    ChevronDownSolid,
-    LinkedinBoxFill,
-    MailFill,
-    PhoneFill
-  },
+  mixins: [
+    FadeMixin
+  ],
 
   mounted () {
     if (process.env.NODE_ENV === 'production') {
@@ -69,61 +39,31 @@ export default Vue.extend({
 })
 </script>
 
-<style>
-  h1 {
-    font-size: 64px;
+<style scoped>
+@keyframes fade-in {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
   }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 
-  h2 {
-    font-size: 32px;
-  }
+.fade-in-immediate {
+  opacity: 0;
+  transform: scale(0.8);
+  animation: fade-in 0.8s ease-out 0.5s normal forwards;
+}
 
-  h3 {
-    font-size: 24px;
-  }
-
-  p {
-    font-size: 16px;
-  }
-
-  hr {
-    border-color: #00B9E1;
-    margin: 8px 0;
-  }
-
-  img {
-    background-color: white;
-  }
-
-  @keyframes waving {
-    0% {
-      transform: rotate(-20deg);
-    }
-    50% {
-      transform: rotate(20deg);
-    }
-    100% {
-      transform: rotate(-20deg);
-    }
-  }
-
-  @keyframes blink {
-    0% {
-      opacity: 0%;
-    }
-    50% {
-      opacity: 100%;
-    }
-    100% {
-      opacity: 0%;
-    }
-  }
-
-  .wave {
-    animation: waving 1.5s infinite linear;
-  }
-
-  .scroll-icon {
-    animation: blink 2s infinite linear;
-  }
+.icon {
+  width: 8em;
+  height: 8em;
+}
+.fade-in {
+  opacity: 0;
+  transition: 0.8s all ease-out;
+  transform: scale(0.8);
+}
 </style>

@@ -1,69 +1,66 @@
+# Personal Portfolio Website 🖥️
+
+## Nuxt Web App
+
+### Description 📚
+
+Porfolio website for providing information about my work experience and personal projects. Contains a home page which contains my skills, interests, and a timeline of my development experience. It also contains a page containing an overview of all of my personal projects and an individual page for each of them containing more detailed information. Lastly it also has pages for my co-op reports going into great detail about my work experience at the companies I have been employed at.
+
+### Infrastructure 🏗️
+
+Built using Nuxt framework which provides tooling for features like SSR and SEO optimization, and styled using Tailwind CSS. Project data is stored in a PostgreSQL database which is accessed through a Prisma client. User authentication is implemented using Firebase Authentication and Vuex. The server is hosted on DigitalOcean and the database is hosted on AWS RDS.
+
+### Related Concepts / Learnings 💭
+
+* Nuxt Framework
+* Vue.js
+* Vuex
+* Server-Side-Rendering (SSR)
+* TailwindCSS
+* Postgres
+* Prisma
+* Firebase Authentication
+* UI Design (Figma)
+
+
 # my-website
 
-## Build Setup
+This repo contains my personal portfolio website that I am building with Nuxt. I am using TailwindCSS for styling, Jest for testing, and Vue for my front-end framework.
 
-```bash
-# install dependencies
-$ yarn install
+[Figma](https://www.figma.com/file/GjWIwe3zgpJCNL2FlVcMd7/Website?node-id=0%3A1)
 
-# serve with hot reload at localhost:3000
-$ yarn dev
+## Development
 
-# build for production and launch server
-$ yarn build
-$ yarn start
+To start the hot-reloading development server, run the commands:
 
-# generate static project
-$ yarn generate
+```
+yarn install
+yarn dev
 ```
 
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
+There are issues when closing the dev server so after **CTRL + C** run:
 
-## Special Directories
+```
+kill -9 $(pgrep -f nuxt)
 
-You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
+# or
 
-### `assets`
+yarn kill-nuxt
+```
 
-The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
+To remove any orphaned processes.
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
+## Deploying
 
-### `components`
+This application is hosted at [](mmcardle.ca) through a VM running on DigitalOcean. The domain is managed through AWS Route 53 and the SSL was generated from Let's Encrypt using the Certbot CLI. The server is managed using NGINX through forward proxy that redirects traffic to port 3000 from HTTP and HTTPS.
 
-The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
+To deploy a new version of the app, ssh into the cluster and build the latest version of the application inside of `/var/www/html/my-website` by running `yarn build` and then reload the process using `pm2 reload`.
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
+## Prisma
 
-### `layouts`
+This project uses the [Prisma](https://www.prisma.io/) ORM for managing the Postgres databases used for storing project and report information. To view the Prisma UI run:
 
-Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
+```
+yarn prisma
+```
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
-
-
-### `pages`
-
-This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
-
-### `plugins`
-
-The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
-
-### `static`
-
-This directory contains your static files. Each file inside this directory is mapped to `/`.
-
-Example: `/static/robots.txt` is mapped as `/robots.txt`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
-
-### `store`
-
-This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
