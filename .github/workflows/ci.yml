@@ -54,20 +54,17 @@ jobs:
       - name: Build 🛠
         run: yarn build
 
-      - uses: webfactory/ssh-agent@v0.7.0
-        with:
-            ssh-private-key: ${{ secrets.DIGITALOCEAN_SSH_KEY }}
+      # - uses: webfactory/ssh-agent@v0.7.0
+      #   with:
+      #       ssh-private-key: ${{ secrets.DIGITALOCEAN_SSH_KEY }}
 
       - name: Deploy 🚢
         env:
           SSH_KEY: ${{ secrets.DIGITALOCEAN_SSH_KEY }}
           IP_ADDRESS: ${{ secrets.DIGITALOCEAN_IP }}
-        run: |
-          echo $SSH_KEY"\n" > sshkey
-          echo "Done creating file"
-          chmod 400 sshkey
-          echo "Done chmod"
-          scp -o StrictHostKeyChecking=no -r ../my-website/ root@138.197.130.254:~/
-          echo "Done scp"
-          ssh -o StrictHostKeyChecking=no root@$IP_ADDRESS "sudo cp -r my-website /var/www/html; cd /var/www/html/my-website; pm2 reload MyWebsite"
-          echo "Done ssh"
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: 138.197.130.254
+          username: root
+          key: ${{ secrets.DIGITALOCEAN_SSH_KEY }}
+          script: whoami
