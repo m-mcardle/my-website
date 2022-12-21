@@ -4,6 +4,43 @@
     <h1 class="text-center w-full pb-16">
       My Projects
     </h1>
+    <div class="w-full py-2 flex flex-col lg:flex-row justify-between items-center">
+      <div>
+        <FontAwesomeIcon
+          class="bg-gray-600 hover:bg-gray-500 text-white font-bold py-5 px-4 rounded h-20px"
+          icon="fa-solid fa-filter"
+          @click="showFilters = !showFilters"
+        />
+      </div>
+      <div v-if="showFilters" class="min-h-[100px]">
+        <label for="search-bar">Search</label>
+        <div class="search-container w-full">
+          <input id="search-bar" v-model="searchQuery" class="search-bar px-2 py-5 w-[400px] h-10 text-black border rounded" type="text" placeholder="Search">
+        </div>
+      </div>
+      <div v-if="showFilters" class="min-h-[100px]">
+        <label for="tech-filter">Technologies</label>
+        <MultiSelect
+          id="tech-filter"
+          v-model="filterValue"
+          class="tech-filter"
+          multiple
+          open-direction="bottom"
+          :close-on-select="false"
+          :clear-on-select="false"
+          :limit="2"
+          :limit-text="limitText"
+          :options="filterOptions"
+        >
+          <template #noResult>
+            No results
+          </template>
+        </MultiSelect>
+      </div>
+      <div class="">
+        {{ allProjects.length }} projects found
+      </div>
+    </div>
     <div
       v-if="!loaded"
       class="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-12"
@@ -18,43 +55,14 @@
       v-else
       class="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-12"
     >
-      <NuxtLink
+      <ProjectCard
         v-for="(project) in allProjects"
         :key="project.title"
-        class="flex flex-col w-[90%] md:w-[500px] md:h-[625px] bg-gray-600 mx-auto p-4 hover:shadow-lg hover:shadow-blue"
-        :to="project.link ? `/Projects/${project.link}` : ''"
-      >
-        <p class="self-end">
-          {{ project.year }}
-        </p>
-        <h3 class="text-center w-full mb-4">
-          {{ project.title }}
-        </h3>
-        <div class="w-full h-[125px] md:h-[250px]">
-          <DbImage class="max-h-[125px] md:max-h-[250px] w-[175px] md:w-[350px] mx-auto" :alt="project.image.alt" :src="project.image.path" />
-        </div>
-        <p class="mt-8 mb-4">
-          {{ project.content }}
-        </p>
-        <div class="flex flex-row w-full justify-around mt-auto mb-0">
-          <div
-            v-for="(item) in project.infrastructure"
-            :key="item.text"
-            class="flex flex-col justify-evenly items-center"
-          >
-            <DbImage class="h-8 w-auto bg-white" :alt="item.image.alt" :src="item.image.path" />
-            <p
-              class="font-bold"
-            >
-              {{ item.text }}
-            </p>
-          </div>
-        </div>
-      </NuxtLink>
-      <NuxtLink
+        :project="project"
+      />
+      <Card
         v-if="admin"
-        class="flex flex-col w-[90%] min-h-[350px] md:w-[500px] md:h-[625px] bg-gray-600 mx-auto p-4 hover:shadow-lg hover:shadow-blue"
-        to="/Projects/AddProject"
+        link="/Projects/AddProject"
       >
         <h1 class="text-center">
           Add Project
@@ -62,7 +70,7 @@
         <p class="text-8xl my-auto mx-auto text-center">
           +
         </p>
-      </NuxtLink>
+      </Card>
     </div>
   </div>
 </template>
@@ -70,28 +78,58 @@
 <script lang="ts">
 import Vue from 'vue'
 import { mapState } from 'vuex'
+import MultiSelect from 'vue-multiselect'
+
+import ProjectCard from '~/components/Projects/ProjectCard.vue'
+import Card from '~/components/Card.vue'
 
 export default Vue.extend({
-  name: 'VidyardPage',
+  name: 'ProjectsPage',
+
+  components: {
+    MultiSelect,
+    ProjectCard,
+    Card
+  },
 
   data () {
     return {
       allProjects: [] as Project[],
-      loaded: false
+      filterValue: [] as string[],
+      filterOptions: [] as string[],
+      searchQuery: '',
+      loaded: false,
+      showFilters: false
     }
   },
 
   async fetch () {
-    const response = await this.$axios.$get('/api/projects')
+    const projects = await this.$axios.$get('/api/projects/') as Project[]
 
-    if (response) {
-      this.allProjects = response
+    if (projects) {
+      this.allProjects = projects
       this.loaded = true
+    }
+
+    const technologies = await this.$axios.$get('/api/tech') as Tech[]
+
+    if (technologies) {
+      this.filterOptions = technologies.map(tech => tech.text)
     }
   },
 
   computed: {
     ...mapState(['admin'])
+  },
+
+  watch: {
+    async filterValue () {
+      await this.fetchFilteredProjects()
+    },
+
+    async searchQuery () {
+      await this.fetchFilteredProjects()
+    }
   },
 
   // Needed to remove `ERROR  Error in fetch(): connect ECONNREFUSED 127.0.0.1:80`
@@ -100,10 +138,32 @@ export default Vue.extend({
 
   mounted () {
     this.$fetch()
-  }
+  },
 
+  methods: {
+    async fetchFilteredProjects () {
+      this.loaded = false
+      const projects = await this.$axios.$get('/api/projects/', {
+        params: {
+          technologies: this.filterValue,
+          searchQuery: this.searchQuery
+        }
+      })
+
+      if (projects) {
+        this.allProjects = projects
+        this.loaded = true
+      }
+    },
+
+    limitText (count: number) {
+      return `+ ${count} more`
+    }
+  }
 })
 </script>
+
+<style src="vue-multiselect/dist/vue-multiselect.min.css"/>
 
 <style scoped>
 @keyframes blink {
@@ -120,5 +180,23 @@ export default Vue.extend({
 
 .loading {
   animation: blink 2s infinite linear;
+}
+
+.search-bar {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.tech-filter {
+  width: 400px !important;
+  z-index: 1;
+}
+
+.tech-filter :deep(.multiselect__tag) {
+  background: #00B9E1;
+}
+
+.tech-filter :deep(.multiselect__option--highlight) {
+  background: #00B9E1;
 }
 </style>
