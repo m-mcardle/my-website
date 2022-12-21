@@ -4,7 +4,7 @@
     <!-- eslint-disable-next-line vue/no-v-html -->
     <div class="markdown w-[60%]" v-html="parsedMarkdown" />
     <div class="flex flex-col h-full ml-auto mr-0">
-      <a :href="github || 'https://www.github.com/m-mcardle'">
+      <a :href="github ? `https://github.com/${github}` : 'https://www.github.com/m-mcardle'">
         <FontAwesomeIcon class="icon" icon="fa-brands fa-github" />
       </a>
       <p class="text-right">
