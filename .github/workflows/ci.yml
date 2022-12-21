@@ -70,7 +70,7 @@ jobs:
           username: root
           password: ${{ secrets.DIGITALOCEAN_PASSWORD }}
           script: |
-            sudo cp ~/my-website /var/www/html/
+            sudo cp -r ~/my-website /var/www/html/
             cd /var/www/html/my-website
-            pm2 reload MyWebsite
+            /root/.nvm/versions/node/v16.15.1/bin/pm2 reload MyWebsite
 
