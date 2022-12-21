@@ -19,5 +19,5 @@ Built using Nuxt framework which provides tooling for features like SSR and SEO 
 * TailwindCSS
 * Postgres
 * Prisma
-* Firebase Authenticat
+* Firebase Authentication
 * UI Design (Figma)

@@ -12,7 +12,8 @@
     "lint": "yarn lint:js",
     "lintfix": "yarn lint:js --fix",
     "test": "jest",
-    "prisma": "prisma studio"
+    "prisma": "prisma studio",
+    "kill-nuxt": "kill -9 $(pgrep -f nuxt)"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
