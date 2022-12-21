@@ -129,7 +129,7 @@ export default Vue.extend({
   width: 100%;
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   ::v-deep(.markdown row) {
     flex-direction: row;
   }
@@ -141,22 +141,28 @@ export default Vue.extend({
   width: 100%;
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   ::v-deep(.markdown column) {
     width: 50%;
   }
 }
 
-::v-deep(.markdown row column:nth-child(2) p) {
-  margin-top: auto;
+::v-deep(.markdown row column:nth-child(2) *) {
+  margin-top: 10px;
   margin-bottom: auto;
   margin-left: auto;
   margin-right: auto;
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
+  ::v-deep(.markdown row column:nth-child(2) *) {
+    margin-top: auto;
+  }
+}
 
-  ::v-deep(.markdown row column:nth-child(2) p) {
+@media screen and (min-width: 1000px) {
+
+  ::v-deep(.markdown row column:nth-child(2) *) {
     margin-right: 0;
   }
 }

@@ -13,7 +13,7 @@
 
   <column>
 
-  ![Magnet Forensics logo](https://www.magnetforensics.com/wp-content/uploads/2019/03/logo.png)
+  ![Magnet Forensics logo](https://www.cbj.ca/wp-content/uploads/2015/11/Magnet-Forensics-logo.jpg)
 
   </column>
 
