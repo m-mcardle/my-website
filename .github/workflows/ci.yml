@@ -68,5 +68,9 @@ jobs:
         with:
           host: 138.197.130.254
           username: root
-          key: ${{ secrets.DIGITALOCEAN_SSH_KEY }}
-          script: whoami
+          password: ${{ secrets.DIGITALOCEAN_PASSWORD }}
+          script: |
+            sudo cp ~/my-website /var/www/html/
+            cd /var/www/html/my-website
+            pm2 reload MyWebsite
+
