@@ -60,9 +60,11 @@ export default Vue.extend({
   },
 
   mounted () {
-    init('XNd5FliNbfQgUWXS')
+    if (process.env.NODE_ENV === 'production') {
+      init('XNd5FliNbfQgUWXS')
 
-    trackPages()
+      trackPages()
+    }
   }
 })
 </script>
