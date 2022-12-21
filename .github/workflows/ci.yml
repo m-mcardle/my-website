@@ -54,11 +54,19 @@ jobs:
       - name: Build 🛠
         run: yarn build
 
-      # - uses: webfactory/ssh-agent@v0.7.0
-      #   with:
-      #       ssh-private-key: ${{ secrets.DIGITALOCEAN_SSH_KEY }}
+      - name: Deploy (Copy) 🚢
+        env:
+          SSH_KEY: ${{ secrets.DIGITALOCEAN_SSH_KEY }}
+          IP_ADDRESS: ${{ secrets.DIGITALOCEAN_IP }}
+        uses: appleboy/scp-action@master
+        with:
+          host: 138.197.130.254
+          username: root
+          key: ${{ secrets.DIGITALOCEAN_SSH_KEY }}
+          source: "./"
+          target: "~/my-website"
 
-      - name: Deploy 🚢
+      - name: Deploy (Execute) 🚢
         env:
           SSH_KEY: ${{ secrets.DIGITALOCEAN_SSH_KEY }}
           IP_ADDRESS: ${{ secrets.DIGITALOCEAN_IP }}
