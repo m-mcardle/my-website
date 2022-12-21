@@ -50,3 +50,16 @@ jobs:
 
       - name: Run tests 🧪
         run: yarn test
+
+      - name: Build 🛠
+        run: yarn build
+
+      - name: Deploy 🚢
+        env:
+          SSH_KEY: ${{ secrets.DIGITALOCEAN_SSH_KEY }}
+          IP_ADDRESS: ${{ secrets.DIGITALOCEAN_IP }}
+        run: |
+          echo $SSH_KEY > ssh.key
+          chmod 400 ssh.key
+          scp -i ssh.key -o StrictHostKeyChecking=no -r ../my-website/ root@$IP_ADDRESS:/var/www/html/
+          ssh -i i ssh.key -o StrictHostKeyChecking=no root@$IP_ADDRESS "cd /var/www/html/my-website; pm2 reload MyWebsite"
