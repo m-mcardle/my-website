@@ -61,5 +61,5 @@ jobs:
         run: |
           echo $SSH_KEY > ssh.key
           chmod 400 ssh.key
-          scp -i ssh.key -o StrictHostKeyChecking=no -r ../my-website/ root@$IP_ADDRESS:/var/www/html/
-          ssh -i i ssh.key -o StrictHostKeyChecking=no root@$IP_ADDRESS "cd /var/www/html/my-website; pm2 reload MyWebsite"
+          scp -i ssh.key -o StrictHostKeyChecking=no -r ../my-website/ root@$IP_ADDRESS:~/
+          ssh -i i ssh.key -o StrictHostKeyChecking=no root@$IP_ADDRESS "sudo cp -r my-website /var/www/html; cd /var/www/html/my-website; pm2 reload MyWebsite"
