@@ -45,11 +45,11 @@ jobs:
       - name: Install dependencies 👨🏻‍💻
         run: yarn
 
-      - name: Run linter 👀
-        run: yarn lint
+      # - name: Run linter 👀
+      #   run: yarn lint
 
-      - name: Run tests 🧪
-        run: yarn test
+      # - name: Run tests 🧪
+      #   run: yarn test
 
       - name: Build 🛠
         run: yarn build
@@ -59,7 +59,7 @@ jobs:
           SSH_KEY: ${{ secrets.DIGITALOCEAN_SSH_KEY }}
           IP_ADDRESS: ${{ secrets.DIGITALOCEAN_IP }}
         run: |
-          echo $SSH_KEY > ssh.key
-          chmod 400 ssh.key
-          scp -i ssh.key -o StrictHostKeyChecking=no -r ../my-website/ root@$IP_ADDRESS:~/
-          ssh -i i ssh.key -o StrictHostKeyChecking=no root@$IP_ADDRESS "sudo cp -r my-website /var/www/html; cd /var/www/html/my-website; pm2 reload MyWebsite"
+          echo $SSH_KEY > sshkey
+          chmod 400 sshkey
+          scp -i sshkey -o StrictHostKeyChecking=no -r ../my-website/ root@$IP_ADDRESS:~/
+          ssh -i i sshkey -o StrictHostKeyChecking=no root@$IP_ADDRESS "sudo cp -r my-website /var/www/html; cd /var/www/html/my-website; pm2 reload MyWebsite"
