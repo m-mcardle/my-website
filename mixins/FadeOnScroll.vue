@@ -1,13 +1,23 @@
 <script lang="ts">
 import Vue from 'vue'
 
-const array: Array<HTMLElement> = []
-
 const isElemVisible = (el: Element) => {
   const rect = el.getBoundingClientRect()
   const elemTop = rect.top + 100 // 100 = buffer
   const elemBottom = rect.bottom
   return elemTop < window.innerHeight && elemBottom >= 0
+}
+
+const updateVisibleElements = (elements: Array<HTMLElement>) => {
+  for (let i = 0; i < elements.length; i++) {
+    const elem = elements[i]
+
+    if (isElemVisible(elem)) {
+      elem.style.opacity = '1'
+      elem.style.transform = 'scale(1)'
+      elements.splice(i, 1) // only allow it to run once
+    }
+  }
 }
 
 /**
@@ -26,13 +36,14 @@ export default Vue.extend({
 
   data () {
     return {
-      fadeInElements: array
+      fadeInElements: [] as Array<HTMLElement>
     }
   },
 
   mounted () {
     this.fadeInElements = Array.from(document.getElementsByClassName('fade-in') as HTMLCollectionOf<HTMLElement>)
     document.addEventListener('scroll', this.handleScroll)
+    updateVisibleElements(this.fadeInElements)
   },
 
   destroyed () {
@@ -41,15 +52,7 @@ export default Vue.extend({
 
   methods: {
     handleScroll (_: Event) {
-      for (let i = 0; i < this.fadeInElements.length; i++) {
-        const elem = this.fadeInElements[i]
-
-        if (isElemVisible(elem)) {
-          elem.style.opacity = '1'
-          elem.style.transform = 'scale(1)'
-          this.fadeInElements.splice(i, 1) // only allow it to run once
-        }
-      }
+      updateVisibleElements(this.fadeInElements)
     }
   }
 })
