@@ -59,7 +59,11 @@ jobs:
           SSH_KEY: ${{ secrets.DIGITALOCEAN_SSH_KEY }}
           IP_ADDRESS: ${{ secrets.DIGITALOCEAN_IP }}
         run: |
-          echo $SSH_KEY > sshkey
+          echo $SSH_KEY"\n" > sshkey
+          echo "Done creating file"
           chmod 400 sshkey
-          scp -i sshkey -o StrictHostKeyChecking=no -r ../my-website/ root@$IP_ADDRESS:~/
+          echo "Done chmod"
+          scp -i sshkey -o StrictHostKeyChecking=no -r ../my-website/ root@138.197.130.254:~/
+          echo "Done scp"
           ssh -i i sshkey -o StrictHostKeyChecking=no root@$IP_ADDRESS "sudo cp -r my-website /var/www/html; cd /var/www/html/my-website; pm2 reload MyWebsite"
+          echo "Done ssh"
