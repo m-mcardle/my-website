@@ -18,6 +18,8 @@
 <script lang="ts">
 import Vue from 'vue'
 
+import { init, trackPages } from 'insights-js'
+
 import FadeMixin from '~/mixins/FadeOnScroll.vue'
 
 export default Vue.extend({
@@ -25,7 +27,15 @@ export default Vue.extend({
 
   mixins: [
     FadeMixin
-  ]
+  ],
+
+  mounted () {
+    if (process.env.NODE_ENV === 'production') {
+      init('XNd5FliNbfQgUWXS')
+
+      trackPages()
+    }
+  }
 })
 </script>
 
