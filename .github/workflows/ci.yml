@@ -45,14 +45,11 @@ jobs:
       - name: Install dependencies 👨🏻‍💻
         run: yarn
 
-      # - name: Run linter 👀
-      #   run: yarn lint
+      - name: Run linter 👀
+        run: yarn lint
 
-      # - name: Run tests 🧪
-      #   run: yarn test
-
-      - name: Build 🛠
-        run: yarn build
+      - name: Run tests 🧪
+        run: yarn test
 
       - name: Deploy (Copy) 🚢
         uses: appleboy/scp-action@master
@@ -70,6 +67,8 @@ jobs:
           username: root
           password: ${{ secrets.DIGITALOCEAN_PASSWORD }}
           script: |
+            cd ~/my-website
+            yarn build
             sudo cp -r ~/my-website /var/www/html/
             cd /var/www/html/my-website
             /root/.nvm/versions/node/v16.15.1/bin/pm2 reload MyWebsite
