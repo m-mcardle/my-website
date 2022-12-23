@@ -59,6 +59,7 @@
         v-for="(project) in allProjects"
         :key="project.title"
         :project="project"
+        class="project-card"
       />
       <Card
         v-if="admin"
