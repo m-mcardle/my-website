@@ -12,4 +12,16 @@ describe('home page', () => {
       .should('contain.text', 'Matt McArdle')
       .should('be.visible')
   })
+
+  it('fades in secondary content', () => {
+    cy.get('#info-section')
+      .should('have.css', 'opacity', '0')
+      .scrollIntoView()
+      .should('have.css', 'opacity', '1')
+
+    cy.get('#timeline-section')
+      .should('have.css', 'opacity', '0')
+      .scrollIntoView()
+      .should('have.css', 'opacity', '1')
+  })
 })
