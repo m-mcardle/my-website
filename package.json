@@ -13,7 +13,9 @@
     "lintfix": "yarn lint:js --fix",
     "test": "jest",
     "prisma": "prisma studio",
-    "kill-nuxt": "kill -9 $(pgrep -f nuxt)"
+    "kill-nuxt": "kill -9 $(pgrep -f nuxt)",
+    "cy:run": "cypress run",
+    "e2e": "start-server-and-test start http://localhost:3000 cy:run"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
@@ -36,6 +38,7 @@
     "prisma": "^4.0.0",
     "raw-loader": "^4.0.2",
     "sanitize-html": "^2.7.0",
+    "start-server-and-test": "^1.15.2",
     "vue": "^2.6.14",
     "vue-multiselect": "^2.1.6",
     "vue-server-renderer": "^2.6.14",
