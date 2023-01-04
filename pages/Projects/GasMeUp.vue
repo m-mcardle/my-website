@@ -2,14 +2,15 @@
   <div class="main bg-black text-white min-h-screen h-fit p-8">
     <NavHeader />
     <ProjectContainer :title="title" :github="github" :updated-at="updatedAt" :raw-markdown="rawMarkdown" />
-    <div
+    <!-- TODO: `react-native-hooks` doesn't appear to work on Snack -->
+    <!-- <div
       class="mt-24"
       data-snack-id="@mmcardle/github.com-m-mcardle-gasmeup"
       data-snack-platform="ios"
       data-snack-preview="true"
       data-snack-theme="dark"
       style="overflow:hidden;background:#212121;border:1px solid var(--color-border);border-radius:4px;height:750px;width:100%"
-    />
+    /> -->
   </div>
 </template>
 

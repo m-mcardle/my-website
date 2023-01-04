@@ -29,6 +29,17 @@ export default Vue.extend({
     FadeMixin
   ],
 
+  head () {
+    return {
+      link: [
+        {
+          rel: 'canonical',
+          href: 'https://www.mmcardle.ca'
+        }
+      ]
+    }
+  },
+
   mounted () {
     if (process.env.NODE_ENV === 'production') {
       init('XNd5FliNbfQgUWXS')
