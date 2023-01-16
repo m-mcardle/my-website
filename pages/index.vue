@@ -9,8 +9,8 @@
       <FooterSection class="fade-in-immediate" />
     </div>
     <div id="info" class="info-page pt-16 h-[120vh] w-full flex flex-col">
-      <InfoSection class="fade-in" />
-      <TimelineSection class="fade-in" />
+      <InfoSection id="info-section" class="fade-in" />
+      <TimelineSection id="timeline-section" class="fade-in" />
     </div>
   </div>
 </template>
@@ -73,6 +73,7 @@ export default Vue.extend({
   height: 8em;
 }
 .fade-in {
+  visibility: hidden;
   opacity: 0;
   transition: 0.8s all ease-out;
   transform: scale(0.8);
