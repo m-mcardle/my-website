@@ -9,8 +9,8 @@
       <FooterSection class="fade-in-immediate" />
     </div>
     <div id="info" class="info-page pt-16 h-[120vh] w-full flex flex-col">
-      <InfoSection />
-      <TimelineSection />
+      <LazyInfoSection />
+      <LazyTimelineSection />
     </div>
   </div>
 </template>

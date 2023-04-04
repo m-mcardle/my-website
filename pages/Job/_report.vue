@@ -23,7 +23,7 @@
     <!-- eslint-disable-next-line vue/no-v-html -->
     <div class="markdown p-8 w-full" v-html="parsedMarkdown" />
     <hr>
-    <GoalsSection v-if="loaded" :goals="goals" />
+    <LazyGoalsSection v-if="loaded" :goals="goals" />
   </div>
 </template>
 
