@@ -58,6 +58,16 @@ export default Vue.extend({
       this.goals = data.goals
       this.loaded = true
     }
+
+    try {
+      this.rawMarkdown = require(`~/assets/markdown/${this.report}.md`).default
+    } catch (ex) {
+      if (ex.message.includes('Cannot find module')) {
+        this.rawMarkdown = '## Error - Project Not Found :('
+      } else {
+        this.rawMarkdown = '## Error fetching data :('
+      }
+    }
   },
 
   computed: {
@@ -72,15 +82,6 @@ export default Vue.extend({
 
   mounted () {
     this.$fetch()
-    try {
-      this.rawMarkdown = require(`~/assets/markdown/${this.report}.md`).default
-    } catch (ex) {
-      if (ex.message.includes('Cannot find module')) {
-        this.rawMarkdown = '## Error - Project Not Found :('
-      } else {
-        this.rawMarkdown = '## Error fetching data :('
-      }
-    }
   }
 })
 </script>

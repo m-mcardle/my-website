@@ -8,7 +8,7 @@ Porfolio website for providing information about my work experience and personal
 
 ### Infrastructure 🏗️
 
-Built using Nuxt framework which provides tooling for features like SSR and SEO optimization, and styled using Tailwind CSS. Project data is stored in a PostgreSQL database which is accessed through a Prisma client. User authentication is implemented using Firebase Authentication and Vuex.
+Built using Nuxt framework which provides tooling for features like SSR and SEO optimization, and styled using Tailwind CSS. Project data is stored a NoSQL database on Firebase Firestore. User authentication is implemented using Firebase Authentication and Vuex. The server is hosted on DigitalOcean and the database is hosted on Firestore.
 
 ### Related Concepts / Learnings 💭
 
@@ -20,4 +20,5 @@ Built using Nuxt framework which provides tooling for features like SSR and SEO 
 * Postgres
 * Prisma
 * Firebase Authentication
+* Firebase Firestore
 * UI Design (Figma)
