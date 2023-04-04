@@ -15,7 +15,7 @@
     "prisma": "prisma studio",
     "kill-nuxt": "kill -9 $(pgrep -f nuxt)"
   },
-  "devDependencies": {
+  "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-brands-svg-icons": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
@@ -35,7 +35,9 @@
     "vue-multiselect": "^2.1.6",
     "vue-server-renderer": "^2.6.14",
     "vue-template-compiler": "^2.6.14",
-    "webpack": "^4.46.0",
+    "webpack": "^4.46.0"
+  },
+  "devDependencies": {
     "@types/marked": "^4.0.3",
     "@types/sanitize-html": "^2.6.2",
     "@babel/eslint-parser": "^7.16.3",
