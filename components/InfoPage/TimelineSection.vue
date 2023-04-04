@@ -14,7 +14,7 @@
             :style="{ left: getPosition(year) }"
           >
             <div class="year-box bg-black h-16 min-w-[4rem] text-white text-center">
-              {{ year }}
+              <p>{{ year }}</p>
             </div>
           </div>
           <div
@@ -52,7 +52,8 @@ export default Vue.extend({
         2019,
         2020,
         2021,
-        2022
+        2022,
+        2023
       ],
       timeline: [
         {
@@ -84,6 +85,18 @@ export default Vue.extend({
           body: 'Second Co-op placement in which I worked with Vue and Ruby',
           year: 2022,
           image: require('~/assets/images/Vidyard-Logo.png')
+        },
+        {
+          name: 'Third Year of University',
+          body: 'Took courses such as Software Engineering, Computer Networks, and System Modeling and Simulation',
+          year: 2022,
+          image: require('~/assets/images/University.png')
+        },
+        {
+          name: 'Vidyard',
+          body: 'Third Co-op placement in which I returned to Vidyard and continued to work with Vue and Ruby as well as learn GraphQL',
+          year: 2023,
+          image: require('~/assets/images/Vidyard-Logo.png')
         }
       ]
     }
@@ -108,13 +121,13 @@ export default Vue.extend({
 
 @keyframes timeline {
   0% {transform: translateX(0)}
-  50% {transform: translateX(-45%)}
+  50% {transform: translateX(-85%)}
   100% {transform: translateX(0)}
 }
 
 .timeline-items {
   animation-name: timeline;
-  animation-duration: 60s;
+  animation-duration: 30s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }

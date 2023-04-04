@@ -7,5 +7,7 @@ https://www.mmcardle.ca/Projects/WebsiteV2
 https://www.mmcardle.ca/Projects/WebsiteV1
 https://www.mmcardle.ca/Projects/F1Visualizer
 https://www.mmcardle.ca/Projects/TwitchExtension
+https://www.mmcardle.ca/Projects/CourseScheduler
+https://www.mmcardle.ca/Projects/ChefGPT
 https://www.mmcardle.ca/Job/Magnet
 https://www.mmcardle.ca/Job/Vidyard

@@ -23,18 +23,15 @@ export default Vue.extend({
   },
 
   async fetch () {
-    const response = await this.$axios.$get(`/api/project/${this.project}`)
+    const response = await this.$fire.firestore.collection('Projects').where('link', '==', this.project).get()
+    const data = response.docs[0].data()
 
-    if (response) {
-      this.title = response.title
-      this.github = response.github
-      this.updatedAt = response.updatedAt
+    if (data) {
+      this.title = data.title
+      this.github = data.github
+      this.updatedAt = data.updatedAt
     }
   },
-
-  // Needed to remove `ERROR  Error in fetch(): connect ECONNREFUSED 127.0.0.1:80`
-  // Can't fetch on server because we are fetching TO the server
-  fetchOnServer: false,
 
   computed: {
     parsedMarkdown (): string {

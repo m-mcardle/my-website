@@ -10,13 +10,6 @@
       <p class="text-right">
         Updated: {{ new Date(updatedAt).toDateString() }}
       </p>
-      <button
-        v-if="admin"
-        class="delete ml-auto mr-0 text-red-400 hover:shadow-red-700 hover:shadow-lg bg-white px-1"
-        @click="deleteProject()"
-      >
-        <FontAwesomeIcon size="xl" icon="fa-solid fa-xmark" />
-      </button>
     </div>
   </div>
 </template>
@@ -57,24 +50,6 @@ export default Vue.extend({
 
     project (): string {
       return this.$route.params.project
-    }
-  },
-
-  methods: {
-    async deleteProject () {
-      const loadingToast = this.$toast.show('Deleting project...')
-      const response = await this.$axios.$delete(`/api/project/${this.project}`)
-
-      loadingToast.goAway(0)
-      if (response) {
-        this.$toast.success('Successfully deleted project!')
-
-        setTimeout(() => {
-          this.$router.push('../Projects')
-        }, 1000)
-      } else {
-        this.$toast.error('Failed to delete project')
-      }
     }
   }
 })

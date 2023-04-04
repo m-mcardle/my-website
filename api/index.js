@@ -12,6 +12,7 @@ const ADMIN_USERS = [
 
 app.use(json())
 
+// the following method is Deprecated
 app.post('/project', async (req, res) => {
   const { title, content, github, year, link } = req.body
   const project = await prisma.project.create({
@@ -32,6 +33,7 @@ app.post('/project', async (req, res) => {
   res.status(200).json(project)
 })
 
+// the following method is Deprecated
 app.get('/projects', async (req, res) => {
   const { technologies, searchQuery } = req.query
 
@@ -61,6 +63,7 @@ app.get('/projects', async (req, res) => {
   res.json(projects)
 })
 
+// the following method is Deprecated
 app.get('/project/:link', async (req, res) => {
   const { link } = req.params
   const project = await prisma.project.findFirst({
@@ -69,6 +72,7 @@ app.get('/project/:link', async (req, res) => {
   res.json(project)
 })
 
+// the following method is Deprecated
 app.delete('/project/:link', async (req, res) => {
   const { link } = req.params
 
@@ -93,6 +97,7 @@ app.delete('/project/:link', async (req, res) => {
   }
 })
 
+// the following method is Deprecated
 app.get('/report/:link', async (req, res) => {
   const { link } = req.params
   const report = await prisma.report.findFirst({
@@ -109,6 +114,7 @@ app.get('/report/:link', async (req, res) => {
   res.json(report)
 })
 
+// the following method is Deprecated
 app.get('/tech', async (_, res) => {
   const technologies = await prisma.tech.findMany({
     orderBy: [

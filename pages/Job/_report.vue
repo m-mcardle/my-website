@@ -42,26 +42,23 @@ export default Vue.extend({
       image: 'NotFound.png',
       loaded: false,
       rawMarkdown: '# Loading...',
-      goals: []
+      goals: [] as Goal[]
     }
   },
 
-  async fetch (): Promise<void> {
-    const response = await this.$axios.$get(`/api/report/${this.report}`)
+  async fetch () {
+    const docReference = await this.$fire.firestore.collection('Reports').where('link', '==', this.report).get()
+    const data = docReference.docs[0].data()
 
-    if (response) {
-      this.company = response.company
-      this.period = response.period
-      this.jobTitle = response.job
-      this.image = response.image.path
-      this.goals = response.goals
+    if (data) {
+      this.company = data.company
+      this.period = data.period
+      this.jobTitle = data.job
+      this.image = data.image.path
+      this.goals = data.goals
       this.loaded = true
     }
   },
-
-  // Needed to remove `ERROR  Error in fetch(): connect ECONNREFUSED 127.0.0.1:80`
-  // Can't fetch on server because we are fetching TO the server
-  fetchOnServer: false,
 
   computed: {
     report (): string {

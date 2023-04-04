@@ -13,12 +13,6 @@
         />
       </div>
       <div v-if="showFilters" class="min-h-[100px]">
-        <label for="search-bar">Search</label>
-        <div class="search-container w-full">
-          <input id="search-bar" v-model="searchQuery" class="search-bar px-2 py-5 w-[400px] h-10 text-black border rounded" type="text" placeholder="Search">
-        </div>
-      </div>
-      <div v-if="showFilters" class="min-h-[100px]">
         <label for="tech-filter">Technologies</label>
         <MultiSelect
           id="tech-filter"
@@ -60,17 +54,6 @@
         :key="project.title"
         :project="project"
       />
-      <Card
-        v-if="admin"
-        link="/Projects/AddProject"
-      >
-        <h1 class="text-center">
-          Add Project
-        </h1>
-        <p class="text-8xl my-auto mx-auto text-center">
-          +
-        </p>
-      </Card>
     </div>
   </div>
 </template>
@@ -81,15 +64,13 @@ import { mapState } from 'vuex'
 import MultiSelect from 'vue-multiselect'
 
 import ProjectCard from '~/components/Projects/ProjectCard.vue'
-import Card from '~/components/Card.vue'
 
 export default Vue.extend({
   name: 'ProjectsPage',
 
   components: {
     MultiSelect,
-    ProjectCard,
-    Card
+    ProjectCard
   },
 
   data () {
@@ -97,21 +78,22 @@ export default Vue.extend({
       allProjects: [] as Project[],
       filterValue: [] as string[],
       filterOptions: [] as string[],
-      searchQuery: '',
       loaded: false,
       showFilters: false
     }
   },
 
   async fetch () {
-    const projects = await this.$axios.$get('/api/projects/') as Project[]
+    const projectDocs = (await this.$fire.firestore.collection('Projects').orderBy('year', 'desc').get()).docs
+    const projects = projectDocs.map(doc => doc.data()) as Project[]
 
     if (projects) {
       this.allProjects = projects
       this.loaded = true
     }
 
-    const technologies = await this.$axios.$get('/api/tech') as Tech[]
+    const technologyDocs = (await this.$fire.firestore.collection('Technologies').orderBy('id', 'asc').get()).docs
+    const technologies = technologyDocs.map(doc => doc.data()) as Tech[]
 
     if (technologies) {
       this.filterOptions = technologies.map(tech => tech.text)
@@ -125,16 +107,8 @@ export default Vue.extend({
   watch: {
     async filterValue () {
       await this.fetchFilteredProjects()
-    },
-
-    async searchQuery () {
-      await this.fetchFilteredProjects()
     }
   },
-
-  // Needed to remove `ERROR  Error in fetch(): connect ECONNREFUSED 127.0.0.1:80`
-  // Can't fetch on server because we are fetching TO the server
-  fetchOnServer: false,
 
   mounted () {
     this.$fetch()
@@ -142,13 +116,14 @@ export default Vue.extend({
 
   methods: {
     async fetchFilteredProjects () {
+      if (this.filterValue.length === 0) {
+        this.$fetch()
+        return
+      }
+
       this.loaded = false
-      const projects = await this.$axios.$get('/api/projects/', {
-        params: {
-          technologies: this.filterValue,
-          searchQuery: this.searchQuery
-        }
-      })
+      const projectDocs = (await this.$fire.firestore.collection('Projects').where('technologies', 'array-contains-any', this.filterValue).get()).docs
+      const projects = projectDocs.map(doc => doc.data()) as Project[]
 
       if (projects) {
         this.allProjects = projects
@@ -180,11 +155,6 @@ export default Vue.extend({
 
 .loading {
   animation: blink 2s infinite linear;
-}
-
-.search-bar {
-  font-weight: 400;
-  font-size: 14px;
 }
 
 .tech-filter {

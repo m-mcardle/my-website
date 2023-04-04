@@ -1,3 +1,4 @@
+// THIS IS NO LONGER NEEDED BECAUSE WE ARE USING FIRESTORE
 import { PrismaClient } from '@prisma/client'
 
 type NodeJSGlobal = typeof globalThis
