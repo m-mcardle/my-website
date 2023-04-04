@@ -60,7 +60,6 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { mapState } from 'vuex'
 import MultiSelect from 'vue-multiselect'
 
 import ProjectCard from '~/components/Projects/ProjectCard.vue'
@@ -98,10 +97,6 @@ export default Vue.extend({
     if (technologies) {
       this.filterOptions = technologies.map(tech => tech.text)
     }
-  },
-
-  computed: {
-    ...mapState(['admin'])
   },
 
   watch: {

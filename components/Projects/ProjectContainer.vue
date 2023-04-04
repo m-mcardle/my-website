@@ -16,7 +16,6 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { mapState } from 'vuex'
 import { marked } from 'marked'
 import sanitizeHtml from 'sanitize-html'
 
@@ -42,7 +41,6 @@ export default Vue.extend({
     }
   },
   computed: {
-    ...mapState(['admin']),
     parsedMarkdown (): string {
       const markdown = sanitizeHtml(this.rawMarkdown)
       return marked.parse(markdown)

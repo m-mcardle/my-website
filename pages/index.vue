@@ -9,8 +9,8 @@
       <FooterSection class="fade-in-immediate" />
     </div>
     <div id="info" class="info-page pt-16 h-[120vh] w-full flex flex-col">
-      <InfoSection class="fade-in" />
-      <TimelineSection class="fade-in" />
+      <InfoSection />
+      <TimelineSection />
     </div>
   </div>
 </template>
@@ -20,14 +20,8 @@ import Vue from 'vue'
 
 import { init, trackPages } from 'insights-js'
 
-import FadeMixin from '~/mixins/FadeOnScroll.vue'
-
 export default Vue.extend({
   name: 'IndexPage',
-
-  mixins: [
-    FadeMixin
-  ],
 
   head () {
     return {
@@ -71,10 +65,5 @@ export default Vue.extend({
 .icon {
   width: 8em;
   height: 8em;
-}
-.fade-in {
-  opacity: 0;
-  transition: 0.8s all ease-out;
-  transform: scale(0.8);
 }
 </style>
