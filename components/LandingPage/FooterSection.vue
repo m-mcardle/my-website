@@ -1,7 +1,7 @@
 <template>
   <div class="mt-auto mb-[25vh] p-16 pb-0 w-full">
     <h3 class="footer-text text-md">
-      Come read about my <b><a href="#info">skills</a></b>, <b>experiences</b>, and <b><a href="#info">interests</a></b>!
+      Come read about my <b><a href="#info">skills</a></b>, <b><a href="/Job/Vidyard">experiences</a></b>, and <b><a href="#info">interests</a></b>!
     </h3>
     <hr>
     <div class="logo-images flex flex-row justify-between">

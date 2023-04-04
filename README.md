@@ -8,7 +8,7 @@ Porfolio website for providing information about my work experience and personal
 
 ### Infrastructure 🏗️
 
-Built using Nuxt framework which provides tooling for features like SSR and SEO optimization, and styled using Tailwind CSS. Project data is stored in a PostgreSQL database which is accessed through a Prisma client. User authentication is implemented using Firebase Authentication and Vuex. The server is hosted on DigitalOcean and the database is hosted on AWS RDS.
+Built using Nuxt framework which provides tooling for features like SSR and SEO optimization, and styled using Tailwind CSS. Project data is stored a NoSQL database on Firebase Firestore. User authentication is implemented using Firebase Authentication and Vuex. The server is hosted on DigitalOcean and the database is hosted on Firestore.
 
 ### Related Concepts / Learnings 💭
 
@@ -20,6 +20,7 @@ Built using Nuxt framework which provides tooling for features like SSR and SEO 
 * Postgres
 * Prisma
 * Firebase Authentication
+* Firebase Firestore
 * UI Design (Figma)
 
 
@@ -56,7 +57,9 @@ This application is hosted at [](mmcardle.ca) through a VM running on DigitalOce
 
 To deploy a new version of the app, ssh into the cluster and build the latest version of the application inside of `/var/www/html/my-website` by running `yarn build` and then reload the process using `pm2 reload`.
 
-## Prisma
+## ~~Prisma~~ (DEPRECATED)
+
+**Note**: This is no longer used. I have moved to use Firebase Firestore for the database of this project
 
 This project uses the [Prisma](https://www.prisma.io/) ORM for managing the Postgres databases used for storing project and report information. To view the Prisma UI run:
 

@@ -20,6 +20,9 @@ export default {
     ]
   },
 
+  // Use SSR
+  target: 'server',
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '@/assets/css/main.css',
@@ -83,7 +86,8 @@ export default {
           onAuthStateChangedAction: 'onAuthStateChangedAction',
           subscribeManually: false
         }
-      }
+      },
+      firestore: true
     }
   },
 
@@ -101,10 +105,6 @@ export default {
       })
     }
   },
-
-  serverMiddleware: [
-    '~/api/index.js'
-  ],
 
   // Needed or exception thrown (https://github.com/nuxt-community/tailwindcss-module/issues/480)
   devServerHandlers: [],

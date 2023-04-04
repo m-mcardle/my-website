@@ -5,7 +5,7 @@
 <script lang="ts">
 import Vue from 'vue'
 
-const notFoundImage = require('~/assets/images/NotFound.png')
+const notFoundImage = require('~/assets/images/NotFound.jpg')
 
 export default Vue.extend({
   name: 'DbImage',
@@ -13,7 +13,7 @@ export default Vue.extend({
   props: {
     src: {
       type: String,
-      default: '~/assets/images/NotFound.png'
+      default: '~/assets/images/NotFound.jpg'
     },
     alt: {
       type: String,

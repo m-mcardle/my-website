@@ -32,7 +32,7 @@
             {{ goal.body }}
           </p>
           <div class="h-[200px] mx-auto md:ml-auto md:mr-0">
-            <DbImage v-if="goal.image" class="h-full w-fit" :src="goal.image.path" :alt="goal.image.alt" />
+            <LazyDbImage v-if="goal.image" class="h-full w-fit" :src="goal.image.path" :alt="goal.image.alt" />
           </div>
         </div>
       </div>

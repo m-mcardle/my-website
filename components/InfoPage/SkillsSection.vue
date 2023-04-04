@@ -26,11 +26,11 @@ export default Vue.extend({
   data () {
     return {
       skills: [
+        { name: 'Vue', value: 95, image: require('~/assets/images/Logos/Vue.png') },
         { name: 'React', value: 95, image: require('~/assets/images/Logos/React.png') },
-        { name: 'Vue', value: 90, image: require('~/assets/images/Logos/Vue.png') },
-        { name: 'Python', value: 88, image: require('~/assets/images/Logos/Python.png') },
-        { name: 'CSharp', value: 85, image: require('~/assets/images/Logos/CSharp.png') },
-        { name: 'Ruby', value: 80, image: require('~/assets/images/Logos/Ruby.png') }
+        { name: 'Python', value: 90, image: require('~/assets/images/Logos/Python.png') },
+        { name: 'Ruby', value: 88, image: require('~/assets/images/Logos/Ruby.png') },
+        { name: 'CSharp', value: 85, image: require('~/assets/images/Logos/CSharp.png') }
       ]
     }
   }

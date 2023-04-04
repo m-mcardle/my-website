@@ -23,7 +23,7 @@
     <!-- eslint-disable-next-line vue/no-v-html -->
     <div class="markdown p-8 w-full" v-html="parsedMarkdown" />
     <hr>
-    <GoalsSection v-if="loaded" :goals="goals" />
+    <LazyGoalsSection v-if="loaded" :goals="goals" />
   </div>
 </template>
 
@@ -42,26 +42,33 @@ export default Vue.extend({
       image: 'NotFound.png',
       loaded: false,
       rawMarkdown: '# Loading...',
-      goals: []
+      goals: [] as Goal[]
     }
   },
 
-  async fetch (): Promise<void> {
-    const response = await this.$axios.$get(`/api/report/${this.report}`)
+  async fetch () {
+    const docReference = await this.$fire.firestore.collection('Reports').where('link', '==', this.report).get()
+    const data = docReference.docs[0].data()
 
-    if (response) {
-      this.company = response.company
-      this.period = response.period
-      this.jobTitle = response.job
-      this.image = response.image.path
-      this.goals = response.goals
+    if (data) {
+      this.company = data.company
+      this.period = data.period
+      this.jobTitle = data.job
+      this.image = data.image.path
+      this.goals = data.goals
       this.loaded = true
     }
-  },
 
-  // Needed to remove `ERROR  Error in fetch(): connect ECONNREFUSED 127.0.0.1:80`
-  // Can't fetch on server because we are fetching TO the server
-  fetchOnServer: false,
+    try {
+      this.rawMarkdown = require(`~/assets/markdown/${this.report}.md`).default
+    } catch (ex) {
+      if (ex.message.includes('Cannot find module')) {
+        this.rawMarkdown = '## Error - Project Not Found :('
+      } else {
+        this.rawMarkdown = '## Error fetching data :('
+      }
+    }
+  },
 
   computed: {
     report (): string {
@@ -75,15 +82,6 @@ export default Vue.extend({
 
   mounted () {
     this.$fetch()
-    try {
-      this.rawMarkdown = require(`~/assets/markdown/${this.report}.md`).default
-    } catch (ex) {
-      if (ex.message.includes('Cannot find module')) {
-        this.rawMarkdown = '## Error - Project Not Found :('
-      } else {
-        this.rawMarkdown = '## Error fetching data :('
-      }
-    }
   }
 })
 </script>
